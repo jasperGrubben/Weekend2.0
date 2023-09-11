@@ -1,6 +1,6 @@
 ﻿namespace Weekend.admin
 {
-    partial class Form1
+    partial class FormAdmin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(932, -1);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(75, 27);
+            this.btnLogOut.TabIndex = 0;
+            this.btnLogOut.Text = "Uitloggen";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
+            // FormAdmin
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(1006, 485);
+            this.Controls.Add(this.btnLogOut);
+            this.Name = "FormAdmin";
+            this.Text = "Admin Panel";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnLogOut;
     }
 }

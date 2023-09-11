@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace Weekend.admin
 {
-    public partial class Form1 : Form
+    public partial class FormAdmin : Form
     {
-        public Form1()
+        public FormAdmin()
         {
             InitializeComponent();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
         }
     }
 }
