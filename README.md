@@ -1,1 +1,1 @@
-# Weekend2.0
+# WEEKEND
