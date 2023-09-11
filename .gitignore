@@ -108,6 +108,5 @@ UpgradeLog*.XML
 WinForms/AdamsLair.WinForms.xml
 *.vsidx
 
-*.csproj
 
 App/Weekend/.vs/Weekend/v17/
