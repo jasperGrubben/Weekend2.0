@@ -1,0 +1,6 @@
+C:\Users\This Pc\Documents\GitHub\Weekend2.0\App\Weekend\Weekend\obj\Debug\Weekend.csproj.AssemblyReference.cache
+C:\Users\This Pc\Documents\GitHub\Weekend2.0\App\Weekend\Weekend\obj\Debug\Weekend.csproj.SuggestedBindingRedirects.cache
+C:\Users\This Pc\Documents\GitHub\Weekend2.0\App\Weekend\Weekend\obj\Debug\Weekend.admin.Form1.resources
+C:\Users\This Pc\Documents\GitHub\Weekend2.0\App\Weekend\Weekend\obj\Debug\Weekend.Form1.resources
+C:\Users\This Pc\Documents\GitHub\Weekend2.0\App\Weekend\Weekend\obj\Debug\Weekend.Properties.Resources.resources
+C:\Users\This Pc\Documents\GitHub\Weekend2.0\App\Weekend\Weekend\obj\Debug\Weekend.csproj.GenerateResource.cache
