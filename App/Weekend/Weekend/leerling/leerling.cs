@@ -43,6 +43,7 @@ namespace Weekend.leerling
                 //return
                 else
                 {
+                    lblconnection.Text = "true";
                     return;
                 }
             }
@@ -81,11 +82,16 @@ namespace Weekend.leerling
         private void leerling_Load(object sender, EventArgs e)
         {
             connection();
+            datum();
         }
 
         private void lblconnection_Click(object sender, EventArgs e)
         {
 
+        }
+        public void datum()
+        {
+            lblDatum.Text = DateTime.Now.ToString();
         }
     }
 }
