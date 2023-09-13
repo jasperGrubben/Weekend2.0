@@ -35,7 +35,7 @@
             this.lblWelkom = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblDatum = new System.Windows.Forms.Label();
             this.pnl = new System.Windows.Forms.Panel();
             this.pnlScores = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -115,15 +115,15 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Het is vandaag de:";
             // 
-            // label3
+            // lblDatum
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(522, 228);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 55);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Datum";
+            this.lblDatum.AutoSize = true;
+            this.lblDatum.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatum.Location = new System.Drawing.Point(522, 228);
+            this.lblDatum.Name = "lblDatum";
+            this.lblDatum.Size = new System.Drawing.Size(166, 55);
+            this.lblDatum.TabIndex = 5;
+            this.lblDatum.Text = "Datum";
             // 
             // pnl
             // 
@@ -137,9 +137,9 @@
             // 
             this.pnlScores.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlScores.Controls.Add(this.label5);
-            this.pnlScores.Location = new System.Drawing.Point(12, 62);
+            this.pnlScores.Location = new System.Drawing.Point(992, 110);
             this.pnlScores.Name = "pnlScores";
-            this.pnlScores.Size = new System.Drawing.Size(561, 657);
+            this.pnlScores.Size = new System.Drawing.Size(580, 688);
             this.pnlScores.TabIndex = 6;
             this.pnlScores.Visible = false;
             // 
@@ -156,7 +156,8 @@
             // 
             this.pnlHighS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlHighS.Controls.Add(this.label4);
-            this.pnlHighS.Location = new System.Drawing.Point(617, 62);
+            this.pnlHighS.Controls.Add(this.pnlOpdrachten);
+            this.pnlHighS.Location = new System.Drawing.Point(1843, 22);
             this.pnlHighS.Name = "pnlHighS";
             this.pnlHighS.Size = new System.Drawing.Size(561, 657);
             this.pnlHighS.TabIndex = 7;
@@ -175,7 +176,7 @@
             // 
             this.pnlOpdrachten.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlOpdrachten.Controls.Add(this.label6);
-            this.pnlOpdrachten.Location = new System.Drawing.Point(1209, 62);
+            this.pnlOpdrachten.Location = new System.Drawing.Point(-1, 492);
             this.pnlOpdrachten.Name = "pnlOpdrachten";
             this.pnlOpdrachten.Size = new System.Drawing.Size(561, 657);
             this.pnlOpdrachten.TabIndex = 8;
@@ -206,10 +207,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2039, 1088);
             this.Controls.Add(this.lblconnection);
-            this.Controls.Add(this.pnlOpdrachten);
             this.Controls.Add(this.pnlHighS);
             this.Controls.Add(this.pnlScores);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblDatum);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblWelkom);
@@ -239,7 +239,7 @@
         private System.Windows.Forms.Label lblWelkom;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblDatum;
         private System.Windows.Forms.ToolStripMenuItem opdrachtenToolStripMenuItem;
         private System.Windows.Forms.Panel pnl;
         private System.Windows.Forms.Panel pnlScores;
