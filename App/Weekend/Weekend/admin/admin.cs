@@ -16,5 +16,18 @@ namespace Weekend.admin
         {
             InitializeComponent();
         }
+<<<<<<< HEAD
+=======
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+        }
+>>>>>>> LaatsteMaandagVanDeWeek
     }
 }
