@@ -38,12 +38,14 @@
             this.lblDatum = new System.Windows.Forms.Label();
             this.pnl = new System.Windows.Forms.Panel();
             this.pnlScores = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblScores = new System.Windows.Forms.Label();
             this.pnlHighS = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblHighScoresHead = new System.Windows.Forms.Label();
             this.pnlOpdrachten = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblconnection = new System.Windows.Forms.Label();
+            this.btnOpdracht3 = new System.Windows.Forms.Button();
+            this.btnOpdracht2 = new System.Windows.Forms.Button();
+            this.btnOpdr1 = new System.Windows.Forms.Button();
+            this.lblOpdrachtenHead = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlScores.SuspendLayout();
             this.pnlHighS.SuspendLayout();
@@ -136,78 +138,101 @@
             // pnlScores
             // 
             this.pnlScores.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlScores.Controls.Add(this.label5);
-            this.pnlScores.Location = new System.Drawing.Point(992, 110);
+            this.pnlScores.Controls.Add(this.lblScores);
+            this.pnlScores.Location = new System.Drawing.Point(1780, 768);
             this.pnlScores.Name = "pnlScores";
-            this.pnlScores.Size = new System.Drawing.Size(580, 688);
+            this.pnlScores.Size = new System.Drawing.Size(639, 794);
             this.pnlScores.TabIndex = 6;
             this.pnlScores.Visible = false;
             // 
-            // label5
+            // lblScores
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(244, 315);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 25);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "label5";
+            this.lblScores.AutoSize = true;
+            this.lblScores.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScores.Location = new System.Drawing.Point(20, 18);
+            this.lblScores.Name = "lblScores";
+            this.lblScores.Size = new System.Drawing.Size(157, 51);
+            this.lblScores.TabIndex = 10;
+            this.lblScores.Text = "Scores";
             // 
             // pnlHighS
             // 
             this.pnlHighS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlHighS.Controls.Add(this.label4);
-            this.pnlHighS.Controls.Add(this.pnlOpdrachten);
-            this.pnlHighS.Location = new System.Drawing.Point(1843, 22);
+            this.pnlHighS.Controls.Add(this.lblHighScoresHead);
+            this.pnlHighS.Location = new System.Drawing.Point(2002, 78);
             this.pnlHighS.Name = "pnlHighS";
-            this.pnlHighS.Size = new System.Drawing.Size(561, 657);
+            this.pnlHighS.Size = new System.Drawing.Size(680, 842);
             this.pnlHighS.TabIndex = 7;
             this.pnlHighS.Visible = false;
             // 
-            // label4
+            // lblHighScoresHead
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(152, 170);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 25);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "label4";
+            this.lblHighScoresHead.AutoSize = true;
+            this.lblHighScoresHead.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHighScoresHead.Location = new System.Drawing.Point(34, 43);
+            this.lblHighScoresHead.Name = "lblHighScoresHead";
+            this.lblHighScoresHead.Size = new System.Drawing.Size(257, 51);
+            this.lblHighScoresHead.TabIndex = 0;
+            this.lblHighScoresHead.Text = "High Scores";
             // 
             // pnlOpdrachten
             // 
             this.pnlOpdrachten.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlOpdrachten.Controls.Add(this.label6);
-            this.pnlOpdrachten.Location = new System.Drawing.Point(-1, 492);
+            this.pnlOpdrachten.Controls.Add(this.btnOpdracht3);
+            this.pnlOpdrachten.Controls.Add(this.btnOpdracht2);
+            this.pnlOpdrachten.Controls.Add(this.btnOpdr1);
+            this.pnlOpdrachten.Controls.Add(this.lblOpdrachtenHead);
+            this.pnlOpdrachten.Location = new System.Drawing.Point(25, 78);
             this.pnlOpdrachten.Name = "pnlOpdrachten";
-            this.pnlOpdrachten.Size = new System.Drawing.Size(561, 657);
+            this.pnlOpdrachten.Size = new System.Drawing.Size(1957, 908);
             this.pnlOpdrachten.TabIndex = 8;
             this.pnlOpdrachten.Visible = false;
             // 
-            // label6
+            // btnOpdracht3
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(244, 315);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 25);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "label6";
+            this.btnOpdracht3.Location = new System.Drawing.Point(33, 326);
+            this.btnOpdracht3.Name = "btnOpdracht3";
+            this.btnOpdracht3.Size = new System.Drawing.Size(238, 80);
+            this.btnOpdracht3.TabIndex = 10;
+            this.btnOpdracht3.Text = "Opdracht3";
+            this.btnOpdracht3.UseVisualStyleBackColor = true;
             // 
-            // lblconnection
+            // btnOpdracht2
             // 
-            this.lblconnection.AutoSize = true;
-            this.lblconnection.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblconnection.Location = new System.Drawing.Point(421, 809);
-            this.lblconnection.Name = "lblconnection";
-            this.lblconnection.Size = new System.Drawing.Size(2, 27);
-            this.lblconnection.TabIndex = 9;
-            this.lblconnection.Click += new System.EventHandler(this.lblconnection_Click);
+            this.btnOpdracht2.Location = new System.Drawing.Point(33, 224);
+            this.btnOpdracht2.Name = "btnOpdracht2";
+            this.btnOpdracht2.Size = new System.Drawing.Size(238, 80);
+            this.btnOpdracht2.TabIndex = 9;
+            this.btnOpdracht2.Text = "Opdracht2";
+            this.btnOpdracht2.UseVisualStyleBackColor = true;
+            // 
+            // btnOpdr1
+            // 
+            this.btnOpdr1.Location = new System.Drawing.Point(33, 122);
+            this.btnOpdr1.Name = "btnOpdr1";
+            this.btnOpdr1.Size = new System.Drawing.Size(241, 82);
+            this.btnOpdr1.TabIndex = 2;
+            this.btnOpdr1.Text = "Opdracht 1";
+            this.btnOpdr1.UseVisualStyleBackColor = true;
+            this.btnOpdr1.Click += new System.EventHandler(this.btnOpdr1_Click);
+            // 
+            // lblOpdrachtenHead
+            // 
+            this.lblOpdrachtenHead.AutoSize = true;
+            this.lblOpdrachtenHead.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOpdrachtenHead.Location = new System.Drawing.Point(24, 29);
+            this.lblOpdrachtenHead.Name = "lblOpdrachtenHead";
+            this.lblOpdrachtenHead.Size = new System.Drawing.Size(247, 51);
+            this.lblOpdrachtenHead.TabIndex = 1;
+            this.lblOpdrachtenHead.Text = "Opdrachten";
             // 
             // leerling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2039, 1088);
-            this.Controls.Add(this.lblconnection);
             this.Controls.Add(this.pnlHighS);
+            this.Controls.Add(this.pnlOpdrachten);
             this.Controls.Add(this.pnlScores);
             this.Controls.Add(this.lblDatum);
             this.Controls.Add(this.label2);
@@ -216,7 +241,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "leerling";
-            this.Text = "leerling";
+            this.Text = "a";
             this.Load += new System.EventHandler(this.leerling_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -243,11 +268,13 @@
         private System.Windows.Forms.ToolStripMenuItem opdrachtenToolStripMenuItem;
         private System.Windows.Forms.Panel pnl;
         private System.Windows.Forms.Panel pnlScores;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel pnlHighS;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel pnlOpdrachten;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblconnection;
+        private System.Windows.Forms.Label lblOpdrachtenHead;
+        private System.Windows.Forms.Label lblScores;
+        private System.Windows.Forms.Label lblHighScoresHead;
+        private System.Windows.Forms.Button btnOpdr1;
+        private System.Windows.Forms.Button btnOpdracht2;
+        private System.Windows.Forms.Button btnOpdracht3;
     }
 }
