@@ -43,7 +43,7 @@ namespace Weekend.leerling
                 //return
                 else
                 {
-                    lblconnection.Text = "true";
+                    //lblconnection.Text = "true";
                     return;
                 }
             }
@@ -92,6 +92,11 @@ namespace Weekend.leerling
         public void datum()
         {
             lblDatum.Text = DateTime.Now.ToString();
+        }
+
+        private void btnOpdr1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
