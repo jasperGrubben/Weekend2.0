@@ -16,5 +16,10 @@ namespace Weekend.docent
         {
             InitializeComponent();
         }
+
+        private void leerlingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
