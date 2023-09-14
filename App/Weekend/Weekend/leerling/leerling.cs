@@ -67,16 +67,22 @@ namespace Weekend.leerling
         private void scoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlScores.Visible = true;
+            pnlHighS.Visible = false;
+            pnlOpdrachten.Visible = false;
         }
 
         private void highScoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlHighS.Visible = true;
+            pnlOpdrachten.Visible=false;
+            pnlScores.Visible=false;
         }
 
         private void opdrachtenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlOpdrachten.Visible = true;
+            pnlScores.Visible=false;
+            pnlHighS.Visible=false;
         }
 
         private void leerling_Load(object sender, EventArgs e)
