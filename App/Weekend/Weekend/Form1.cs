@@ -103,5 +103,20 @@ namespace Weekend
         {
 
         }
+
+        private Label label2;
+        private Label label1;
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private Label label3;
+        private TextBox txtWachtw;
+        private TextBox txtGebr;
+        private Button btnTerug;
+        private Label label4;
+        private TextBox txtNaam;
     }
 }
