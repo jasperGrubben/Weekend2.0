@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Xml.Linq;
+using System.Drawing.Text;
 
 namespace Weekend.leerling
 {
@@ -103,6 +104,54 @@ namespace Weekend.leerling
         private void btnOpdr1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtNaam_TextChanged(object sender, EventArgs e)
+        {
+            SqlConnection connection = new SqlConnection("Server=127.0.0.1;Database=weekend;Uid=root;Pwd=root;");
+            try
+            {
+                // als er geen connectie is dan
+                if (connection == null)
+                {
+                    lblWelkom.Text = "systeem is offline probeer opnieuw later";
+                }
+                //return
+                else
+                {
+                    //lblconnection.Text = "true";
+                    return;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                // Close the SqlConnection object.
+                connection.Close();
+            }
+            try
+            {
+                connection.Open();
+                // Test
+                SqlCommand command = new SqlCommand("SELECT `userID` FROM `score`", connection);
+                // Execute
+                SqlDataReader reader = command.ExecuteReader();
+                // Read the data
+                while (reader.Read())
+                {
+                    txtScore.Text = reader.GetString(0);
+                    //Console.WriteLine(reader["score"]);
+                }
+                // Close the SqlDataReader object.
+                reader.Close();
+            }
+            catch 
+            {
+                txtScore.Text = "er kon niet verbonden worden";
+            }
         }
     }
 }
