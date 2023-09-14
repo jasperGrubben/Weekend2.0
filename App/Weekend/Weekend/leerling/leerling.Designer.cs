@@ -46,6 +46,10 @@
             this.btnOpdracht2 = new System.Windows.Forms.Button();
             this.btnOpdr1 = new System.Windows.Forms.Button();
             this.lblOpdrachtenHead = new System.Windows.Forms.Label();
+            this.txtNaam = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtScore = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlScores.SuspendLayout();
             this.pnlHighS.SuspendLayout();
@@ -158,10 +162,14 @@
             // pnlHighS
             // 
             this.pnlHighS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlHighS.Controls.Add(this.label4);
+            this.pnlHighS.Controls.Add(this.txtScore);
+            this.pnlHighS.Controls.Add(this.label3);
+            this.pnlHighS.Controls.Add(this.txtNaam);
             this.pnlHighS.Controls.Add(this.lblHighScoresHead);
-            this.pnlHighS.Location = new System.Drawing.Point(2002, 78);
+            this.pnlHighS.Location = new System.Drawing.Point(497, 78);
             this.pnlHighS.Name = "pnlHighS";
-            this.pnlHighS.Size = new System.Drawing.Size(680, 842);
+            this.pnlHighS.Size = new System.Drawing.Size(1157, 842);
             this.pnlHighS.TabIndex = 7;
             this.pnlHighS.Visible = false;
             // 
@@ -226,6 +234,40 @@
             this.lblOpdrachtenHead.TabIndex = 1;
             this.lblOpdrachtenHead.Text = "Opdrachten";
             // 
+            // txtNaam
+            // 
+            this.txtNaam.Location = new System.Drawing.Point(34, 148);
+            this.txtNaam.Multiline = true;
+            this.txtNaam.Name = "txtNaam";
+            this.txtNaam.Size = new System.Drawing.Size(242, 606);
+            this.txtNaam.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(38, 111);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 25);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "wie?";
+            // 
+            // txtScore
+            // 
+            this.txtScore.Location = new System.Drawing.Point(335, 148);
+            this.txtScore.Multiline = true;
+            this.txtScore.Name = "txtScore";
+            this.txtScore.Size = new System.Drawing.Size(242, 606);
+            this.txtScore.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(330, 111);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 25);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Score";
+            // 
             // leerling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -276,5 +318,9 @@
         private System.Windows.Forms.Button btnOpdr1;
         private System.Windows.Forms.Button btnOpdracht2;
         private System.Windows.Forms.Button btnOpdracht3;
+        private System.Windows.Forms.TextBox txtScore;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtNaam;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -16,8 +16,6 @@ namespace Weekend.admin
         {
             InitializeComponent();
         }
-<<<<<<< HEAD
-=======
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -28,6 +26,5 @@ namespace Weekend.admin
         {
             Form1 form = new Form1();
         }
->>>>>>> LaatsteMaandagVanDeWeek
     }
 }
