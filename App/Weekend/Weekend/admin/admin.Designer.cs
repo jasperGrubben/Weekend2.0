@@ -20,7 +20,7 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+// Windows Form Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -28,15 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Text = "Form1";
-        }
-
-        #endregion
-=======
             this.btnLogOut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -63,9 +58,6 @@
 
         }
 
-        #endregion
-
         private System.Windows.Forms.Button btnLogOut;
->>>>>>> LaatsteMaandagVanDeWeek
     }
 }
