@@ -30,9 +30,10 @@ namespace Weekend
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.btnInloggen = new System.Windows.Forms.Button();
+            this.btnInloggenLeerling = new System.Windows.Forms.Button();
             this.btnRegisteren = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -45,14 +46,14 @@ namespace Weekend
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnInloggen
+            // btnInloggenLeerling
             // 
-            this.btnInloggen.Location = new System.Drawing.Point(578, 425);
-            this.btnInloggen.Name = "btnInloggen";
-            this.btnInloggen.Size = new System.Drawing.Size(304, 109);
-            this.btnInloggen.TabIndex = 1;
-            this.btnInloggen.Text = "Inloggen";
-            this.btnInloggen.UseVisualStyleBackColor = true;
+            this.btnInloggenLeerling.Location = new System.Drawing.Point(59, 62);
+            this.btnInloggenLeerling.Name = "btnInloggenLeerling";
+            this.btnInloggenLeerling.Size = new System.Drawing.Size(149, 84);
+            this.btnInloggenLeerling.TabIndex = 1;
+            this.btnInloggenLeerling.Text = "Log in \r\nLeerlingen";
+            this.btnInloggenLeerling.UseVisualStyleBackColor = true;
             // 
             // btnRegisteren
             // 
@@ -66,6 +67,7 @@ namespace Weekend
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnInloggenLeerling);
             this.panel1.Location = new System.Drawing.Point(931, 176);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1035, 668);
@@ -73,13 +75,13 @@ namespace Weekend
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(2079, 1049);
+            this.ClientSize = new System.Drawing.Size(1924, 1049);
             this.Controls.Add(this.btnRegisteren);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnInloggen);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -95,7 +97,7 @@ namespace Weekend
             temp.Show();
         }
 
-        private Button btnInloggen;
+        private Button btnInloggenLeerling;
         private Button btnRegisteren;
         private Panel panel1;
 
