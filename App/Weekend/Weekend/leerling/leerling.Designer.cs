@@ -288,7 +288,8 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "leerling";
-            this.Text = "a";
+            this.Text = "leerling";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.leerling_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

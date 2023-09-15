@@ -21,29 +21,31 @@ namespace Weekend
 
         private void btnLeerling_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var temp = new leerling.leerling();
             temp.Show();
+            temp.Close();
         }
 
-        private Button button1;
+        private Button btnLeerling;
 
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLeerling = new System.Windows.Forms.Button();
             this.btnInloggen = new System.Windows.Forms.Button();
             this.btnRegisteren = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // button1
+            // btnLeerling
             // 
-            this.button1.Location = new System.Drawing.Point(144, 299);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(359, 108);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnLeerling.Location = new System.Drawing.Point(144, 299);
+            this.btnLeerling.Name = "btnLeerling";
+            this.btnLeerling.Size = new System.Drawing.Size(359, 108);
+            this.btnLeerling.TabIndex = 0;
+            this.btnLeerling.Text = "button1";
+            this.btnLeerling.UseVisualStyleBackColor = true;
+            this.btnLeerling.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnInloggen
             // 
@@ -77,7 +79,7 @@ namespace Weekend
             this.Controls.Add(this.btnRegisteren);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnInloggen);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnLeerling);
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -90,7 +92,8 @@ namespace Weekend
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {            
+        {
+            this.Hide();
             var temp = new leerling.leerling();
             temp.Show();
         }
