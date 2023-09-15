@@ -39,6 +39,8 @@ namespace Weekend
             this.label6 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtEmailStudent = new System.Windows.Forms.TextBox();
+            this.txtWachtwoordStudent = new System.Windows.Forms.TextBox();
             this.pnlLogInLeerling.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,12 +79,14 @@ namespace Weekend
             // 
             // pnlLogInLeerling
             // 
+            this.pnlLogInLeerling.Controls.Add(this.txtWachtwoordStudent);
+            this.pnlLogInLeerling.Controls.Add(this.txtEmailStudent);
             this.pnlLogInLeerling.Controls.Add(this.label8);
             this.pnlLogInLeerling.Controls.Add(this.label7);
             this.pnlLogInLeerling.Controls.Add(this.label6);
             this.pnlLogInLeerling.Controls.Add(this.btnCancel);
             this.pnlLogInLeerling.Controls.Add(this.button1);
-            this.pnlLogInLeerling.Location = new System.Drawing.Point(49, 429);
+            this.pnlLogInLeerling.Location = new System.Drawing.Point(42, 566);
             this.pnlLogInLeerling.Name = "pnlLogInLeerling";
             this.pnlLogInLeerling.Size = new System.Drawing.Size(668, 347);
             this.pnlLogInLeerling.TabIndex = 3;
@@ -137,6 +141,20 @@ namespace Weekend
             this.label5.Size = new System.Drawing.Size(234, 80);
             this.label5.TabIndex = 4;
             this.label5.Text = "Welkom";
+            // 
+            // txtEmailStudent
+            // 
+            this.txtEmailStudent.Location = new System.Drawing.Point(213, 118);
+            this.txtEmailStudent.Name = "txtEmailStudent";
+            this.txtEmailStudent.Size = new System.Drawing.Size(272, 22);
+            this.txtEmailStudent.TabIndex = 6;
+            // 
+            // txtWachtwoordStudent
+            // 
+            this.txtWachtwoordStudent.Location = new System.Drawing.Point(213, 161);
+            this.txtWachtwoordStudent.Name = "txtWachtwoordStudent";
+            this.txtWachtwoordStudent.Size = new System.Drawing.Size(272, 22);
+            this.txtWachtwoordStudent.TabIndex = 7;
             // 
             // Form1
             // 
@@ -206,5 +224,8 @@ namespace Weekend
         {
 
         }
+
+        private TextBox txtEmailStudent;
+        private TextBox txtWachtwoordStudent;
     }
 }
