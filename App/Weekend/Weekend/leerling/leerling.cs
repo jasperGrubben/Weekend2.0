@@ -120,6 +120,7 @@ namespace Weekend.leerling
                 else
                 {
                     //lblconnection.Text = "true";
+                    Console.WriteLine("kon wel verbinden");
                     return;
                 }
             }
