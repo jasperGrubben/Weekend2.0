@@ -1,6 +1,6 @@
 ﻿namespace Weekend.docent
 {
-    partial class Form1
+    partial class Docent.cs
     {
         /// <summary>
         /// Required designer variable.

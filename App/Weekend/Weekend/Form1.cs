@@ -53,7 +53,10 @@ private void InitializeComponent()
 
         private void btnLeerling_Click(object sender, EventArgs e)
         {
-            
+            Process notePad = new Process();
+            notePad.StartInfo.FileName = "notepad.exe";
+            notePad.StartInfo.Arguments = "ProcessStart.cs"; // if you need some
+            notePad.Start();
         }
     }
 }
