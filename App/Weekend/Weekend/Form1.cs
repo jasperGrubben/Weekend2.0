@@ -12,9 +12,9 @@ using Weekend.leerling;
 
 namespace Weekend
 {
-    public partial class Form1 : Form
+    public partial class Homepage : Form
     {
-        public Form1()
+        public Homepage()
         {
             InitializeComponent();
         }
@@ -29,19 +29,27 @@ namespace Weekend
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Homepage));
             this.btnLogIn = new System.Windows.Forms.Button();
             this.btnInloggen = new System.Windows.Forms.Button();
-            this.btnRegisteren = new System.Windows.Forms.Button();
-            this.pnlLogIn = new System.Windows.Forms.Panel();
+            this.txtWachtwoordLogIn = new System.Windows.Forms.TextBox();
+            this.txtEmailLogIn = new System.Windows.Forms.TextBox();
             this.lblLogIn = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnCancelLogIn = new System.Windows.Forms.Button();
             this.lblWelkom = new System.Windows.Forms.Label();
-            this.txtEmailLogIn = new System.Windows.Forms.TextBox();
-            this.txtWachtwoordLogIn = new System.Windows.Forms.TextBox();
-            this.pnlAccountAanmaken = new System.Windows.Forms.Panel();
+            this.pnlRegistreer = new System.Windows.Forms.Panel();
+            this.lblHerhaalWachtwoord = new System.Windows.Forms.Label();
+            this.txtRegistreerAchternaam = new System.Windows.Forms.TextBox();
+            this.txtRegistreerUsername = new System.Windows.Forms.TextBox();
+            this.txtPasswordConfirm = new System.Windows.Forms.TextBox();
+            this.txtRegistreerPassword = new System.Windows.Forms.TextBox();
+            this.txtRegistreerEmail = new System.Windows.Forms.TextBox();
+            this.lblGebruikersNaamRegistreren = new System.Windows.Forms.Label();
+            this.lblAchternaam = new System.Windows.Forms.Label();
+            this.lblTussenvoegsels = new System.Windows.Forms.Label();
+            this.lblVoornaam = new System.Windows.Forms.Label();
             this.txtRegistreerVoornaam = new System.Windows.Forms.TextBox();
             this.txtRegistreerTussenvoegsels = new System.Windows.Forms.TextBox();
             this.lblRegistreer = new System.Windows.Forms.Label();
@@ -49,24 +57,16 @@ namespace Weekend
             this.label10 = new System.Windows.Forms.Label();
             this.btnRegisteerAnnuleer = new System.Windows.Forms.Button();
             this.btnRegistreerConfirm = new System.Windows.Forms.Button();
-            this.lblVoornaam = new System.Windows.Forms.Label();
-            this.lblTussenvoegsels = new System.Windows.Forms.Label();
-            this.lblAchternaam = new System.Windows.Forms.Label();
-            this.lblGebruikersNaamRegistreren = new System.Windows.Forms.Label();
-            this.txtRegistreerEmail = new System.Windows.Forms.TextBox();
-            this.txtRegistreerPassword = new System.Windows.Forms.TextBox();
-            this.txtPasswordConfirm = new System.Windows.Forms.TextBox();
-            this.txtRegistreerUsername = new System.Windows.Forms.TextBox();
-            this.txtRegistreerAchternaam = new System.Windows.Forms.TextBox();
-            this.lblHerhaalWachtwoord = new System.Windows.Forms.Label();
+            this.btnRegistreer = new System.Windows.Forms.Button();
+            this.pnlLogIn = new System.Windows.Forms.Panel();
+            this.pnlRegistreer.SuspendLayout();
             this.pnlLogIn.SuspendLayout();
-            this.pnlAccountAanmaken.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogIn
             // 
             this.btnLogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogIn.Location = new System.Drawing.Point(337, 223);
+            this.btnLogIn.Location = new System.Drawing.Point(339, 214);
             this.btnLogIn.Name = "btnLogIn";
             this.btnLogIn.Size = new System.Drawing.Size(307, 99);
             this.btnLogIn.TabIndex = 0;
@@ -77,7 +77,7 @@ namespace Weekend
             // btnInloggen
             // 
             this.btnInloggen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInloggen.Location = new System.Drawing.Point(40, 175);
+            this.btnInloggen.Location = new System.Drawing.Point(42, 133);
             this.btnInloggen.Name = "btnInloggen";
             this.btnInloggen.Size = new System.Drawing.Size(329, 113);
             this.btnInloggen.TabIndex = 1;
@@ -85,36 +85,25 @@ namespace Weekend
             this.btnInloggen.UseVisualStyleBackColor = true;
             this.btnInloggen.Click += new System.EventHandler(this.btnInloggenLeerling_Click);
             // 
-            // btnRegisteren
+            // txtWachtwoordLogIn
             // 
-            this.btnRegisteren.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegisteren.Location = new System.Drawing.Point(381, 175);
-            this.btnRegisteren.Name = "btnRegisteren";
-            this.btnRegisteren.Size = new System.Drawing.Size(329, 113);
-            this.btnRegisteren.TabIndex = 2;
-            this.btnRegisteren.Text = "Registeren";
-            this.btnRegisteren.UseVisualStyleBackColor = true;
-            this.btnRegisteren.Click += new System.EventHandler(this.btnRegisteren_Click);
+            this.txtWachtwoordLogIn.Location = new System.Drawing.Point(317, 157);
+            this.txtWachtwoordLogIn.Name = "txtWachtwoordLogIn";
+            this.txtWachtwoordLogIn.Size = new System.Drawing.Size(272, 22);
+            this.txtWachtwoordLogIn.TabIndex = 7;
             // 
-            // pnlLogIn
+            // txtEmailLogIn
             // 
-            this.pnlLogIn.Controls.Add(this.txtWachtwoordLogIn);
-            this.pnlLogIn.Controls.Add(this.txtEmailLogIn);
-            this.pnlLogIn.Controls.Add(this.lblLogIn);
-            this.pnlLogIn.Controls.Add(this.label7);
-            this.pnlLogIn.Controls.Add(this.label6);
-            this.pnlLogIn.Controls.Add(this.btnCancelLogIn);
-            this.pnlLogIn.Controls.Add(this.btnLogIn);
-            this.pnlLogIn.Location = new System.Drawing.Point(36, 353);
-            this.pnlLogIn.Name = "pnlLogIn";
-            this.pnlLogIn.Size = new System.Drawing.Size(668, 347);
-            this.pnlLogIn.TabIndex = 3;
+            this.txtEmailLogIn.Location = new System.Drawing.Point(317, 126);
+            this.txtEmailLogIn.Name = "txtEmailLogIn";
+            this.txtEmailLogIn.Size = new System.Drawing.Size(272, 22);
+            this.txtEmailLogIn.TabIndex = 6;
             // 
             // lblLogIn
             // 
             this.lblLogIn.AutoSize = true;
             this.lblLogIn.Font = new System.Drawing.Font("Rockwell Nova Cond", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogIn.Location = new System.Drawing.Point(233, 14);
+            this.lblLogIn.Location = new System.Drawing.Point(224, 15);
             this.lblLogIn.Name = "lblLogIn";
             this.lblLogIn.Size = new System.Drawing.Size(190, 80);
             this.lblLogIn.TabIndex = 5;
@@ -125,7 +114,7 @@ namespace Weekend
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(77, 157);
+            this.label7.Location = new System.Drawing.Point(139, 153);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(128, 25);
             this.label7.TabIndex = 3;
@@ -135,7 +124,7 @@ namespace Weekend
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(107, 114);
+            this.label6.Location = new System.Drawing.Point(165, 122);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 25);
             this.label6.TabIndex = 2;
@@ -144,12 +133,13 @@ namespace Weekend
             // btnCancelLogIn
             // 
             this.btnCancelLogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelLogIn.Location = new System.Drawing.Point(24, 224);
+            this.btnCancelLogIn.Location = new System.Drawing.Point(23, 214);
             this.btnCancelLogIn.Name = "btnCancelLogIn";
             this.btnCancelLogIn.Size = new System.Drawing.Size(307, 99);
             this.btnCancelLogIn.TabIndex = 1;
             this.btnCancelLogIn.Text = "Annuleer";
             this.btnCancelLogIn.UseVisualStyleBackColor = true;
+            this.btnCancelLogIn.Click += new System.EventHandler(this.btnCancelLogIn_Click);
             // 
             // lblWelkom
             // 
@@ -161,43 +151,115 @@ namespace Weekend
             this.lblWelkom.TabIndex = 4;
             this.lblWelkom.Text = "Welkom";
             // 
-            // txtEmailLogIn
+            // pnlRegistreer
             // 
-            this.txtEmailLogIn.Location = new System.Drawing.Point(213, 118);
-            this.txtEmailLogIn.Name = "txtEmailLogIn";
-            this.txtEmailLogIn.Size = new System.Drawing.Size(272, 22);
-            this.txtEmailLogIn.TabIndex = 6;
+            this.pnlRegistreer.Controls.Add(this.lblHerhaalWachtwoord);
+            this.pnlRegistreer.Controls.Add(this.txtRegistreerAchternaam);
+            this.pnlRegistreer.Controls.Add(this.txtRegistreerUsername);
+            this.pnlRegistreer.Controls.Add(this.txtPasswordConfirm);
+            this.pnlRegistreer.Controls.Add(this.txtRegistreerPassword);
+            this.pnlRegistreer.Controls.Add(this.txtRegistreerEmail);
+            this.pnlRegistreer.Controls.Add(this.lblGebruikersNaamRegistreren);
+            this.pnlRegistreer.Controls.Add(this.lblAchternaam);
+            this.pnlRegistreer.Controls.Add(this.lblTussenvoegsels);
+            this.pnlRegistreer.Controls.Add(this.lblVoornaam);
+            this.pnlRegistreer.Controls.Add(this.txtRegistreerVoornaam);
+            this.pnlRegistreer.Controls.Add(this.txtRegistreerTussenvoegsels);
+            this.pnlRegistreer.Controls.Add(this.lblRegistreer);
+            this.pnlRegistreer.Controls.Add(this.label9);
+            this.pnlRegistreer.Controls.Add(this.label10);
+            this.pnlRegistreer.Controls.Add(this.btnRegisteerAnnuleer);
+            this.pnlRegistreer.Controls.Add(this.btnRegistreerConfirm);
+            this.pnlRegistreer.Location = new System.Drawing.Point(764, 39);
+            this.pnlRegistreer.Name = "pnlRegistreer";
+            this.pnlRegistreer.Size = new System.Drawing.Size(668, 530);
+            this.pnlRegistreer.TabIndex = 5;
+            this.pnlRegistreer.Visible = false;
             // 
-            // txtWachtwoordLogIn
+            // lblHerhaalWachtwoord
             // 
-            this.txtWachtwoordLogIn.Location = new System.Drawing.Point(213, 161);
-            this.txtWachtwoordLogIn.Name = "txtWachtwoordLogIn";
-            this.txtWachtwoordLogIn.Size = new System.Drawing.Size(272, 22);
-            this.txtWachtwoordLogIn.TabIndex = 7;
+            this.lblHerhaalWachtwoord.AutoSize = true;
+            this.lblHerhaalWachtwoord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHerhaalWachtwoord.Location = new System.Drawing.Point(71, 339);
+            this.lblHerhaalWachtwoord.Name = "lblHerhaalWachtwoord";
+            this.lblHerhaalWachtwoord.Size = new System.Drawing.Size(201, 25);
+            this.lblHerhaalWachtwoord.TabIndex = 17;
+            this.lblHerhaalWachtwoord.Text = "Herhaal Wachtwoord:";
             // 
-            // pnlAccountAanmaken
+            // txtRegistreerAchternaam
             // 
-            this.pnlAccountAanmaken.Controls.Add(this.lblHerhaalWachtwoord);
-            this.pnlAccountAanmaken.Controls.Add(this.txtRegistreerAchternaam);
-            this.pnlAccountAanmaken.Controls.Add(this.txtRegistreerUsername);
-            this.pnlAccountAanmaken.Controls.Add(this.txtPasswordConfirm);
-            this.pnlAccountAanmaken.Controls.Add(this.txtRegistreerPassword);
-            this.pnlAccountAanmaken.Controls.Add(this.txtRegistreerEmail);
-            this.pnlAccountAanmaken.Controls.Add(this.lblGebruikersNaamRegistreren);
-            this.pnlAccountAanmaken.Controls.Add(this.lblAchternaam);
-            this.pnlAccountAanmaken.Controls.Add(this.lblTussenvoegsels);
-            this.pnlAccountAanmaken.Controls.Add(this.lblVoornaam);
-            this.pnlAccountAanmaken.Controls.Add(this.txtRegistreerVoornaam);
-            this.pnlAccountAanmaken.Controls.Add(this.txtRegistreerTussenvoegsels);
-            this.pnlAccountAanmaken.Controls.Add(this.lblRegistreer);
-            this.pnlAccountAanmaken.Controls.Add(this.label9);
-            this.pnlAccountAanmaken.Controls.Add(this.label10);
-            this.pnlAccountAanmaken.Controls.Add(this.btnRegisteerAnnuleer);
-            this.pnlAccountAanmaken.Controls.Add(this.btnRegistreerConfirm);
-            this.pnlAccountAanmaken.Location = new System.Drawing.Point(738, 170);
-            this.pnlAccountAanmaken.Name = "pnlAccountAanmaken";
-            this.pnlAccountAanmaken.Size = new System.Drawing.Size(668, 530);
-            this.pnlAccountAanmaken.TabIndex = 5;
+            this.txtRegistreerAchternaam.Location = new System.Drawing.Point(325, 185);
+            this.txtRegistreerAchternaam.Name = "txtRegistreerAchternaam";
+            this.txtRegistreerAchternaam.Size = new System.Drawing.Size(272, 22);
+            this.txtRegistreerAchternaam.TabIndex = 16;
+            // 
+            // txtRegistreerUsername
+            // 
+            this.txtRegistreerUsername.Location = new System.Drawing.Point(325, 226);
+            this.txtRegistreerUsername.Name = "txtRegistreerUsername";
+            this.txtRegistreerUsername.Size = new System.Drawing.Size(272, 22);
+            this.txtRegistreerUsername.TabIndex = 15;
+            // 
+            // txtPasswordConfirm
+            // 
+            this.txtPasswordConfirm.Location = new System.Drawing.Point(325, 343);
+            this.txtPasswordConfirm.Name = "txtPasswordConfirm";
+            this.txtPasswordConfirm.Size = new System.Drawing.Size(272, 22);
+            this.txtPasswordConfirm.TabIndex = 14;
+            // 
+            // txtRegistreerPassword
+            // 
+            this.txtRegistreerPassword.Location = new System.Drawing.Point(325, 305);
+            this.txtRegistreerPassword.Name = "txtRegistreerPassword";
+            this.txtRegistreerPassword.Size = new System.Drawing.Size(272, 22);
+            this.txtRegistreerPassword.TabIndex = 13;
+            // 
+            // txtRegistreerEmail
+            // 
+            this.txtRegistreerEmail.Location = new System.Drawing.Point(325, 265);
+            this.txtRegistreerEmail.Name = "txtRegistreerEmail";
+            this.txtRegistreerEmail.Size = new System.Drawing.Size(272, 22);
+            this.txtRegistreerEmail.TabIndex = 12;
+            // 
+            // lblGebruikersNaamRegistreren
+            // 
+            this.lblGebruikersNaamRegistreren.AutoSize = true;
+            this.lblGebruikersNaamRegistreren.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGebruikersNaamRegistreren.Location = new System.Drawing.Point(83, 222);
+            this.lblGebruikersNaamRegistreren.Name = "lblGebruikersNaamRegistreren";
+            this.lblGebruikersNaamRegistreren.Size = new System.Drawing.Size(170, 25);
+            this.lblGebruikersNaamRegistreren.TabIndex = 11;
+            this.lblGebruikersNaamRegistreren.Text = "Gebruikers Naam:";
+            // 
+            // lblAchternaam
+            // 
+            this.lblAchternaam.AutoSize = true;
+            this.lblAchternaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAchternaam.Location = new System.Drawing.Point(106, 181);
+            this.lblAchternaam.Name = "lblAchternaam";
+            this.lblAchternaam.Size = new System.Drawing.Size(124, 25);
+            this.lblAchternaam.TabIndex = 10;
+            this.lblAchternaam.Text = "Achternaam:";
+            // 
+            // lblTussenvoegsels
+            // 
+            this.lblTussenvoegsels.AutoSize = true;
+            this.lblTussenvoegsels.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTussenvoegsels.Location = new System.Drawing.Point(83, 145);
+            this.lblTussenvoegsels.Name = "lblTussenvoegsels";
+            this.lblTussenvoegsels.Size = new System.Drawing.Size(162, 25);
+            this.lblTussenvoegsels.TabIndex = 9;
+            this.lblTussenvoegsels.Text = "Tussenvoegsels:";
+            // 
+            // lblVoornaam
+            // 
+            this.lblVoornaam.AutoSize = true;
+            this.lblVoornaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVoornaam.Location = new System.Drawing.Point(106, 110);
+            this.lblVoornaam.Name = "lblVoornaam";
+            this.lblVoornaam.Size = new System.Drawing.Size(109, 25);
+            this.lblVoornaam.TabIndex = 8;
+            this.lblVoornaam.Text = "Voornaam:";
             // 
             // txtRegistreerVoornaam
             // 
@@ -252,6 +314,7 @@ namespace Weekend
             this.btnRegisteerAnnuleer.TabIndex = 1;
             this.btnRegisteerAnnuleer.Text = "Annuleer";
             this.btnRegisteerAnnuleer.UseVisualStyleBackColor = true;
+            this.btnRegisteerAnnuleer.Click += new System.EventHandler(this.btnRegisteerAnnuleer_Click);
             // 
             // btnRegistreerConfirm
             // 
@@ -263,107 +326,48 @@ namespace Weekend
             this.btnRegistreerConfirm.Text = "Registreer";
             this.btnRegistreerConfirm.UseVisualStyleBackColor = true;
             // 
-            // lblVoornaam
+            // btnRegistreer
             // 
-            this.lblVoornaam.AutoSize = true;
-            this.lblVoornaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVoornaam.Location = new System.Drawing.Point(106, 110);
-            this.lblVoornaam.Name = "lblVoornaam";
-            this.lblVoornaam.Size = new System.Drawing.Size(109, 25);
-            this.lblVoornaam.TabIndex = 8;
-            this.lblVoornaam.Text = "Voornaam:";
+            this.btnRegistreer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistreer.Location = new System.Drawing.Point(377, 133);
+            this.btnRegistreer.Name = "btnRegistreer";
+            this.btnRegistreer.Size = new System.Drawing.Size(329, 113);
+            this.btnRegistreer.TabIndex = 6;
+            this.btnRegistreer.Text = "Registreer";
+            this.btnRegistreer.UseVisualStyleBackColor = true;
+            this.btnRegistreer.Click += new System.EventHandler(this.btnRegistreer_Click);
             // 
-            // lblTussenvoegsels
+            // pnlLogIn
             // 
-            this.lblTussenvoegsels.AutoSize = true;
-            this.lblTussenvoegsels.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTussenvoegsels.Location = new System.Drawing.Point(83, 145);
-            this.lblTussenvoegsels.Name = "lblTussenvoegsels";
-            this.lblTussenvoegsels.Size = new System.Drawing.Size(162, 25);
-            this.lblTussenvoegsels.TabIndex = 9;
-            this.lblTussenvoegsels.Text = "Tussenvoegsels:";
+            this.pnlLogIn.Controls.Add(this.btnLogIn);
+            this.pnlLogIn.Controls.Add(this.btnCancelLogIn);
+            this.pnlLogIn.Controls.Add(this.label6);
+            this.pnlLogIn.Controls.Add(this.label7);
+            this.pnlLogIn.Controls.Add(this.txtWachtwoordLogIn);
+            this.pnlLogIn.Controls.Add(this.lblLogIn);
+            this.pnlLogIn.Controls.Add(this.txtEmailLogIn);
+            this.pnlLogIn.Location = new System.Drawing.Point(55, 274);
+            this.pnlLogIn.Name = "pnlLogIn";
+            this.pnlLogIn.Size = new System.Drawing.Size(668, 347);
+            this.pnlLogIn.TabIndex = 7;
+            this.pnlLogIn.Visible = false;
             // 
-            // lblAchternaam
+            // Homepage
             // 
-            this.lblAchternaam.AutoSize = true;
-            this.lblAchternaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAchternaam.Location = new System.Drawing.Point(106, 181);
-            this.lblAchternaam.Name = "lblAchternaam";
-            this.lblAchternaam.Size = new System.Drawing.Size(124, 25);
-            this.lblAchternaam.TabIndex = 10;
-            this.lblAchternaam.Text = "Achternaam:";
-            // 
-            // lblGebruikersNaamRegistreren
-            // 
-            this.lblGebruikersNaamRegistreren.AutoSize = true;
-            this.lblGebruikersNaamRegistreren.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGebruikersNaamRegistreren.Location = new System.Drawing.Point(83, 222);
-            this.lblGebruikersNaamRegistreren.Name = "lblGebruikersNaamRegistreren";
-            this.lblGebruikersNaamRegistreren.Size = new System.Drawing.Size(170, 25);
-            this.lblGebruikersNaamRegistreren.TabIndex = 11;
-            this.lblGebruikersNaamRegistreren.Text = "Gebruikers Naam:";
-            // 
-            // txtRegistreerEmail
-            // 
-            this.txtRegistreerEmail.Location = new System.Drawing.Point(325, 265);
-            this.txtRegistreerEmail.Name = "txtRegistreerEmail";
-            this.txtRegistreerEmail.Size = new System.Drawing.Size(272, 22);
-            this.txtRegistreerEmail.TabIndex = 12;
-            // 
-            // txtRegistreerPassword
-            // 
-            this.txtRegistreerPassword.Location = new System.Drawing.Point(325, 305);
-            this.txtRegistreerPassword.Name = "txtRegistreerPassword";
-            this.txtRegistreerPassword.Size = new System.Drawing.Size(272, 22);
-            this.txtRegistreerPassword.TabIndex = 13;
-            // 
-            // txtPasswordConfirm
-            // 
-            this.txtPasswordConfirm.Location = new System.Drawing.Point(325, 343);
-            this.txtPasswordConfirm.Name = "txtPasswordConfirm";
-            this.txtPasswordConfirm.Size = new System.Drawing.Size(272, 22);
-            this.txtPasswordConfirm.TabIndex = 14;
-            // 
-            // txtRegistreerUsername
-            // 
-            this.txtRegistreerUsername.Location = new System.Drawing.Point(325, 226);
-            this.txtRegistreerUsername.Name = "txtRegistreerUsername";
-            this.txtRegistreerUsername.Size = new System.Drawing.Size(272, 22);
-            this.txtRegistreerUsername.TabIndex = 15;
-            // 
-            // txtRegistreerAchternaam
-            // 
-            this.txtRegistreerAchternaam.Location = new System.Drawing.Point(325, 185);
-            this.txtRegistreerAchternaam.Name = "txtRegistreerAchternaam";
-            this.txtRegistreerAchternaam.Size = new System.Drawing.Size(272, 22);
-            this.txtRegistreerAchternaam.TabIndex = 16;
-            // 
-            // lblHerhaalWachtwoord
-            // 
-            this.lblHerhaalWachtwoord.AutoSize = true;
-            this.lblHerhaalWachtwoord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHerhaalWachtwoord.Location = new System.Drawing.Point(71, 339);
-            this.lblHerhaalWachtwoord.Name = "lblHerhaalWachtwoord";
-            this.lblHerhaalWachtwoord.Size = new System.Drawing.Size(201, 25);
-            this.lblHerhaalWachtwoord.TabIndex = 17;
-            this.lblHerhaalWachtwoord.Text = "Herhaal Wachtwoord:";
-            // 
-            // Form1
-            // 
-            this.ClientSize = new System.Drawing.Size(1441, 931);
-            this.Controls.Add(this.pnlAccountAanmaken);
-            this.Controls.Add(this.lblWelkom);
-            this.Controls.Add(this.btnRegisteren);
+            this.ClientSize = new System.Drawing.Size(1444, 652);
             this.Controls.Add(this.pnlLogIn);
+            this.Controls.Add(this.btnRegistreer);
+            this.Controls.Add(this.pnlRegistreer);
+            this.Controls.Add(this.lblWelkom);
             this.Controls.Add(this.btnInloggen);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "Homepage";
             this.Text = "RekenApp - Home";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.pnlRegistreer.ResumeLayout(false);
+            this.pnlRegistreer.PerformLayout();
             this.pnlLogIn.ResumeLayout(false);
             this.pnlLogIn.PerformLayout();
-            this.pnlAccountAanmaken.ResumeLayout(false);
-            this.pnlAccountAanmaken.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,22 +385,16 @@ namespace Weekend
         }
 
         private Button btnInloggen;
-        private Button btnRegisteren;
-        private Panel pnlLogIn;
 
-        private void btnRegisteren_Click(object sender, EventArgs e)
+
+        private void btnLogIn_Click(object sender, EventArgs e)
         {
-
+            pnlLogIn.Visible = true;
         }
 
-        private Label label2;
+
         private Label label1;
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        private Label label2;
         private Label label3;
         private TextBox txtWachtw;
         private TextBox txtGebr;
@@ -407,6 +405,7 @@ namespace Weekend
         private void btnInloggenLeerling_Click(object sender, EventArgs e)
         {
             pnlLogIn.Show();
+            //Location: 42; 18
         }
 
         private Label lblWelkom;
@@ -422,7 +421,7 @@ namespace Weekend
 
         private TextBox txtEmailLogIn;
         private TextBox txtWachtwoordLogIn;
-        private Panel pnlAccountAanmaken;
+        private Panel pnlRegistreer;
         private TextBox txtRegistreerVoornaam;
         private TextBox txtRegistreerTussenvoegsels;
         private Label lblRegistreer;
@@ -440,5 +439,29 @@ namespace Weekend
         private TextBox txtPasswordConfirm;
         private TextBox txtRegistreerPassword;
         private TextBox txtRegistreerEmail;
+
+        private void btnRegisteerAnnuleer_Click(object sender, EventArgs e)
+        {
+            pnlRegistreer.Visible = false;
+        }
+
+        private void btnCancelLogIn_Click(object sender, EventArgs e)
+        {
+            pnlLogIn.Visible = false;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private Button btnRegistreer;
+        private Panel pnlLogIn;
+
+        private void btnRegistreer_Click(object sender, EventArgs e)
+        {
+            pnlRegistreer.Visible = true;
+            //Location:  41; 12
+        }
     }
 }
