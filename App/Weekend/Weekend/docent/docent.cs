@@ -16,5 +16,40 @@ namespace Weekend.docent
         {
             InitializeComponent();
         }
+
+        private void leerlingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Check if the panel is visible.
+            if (pnlLeerling.Visible)
+            {
+                // Set the panel's visibility to false.
+                pnlLeerling.Visible = false;
+            }
+            else
+            {
+                // Set the panel's visibility to true.
+                pnlLeerling.Visible = true;
+            }
+        }
+
+        private void klassenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Check if the panel is visible.
+            if (pnlKlassen.Visible)
+            {
+                // Set the panel's visibility to false.
+                pnlKlassen.Visible = false;
+            }
+            else
+            {
+                // Set the panel's visibility to true.
+                pnlKlassen.Visible = true;
+            }
+        }
+
+        private void gamesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
