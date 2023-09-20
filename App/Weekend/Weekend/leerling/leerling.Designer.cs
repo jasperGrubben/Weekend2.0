@@ -50,6 +50,7 @@
             this.btnOpdracht2 = new System.Windows.Forms.Button();
             this.btnOpdr1 = new System.Windows.Forms.Button();
             this.lblOpdrachtenHead = new System.Windows.Forms.Label();
+            this.lblConnection = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlScores.SuspendLayout();
             this.pnlHighS.SuspendLayout();
@@ -66,28 +67,28 @@
             this.opdrachtenToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(2039, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(2039, 48);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // scoresToolStripMenuItem
             // 
             this.scoresToolStripMenuItem.Name = "scoresToolStripMenuItem";
-            this.scoresToolStripMenuItem.Size = new System.Drawing.Size(100, 36);
+            this.scoresToolStripMenuItem.Size = new System.Drawing.Size(100, 44);
             this.scoresToolStripMenuItem.Text = "scores";
             this.scoresToolStripMenuItem.Click += new System.EventHandler(this.scoresToolStripMenuItem_Click);
             // 
             // highScoresToolStripMenuItem
             // 
             this.highScoresToolStripMenuItem.Name = "highScoresToolStripMenuItem";
-            this.highScoresToolStripMenuItem.Size = new System.Drawing.Size(161, 36);
+            this.highScoresToolStripMenuItem.Size = new System.Drawing.Size(161, 44);
             this.highScoresToolStripMenuItem.Text = "High Scores";
             this.highScoresToolStripMenuItem.Click += new System.EventHandler(this.highScoresToolStripMenuItem_Click);
             // 
             // opdrachtenToolStripMenuItem
             // 
             this.opdrachtenToolStripMenuItem.Name = "opdrachtenToolStripMenuItem";
-            this.opdrachtenToolStripMenuItem.Size = new System.Drawing.Size(156, 36);
+            this.opdrachtenToolStripMenuItem.Size = new System.Drawing.Size(156, 44);
             this.opdrachtenToolStripMenuItem.Text = "opdrachten";
             this.opdrachtenToolStripMenuItem.Click += new System.EventHandler(this.opdrachtenToolStripMenuItem_Click);
             // 
@@ -273,11 +274,21 @@
             this.lblOpdrachtenHead.TabIndex = 1;
             this.lblOpdrachtenHead.Text = "Opdrachten";
             // 
+            // lblConnection
+            // 
+            this.lblConnection.AutoSize = true;
+            this.lblConnection.Location = new System.Drawing.Point(780, 47);
+            this.lblConnection.Name = "lblConnection";
+            this.lblConnection.Size = new System.Drawing.Size(47, 25);
+            this.lblConnection.TabIndex = 9;
+            this.lblConnection.Text = "test";
+            // 
             // leerling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2039, 1088);
+            this.Controls.Add(this.lblConnection);
             this.Controls.Add(this.pnlHighS);
             this.Controls.Add(this.pnlOpdrachten);
             this.Controls.Add(this.pnlScores);
@@ -328,5 +339,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtNaam;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblConnection;
     }
 }

@@ -28,23 +28,12 @@ namespace Weekend.leerling
                 // als er geen connectie is dan
                 if (connection == null)
                 {
-                    connection.Open();
-                    // Test
-                    SqlCommand command = new SqlCommand("SELECT * FROM Users", connection);
-                    // Execute
-                    SqlDataReader reader = command.ExecuteReader();
-                    // Read the data
-                    while (reader.Read())
-                    {
-                        Console.WriteLine(reader["Username"]);
-                    }
-                    // Close the SqlDataReader object.
-                    reader.Close();
+                    Console.WriteLine("geen connectie");
                 }
                 //return
                 else
                 {
-                    //lblconnection.Text = "true";
+                    lblConnection.Text = "true";
                     return;
                 }
             }
@@ -89,6 +78,7 @@ namespace Weekend.leerling
         private void leerling_Load(object sender, EventArgs e)
         {
             connection();
+            FillTextYESS();
             datum();
         }
 
@@ -106,7 +96,7 @@ namespace Weekend.leerling
 
         }
 
-        private void txtNaam_TextChanged(object sender, EventArgs e)
+        private void FillTextYESS()
         {
             SqlConnection connection = new SqlConnection("Server=127.0.0.1;Database=weekend;Uid=root;Pwd=root;");
             try
@@ -115,11 +105,12 @@ namespace Weekend.leerling
                 if (connection == null)
                 {
                     lblWelkom.Text = "systeem is offline probeer opnieuw later";
+                    lblConnection.Text = "false";
                 }
                 //return
                 else
                 {
-                    //lblconnection.Text = "true";
+                    lblConnection.Text = "true";
                     Console.WriteLine("kon wel verbinden");
                     return;
                 }
@@ -127,11 +118,6 @@ namespace Weekend.leerling
             catch (SqlException ex)
             {
                 Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                // Close the SqlConnection object.
-                connection.Close();
             }
             try
             {
@@ -145,14 +131,22 @@ namespace Weekend.leerling
                 {
                     txtScore.Text = reader.GetString(0);
                     //Console.WriteLine(reader["score"]);
+                    if (reader.IsDBNull(0))
+                    {
+                        txtNaam.Text = "er zijn nog geen scores";
+                    }
                 }
                 // Close the SqlDataReader object.
                 reader.Close();
             }
-            catch 
+            catch
             {
                 txtScore.Text = "er kon niet verbonden worden";
             }
+        }
+        private void txtNaam_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
