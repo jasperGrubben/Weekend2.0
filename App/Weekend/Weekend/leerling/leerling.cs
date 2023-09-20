@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Xml.Linq;
+using System.Drawing.Text;
+using MySql.Data.MySqlClient;
 
 namespace Weekend.leerling
 {
@@ -21,17 +23,17 @@ namespace Weekend.leerling
         }
         private void connection()
         {
-            SqlConnection connection = new SqlConnection("Server=127.0.0.1;Database=weekend;Uid=root;Pwd=root;");
+            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;");
             try
             {
+                connection.Open();
                 // als er geen connectie is dan
-                if (connection == null)
+                if (connection.State == ConnectionState.Open)
                 {
-                    connection.Open();
                     // Test
-                    SqlCommand command = new SqlCommand("SELECT * FROM Users", connection);
+                    MySqlCommand command = new MySqlCommand("SELECT * FROM Account", connection);
                     // Execute
-                    SqlDataReader reader = command.ExecuteReader();
+                    MySqlDataReader reader = command.ExecuteReader();
                     // Read the data
                     while (reader.Read())
                     {
@@ -39,11 +41,14 @@ namespace Weekend.leerling
                     }
                     // Close the SqlDataReader object.
                     reader.Close();
+                    label5.Text = "true";
+                    Console.WriteLine("geen connectie");
                 }
                 //return
                 else
                 {
-                    //lblconnection.Text = "true";
+                    label5.Text = "false";
+                    lblConnection.Text = "true";
                     return;
                 }
             }
@@ -67,21 +72,28 @@ namespace Weekend.leerling
         private void scoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlScores.Visible = true;
+            pnlHighS.Visible = false;
+            pnlOpdrachten.Visible = false;
         }
 
         private void highScoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlHighS.Visible = true;
+            pnlOpdrachten.Visible=false;
+            pnlScores.Visible=false;
         }
 
         private void opdrachtenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlOpdrachten.Visible = true;
+            pnlScores.Visible=false;
+            pnlHighS.Visible=false;
         }
 
         private void leerling_Load(object sender, EventArgs e)
         {
             connection();
+            FillTextYESS();
             datum();
         }
 
@@ -97,6 +109,59 @@ namespace Weekend.leerling
         private void btnOpdr1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FillTextYESS()
+        {
+            MySqlConnection connection = new SqlConnection("Server=127.0.0.1;Database=weekend;Uid=root;Pwd=;");
+            try
+            {
+                // als er geen connectie is dan
+                if (connection == null)
+                {
+                    lblWelkom.Text = "systeem is offline probeer opnieuw later";
+                    lblConnection.Text = "false";
+                }
+                //return
+                else
+                {
+                    lblConnection.Text = "true";
+                    Console.WriteLine("kon wel verbinden");
+                    return;
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            try
+            {
+                connection.Open();
+                // Test
+                SqlCommand command = new SqlCommand("SELECT `userID` FROM `score`", connection);
+                // Execute
+                SqlDataReader reader = command.ExecuteReader();
+                // Read the data
+                while (reader.Read())
+                {
+                    txtScore.Text = reader.GetString(0);
+                    //Console.WriteLine(reader["score"]);
+                    if (reader.IsDBNull(0))
+                    {
+                        txtNaam.Text = "er zijn nog geen scores";
+                    }
+                }
+                // Close the SqlDataReader object.
+                reader.Close();
+            }
+            catch
+            {
+                txtScore.Text = "er kon niet verbonden worden";
+            }
+        }
+        private void txtNaam_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
