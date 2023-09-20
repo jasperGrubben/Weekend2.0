@@ -69,7 +69,7 @@ namespace Weekend
             this.btnLogIn.Location = new System.Drawing.Point(339, 214);
             this.btnLogIn.Name = "btnLogIn";
             this.btnLogIn.Size = new System.Drawing.Size(307, 99);
-            this.btnLogIn.TabIndex = 0;
+            this.btnLogIn.TabIndex = 2;
             this.btnLogIn.Text = "Log In";
             this.btnLogIn.UseVisualStyleBackColor = true;
             this.btnLogIn.Click += new System.EventHandler(this.button1_Click);
@@ -80,7 +80,7 @@ namespace Weekend
             this.btnInloggen.Location = new System.Drawing.Point(42, 133);
             this.btnInloggen.Name = "btnInloggen";
             this.btnInloggen.Size = new System.Drawing.Size(329, 113);
-            this.btnInloggen.TabIndex = 1;
+            this.btnInloggen.TabIndex = 0;
             this.btnInloggen.Text = "Log in";
             this.btnInloggen.UseVisualStyleBackColor = true;
             this.btnInloggen.Click += new System.EventHandler(this.btnInloggenLeerling_Click);
@@ -90,14 +90,14 @@ namespace Weekend
             this.txtWachtwoordLogIn.Location = new System.Drawing.Point(317, 157);
             this.txtWachtwoordLogIn.Name = "txtWachtwoordLogIn";
             this.txtWachtwoordLogIn.Size = new System.Drawing.Size(272, 22);
-            this.txtWachtwoordLogIn.TabIndex = 7;
+            this.txtWachtwoordLogIn.TabIndex = 1;
             // 
             // txtEmailLogIn
             // 
             this.txtEmailLogIn.Location = new System.Drawing.Point(317, 126);
             this.txtEmailLogIn.Name = "txtEmailLogIn";
             this.txtEmailLogIn.Size = new System.Drawing.Size(272, 22);
-            this.txtEmailLogIn.TabIndex = 6;
+            this.txtEmailLogIn.TabIndex = 0;
             // 
             // lblLogIn
             // 
@@ -136,7 +136,7 @@ namespace Weekend
             this.btnCancelLogIn.Location = new System.Drawing.Point(23, 214);
             this.btnCancelLogIn.Name = "btnCancelLogIn";
             this.btnCancelLogIn.Size = new System.Drawing.Size(307, 99);
-            this.btnCancelLogIn.TabIndex = 1;
+            this.btnCancelLogIn.TabIndex = 3;
             this.btnCancelLogIn.Text = "Annuleer";
             this.btnCancelLogIn.UseVisualStyleBackColor = true;
             this.btnCancelLogIn.Click += new System.EventHandler(this.btnCancelLogIn_Click);
@@ -332,7 +332,7 @@ namespace Weekend
             this.btnRegistreer.Location = new System.Drawing.Point(377, 133);
             this.btnRegistreer.Name = "btnRegistreer";
             this.btnRegistreer.Size = new System.Drawing.Size(329, 113);
-            this.btnRegistreer.TabIndex = 0;
+            this.btnRegistreer.TabIndex = 1;
             this.btnRegistreer.Text = "Registreer";
             this.btnRegistreer.UseVisualStyleBackColor = true;
             this.btnRegistreer.Click += new System.EventHandler(this.btnRegistreer_Click);
@@ -354,6 +354,8 @@ namespace Weekend
             // 
             // Homepage
             // 
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1444, 652);
             this.Controls.Add(this.pnlLogIn);
             this.Controls.Add(this.btnRegistreer);
@@ -363,6 +365,7 @@ namespace Weekend
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Homepage";
             this.Text = "RekenApp - Home";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlRegistreer.ResumeLayout(false);
             this.pnlRegistreer.PerformLayout();
@@ -380,6 +383,8 @@ namespace Weekend
 
         private void button1_Click(object sender, EventArgs e)
         {
+            var temp = new leerling.leerling();
+            temp.Show();
         }
 
         private Button btnInloggen;
