@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Xml.Linq;
-using MySql.Data.MySqlClient;
 using System.Drawing.Text;
+using MySql.Data.MySqlClient;
 
 namespace Weekend.leerling
 {
@@ -113,7 +113,7 @@ namespace Weekend.leerling
 
         private void FillTextYESS()
         {
-            SqlConnection connection = new SqlConnection("Server=127.0.0.1;Database=weekend;Uid=root;Pwd=root;");
+            MySqlConnection connection = new SqlConnection("Server=127.0.0.1;Database=weekend;Uid=root;Pwd=;");
             try
             {
                 // als er geen connectie is dan
