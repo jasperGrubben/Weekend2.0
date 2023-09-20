@@ -170,10 +170,10 @@ namespace Weekend
             this.pnlRegistreer.Controls.Add(this.label10);
             this.pnlRegistreer.Controls.Add(this.btnRegisteerAnnuleer);
             this.pnlRegistreer.Controls.Add(this.btnRegistreerConfirm);
-            this.pnlRegistreer.Location = new System.Drawing.Point(764, 39);
+            this.pnlRegistreer.Location = new System.Drawing.Point(637, 39);
             this.pnlRegistreer.Name = "pnlRegistreer";
             this.pnlRegistreer.Size = new System.Drawing.Size(668, 530);
-            this.pnlRegistreer.TabIndex = 5;
+            this.pnlRegistreer.TabIndex = 100;
             this.pnlRegistreer.Visible = false;
             // 
             // lblHerhaalWachtwoord
@@ -191,35 +191,35 @@ namespace Weekend
             this.txtRegistreerAchternaam.Location = new System.Drawing.Point(325, 185);
             this.txtRegistreerAchternaam.Name = "txtRegistreerAchternaam";
             this.txtRegistreerAchternaam.Size = new System.Drawing.Size(272, 22);
-            this.txtRegistreerAchternaam.TabIndex = 16;
+            this.txtRegistreerAchternaam.TabIndex = 2;
             // 
             // txtRegistreerUsername
             // 
             this.txtRegistreerUsername.Location = new System.Drawing.Point(325, 226);
             this.txtRegistreerUsername.Name = "txtRegistreerUsername";
             this.txtRegistreerUsername.Size = new System.Drawing.Size(272, 22);
-            this.txtRegistreerUsername.TabIndex = 15;
+            this.txtRegistreerUsername.TabIndex = 3;
             // 
             // txtPasswordConfirm
             // 
             this.txtPasswordConfirm.Location = new System.Drawing.Point(325, 343);
             this.txtPasswordConfirm.Name = "txtPasswordConfirm";
             this.txtPasswordConfirm.Size = new System.Drawing.Size(272, 22);
-            this.txtPasswordConfirm.TabIndex = 14;
+            this.txtPasswordConfirm.TabIndex = 6;
             // 
             // txtRegistreerPassword
             // 
             this.txtRegistreerPassword.Location = new System.Drawing.Point(325, 305);
             this.txtRegistreerPassword.Name = "txtRegistreerPassword";
             this.txtRegistreerPassword.Size = new System.Drawing.Size(272, 22);
-            this.txtRegistreerPassword.TabIndex = 13;
+            this.txtRegistreerPassword.TabIndex = 5;
             // 
             // txtRegistreerEmail
             // 
             this.txtRegistreerEmail.Location = new System.Drawing.Point(325, 265);
             this.txtRegistreerEmail.Name = "txtRegistreerEmail";
             this.txtRegistreerEmail.Size = new System.Drawing.Size(272, 22);
-            this.txtRegistreerEmail.TabIndex = 12;
+            this.txtRegistreerEmail.TabIndex = 4;
             // 
             // lblGebruikersNaamRegistreren
             // 
@@ -266,14 +266,14 @@ namespace Weekend
             this.txtRegistreerVoornaam.Location = new System.Drawing.Point(325, 114);
             this.txtRegistreerVoornaam.Name = "txtRegistreerVoornaam";
             this.txtRegistreerVoornaam.Size = new System.Drawing.Size(272, 22);
-            this.txtRegistreerVoornaam.TabIndex = 7;
+            this.txtRegistreerVoornaam.TabIndex = 0;
             // 
             // txtRegistreerTussenvoegsels
             // 
             this.txtRegistreerTussenvoegsels.Location = new System.Drawing.Point(325, 149);
             this.txtRegistreerTussenvoegsels.Name = "txtRegistreerTussenvoegsels";
             this.txtRegistreerTussenvoegsels.Size = new System.Drawing.Size(272, 22);
-            this.txtRegistreerTussenvoegsels.TabIndex = 6;
+            this.txtRegistreerTussenvoegsels.TabIndex = 1;
             // 
             // lblRegistreer
             // 
@@ -311,7 +311,7 @@ namespace Weekend
             this.btnRegisteerAnnuleer.Location = new System.Drawing.Point(25, 405);
             this.btnRegisteerAnnuleer.Name = "btnRegisteerAnnuleer";
             this.btnRegisteerAnnuleer.Size = new System.Drawing.Size(307, 99);
-            this.btnRegisteerAnnuleer.TabIndex = 1;
+            this.btnRegisteerAnnuleer.TabIndex = 8;
             this.btnRegisteerAnnuleer.Text = "Annuleer";
             this.btnRegisteerAnnuleer.UseVisualStyleBackColor = true;
             this.btnRegisteerAnnuleer.Click += new System.EventHandler(this.btnRegisteerAnnuleer_Click);
@@ -322,7 +322,7 @@ namespace Weekend
             this.btnRegistreerConfirm.Location = new System.Drawing.Point(338, 405);
             this.btnRegistreerConfirm.Name = "btnRegistreerConfirm";
             this.btnRegistreerConfirm.Size = new System.Drawing.Size(307, 99);
-            this.btnRegistreerConfirm.TabIndex = 0;
+            this.btnRegistreerConfirm.TabIndex = 7;
             this.btnRegistreerConfirm.Text = "Registreer";
             this.btnRegistreerConfirm.UseVisualStyleBackColor = true;
             // 
@@ -332,7 +332,7 @@ namespace Weekend
             this.btnRegistreer.Location = new System.Drawing.Point(377, 133);
             this.btnRegistreer.Name = "btnRegistreer";
             this.btnRegistreer.Size = new System.Drawing.Size(329, 113);
-            this.btnRegistreer.TabIndex = 6;
+            this.btnRegistreer.TabIndex = 0;
             this.btnRegistreer.Text = "Registreer";
             this.btnRegistreer.UseVisualStyleBackColor = true;
             this.btnRegistreer.Click += new System.EventHandler(this.btnRegistreer_Click);
@@ -346,7 +346,7 @@ namespace Weekend
             this.pnlLogIn.Controls.Add(this.txtWachtwoordLogIn);
             this.pnlLogIn.Controls.Add(this.lblLogIn);
             this.pnlLogIn.Controls.Add(this.txtEmailLogIn);
-            this.pnlLogIn.Location = new System.Drawing.Point(55, 274);
+            this.pnlLogIn.Location = new System.Drawing.Point(42, 304);
             this.pnlLogIn.Name = "pnlLogIn";
             this.pnlLogIn.Size = new System.Drawing.Size(668, 347);
             this.pnlLogIn.TabIndex = 7;
@@ -380,8 +380,6 @@ namespace Weekend
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var temp = new leerling.leerling();
-            temp.Show();
         }
 
         private Button btnInloggen;
@@ -405,7 +403,7 @@ namespace Weekend
         private void btnInloggenLeerling_Click(object sender, EventArgs e)
         {
             pnlLogIn.Show();
-            //Location: 42; 18
+            pnlLogIn.Location = new System.Drawing.Point(42, 18);
         }
 
         private Label lblWelkom;
@@ -443,6 +441,7 @@ namespace Weekend
         private void btnRegisteerAnnuleer_Click(object sender, EventArgs e)
         {
             pnlRegistreer.Visible = false;
+            btnRegistreer.Visible = true;
         }
 
         private void btnCancelLogIn_Click(object sender, EventArgs e)
@@ -461,7 +460,8 @@ namespace Weekend
         private void btnRegistreer_Click(object sender, EventArgs e)
         {
             pnlRegistreer.Visible = true;
-            //Location:  41; 12
+            btnRegistreer.Visible = false;
+            pnlRegistreer.Location = new System.Drawing.Point(42,12);
         }
     }
 }

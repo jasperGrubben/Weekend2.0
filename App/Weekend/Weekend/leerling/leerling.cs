@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Xml.Linq;
+using MySql.Data.MySqlClient;
 
 namespace Weekend.leerling
 {
@@ -21,17 +22,17 @@ namespace Weekend.leerling
         }
         private void connection()
         {
-            SqlConnection connection = new SqlConnection("Server=127.0.0.1;Database=weekend;Uid=root;Pwd=root;");
+            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;");
             try
             {
+                connection.Open();
                 // als er geen connectie is dan
-                if (connection == null)
+                if (connection.State == ConnectionState.Open)
                 {
-                    connection.Open();
                     // Test
-                    SqlCommand command = new SqlCommand("SELECT * FROM Users", connection);
+                    MySqlCommand command = new MySqlCommand("SELECT * FROM Account", connection);
                     // Execute
-                    SqlDataReader reader = command.ExecuteReader();
+                    MySqlDataReader reader = command.ExecuteReader();
                     // Read the data
                     while (reader.Read())
                     {
@@ -39,11 +40,12 @@ namespace Weekend.leerling
                     }
                     // Close the SqlDataReader object.
                     reader.Close();
+                    label5.Text = "true";
                 }
                 //return
                 else
                 {
-                    //lblconnection.Text = "true";
+                    label5.Text = "false";
                     return;
                 }
             }
