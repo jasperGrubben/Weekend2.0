@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Xml.Linq;
+using MySql.Data.MySqlClient;
 using System.Drawing.Text;
 
 namespace Weekend.leerling
@@ -22,17 +23,31 @@ namespace Weekend.leerling
         }
         private void connection()
         {
-            SqlConnection connection = new SqlConnection("Server=127.0.0.1;Database=weekend;Uid=root;Pwd=root;");
+            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;");
             try
             {
+                connection.Open();
                 // als er geen connectie is dan
-                if (connection == null)
+                if (connection.State == ConnectionState.Open)
                 {
+                    // Test
+                    MySqlCommand command = new MySqlCommand("SELECT * FROM Account", connection);
+                    // Execute
+                    MySqlDataReader reader = command.ExecuteReader();
+                    // Read the data
+                    while (reader.Read())
+                    {
+                        Console.WriteLine(reader["Username"]);
+                    }
+                    // Close the SqlDataReader object.
+                    reader.Close();
+                    label5.Text = "true";
                     Console.WriteLine("geen connectie");
                 }
                 //return
                 else
                 {
+                    label5.Text = "false";
                     lblConnection.Text = "true";
                     return;
                 }
