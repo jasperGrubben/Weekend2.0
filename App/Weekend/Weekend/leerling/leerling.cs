@@ -81,7 +81,6 @@ namespace Weekend.leerling
             pnlOpdrachten.Visible=false;
             pnlScores.Visible=false;
         }
-
         private void opdrachtenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlOpdrachten.Visible = true;
