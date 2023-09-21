@@ -112,7 +112,7 @@ namespace Weekend.leerling
 
         private void FillTextYESS()
         {
-            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=weekend;Uid=root;Pwd=;");
+            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-appe;Uid=root;Pwd=;");
             try
             {
                 // als er geen connectie is dan
