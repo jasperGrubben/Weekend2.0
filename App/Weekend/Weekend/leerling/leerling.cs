@@ -75,7 +75,7 @@ namespace Weekend.leerling
         {
             pnlHighS.Visible = true;
         }
-
+        //iets
         private void opdrachtenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlOpdrachten.Visible = true;
