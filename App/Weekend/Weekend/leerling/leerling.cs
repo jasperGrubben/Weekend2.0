@@ -48,11 +48,10 @@ namespace Weekend.leerling
                 else
                 {
                     label5.Text = "false";
-                    lblConnection.Text = "true";
                     return;
                 }
             }
-            catch (SqlException ex)
+            catch (MySqlException ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -113,24 +112,22 @@ namespace Weekend.leerling
 
         private void FillTextYESS()
         {
-            MySqlConnection connection = new SqlConnection("Server=127.0.0.1;Database=weekend;Uid=root;Pwd=;");
+            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=weekend;Uid=root;Pwd=;");
             try
             {
                 // als er geen connectie is dan
                 if (connection == null)
                 {
                     lblWelkom.Text = "systeem is offline probeer opnieuw later";
-                    lblConnection.Text = "false";
                 }
                 //return
                 else
                 {
-                    lblConnection.Text = "true";
                     Console.WriteLine("kon wel verbinden");
                     return;
                 }
             }
-            catch (SqlException ex)
+            catch (MySqlException ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -138,9 +135,9 @@ namespace Weekend.leerling
             {
                 connection.Open();
                 // Test
-                SqlCommand command = new SqlCommand("SELECT `userID` FROM `score`", connection);
+                MySqlCommand command = new MySqlCommand("SELECT `userID` FROM `score`", connection);
                 // Execute
-                SqlDataReader reader = command.ExecuteReader();
+                MySqlDataReader reader = command.ExecuteReader();
                 // Read the data
                 while (reader.Read())
                 {

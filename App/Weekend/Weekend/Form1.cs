@@ -5,11 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Weekend.leerling;
-
 namespace Weekend
 {
     public partial class Homepage : Form
@@ -380,9 +380,36 @@ namespace Weekend
         {
 
         }
-
+        //login knop
         private void button1_Click(object sender, EventArgs e)
         {
+            var email = txtEmailLogIn.Text;
+            var wachw = txtWachtwoordLogIn.Text;
+
+            if(email == ""||  wachw == "")
+            {
+                MessageBox.Show("vul alle velden in");
+                return;
+            }
+            else
+            {
+                // Create a SHA3_256 hasher
+                using (SHA256 sha3 = SHA256.Create())
+                {
+                    // Convert the password string to bytes
+                    byte[] passwordBytes = Encoding.UTF8.GetBytes(wachw);
+
+                    // Compute the hash
+                    byte[] hashBytes = sha3.ComputeHash(passwordBytes);
+
+                    // Convert the hash to a hexadecimal string
+                    string hashedPassword = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+
+                    // Now you can use the hashedPassword for storage or comparison
+                    // For example, you can store it in a database and compare it when a user logs in.
+                }
+            }
+            
         }
 
         private Button btnInloggen;
@@ -465,6 +492,7 @@ namespace Weekend
             pnlRegistreer.Visible = true;
             btnRegistreer.Visible = false;
             pnlRegistreer.Location = new System.Drawing.Point(42,12);
+
         }
     }
 }
