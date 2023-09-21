@@ -65,12 +65,16 @@
             this.lblN1 = new System.Windows.Forms.Label();
             this.lblN2 = new System.Windows.Forms.Label();
             this.lblN3 = new System.Windows.Forms.Label();
+            this.pnlGames = new System.Windows.Forms.Panel();
+            this.pnlGame = new System.Windows.Forms.Panel();
+            this.lblGames = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.pnlLeerling.SuspendLayout();
             this.pnlKlassen.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.pnlGame.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -199,7 +203,7 @@
             this.pnlKlassen.Controls.Add(this.lblLeerling2);
             this.pnlKlassen.Controls.Add(this.lblKlas);
             this.pnlKlassen.Controls.Add(this.label3);
-            this.pnlKlassen.Location = new System.Drawing.Point(46, 57);
+            this.pnlKlassen.Location = new System.Drawing.Point(34, 63);
             this.pnlKlassen.Name = "pnlKlassen";
             this.pnlKlassen.Size = new System.Drawing.Size(890, 413);
             this.pnlKlassen.TabIndex = 4;
@@ -248,7 +252,7 @@
             this.tableLayoutPanel1.Controls.Add(this.lblNaam1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblNaam2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblNaam3, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(55, 67);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(78, 74);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 8;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -453,15 +457,42 @@
             this.lblN3.TabIndex = 8;
             this.lblN3.Text = "Naam3";
             // 
+            // pnlGames
+            // 
+            this.pnlGames.Location = new System.Drawing.Point(493, 575);
+            this.pnlGames.Name = "pnlGames";
+            this.pnlGames.Size = new System.Drawing.Size(641, 88);
+            this.pnlGames.TabIndex = 15;
+            // 
+            // pnlGame
+            // 
+            this.pnlGame.Controls.Add(this.lblGames);
+            this.pnlGame.Location = new System.Drawing.Point(37, 61);
+            this.pnlGame.Name = "pnlGame";
+            this.pnlGame.Size = new System.Drawing.Size(873, 412);
+            this.pnlGame.TabIndex = 9;
+            this.pnlGame.Visible = false;
+            // 
+            // lblGames
+            // 
+            this.lblGames.AutoSize = true;
+            this.lblGames.Location = new System.Drawing.Point(36, 29);
+            this.lblGames.Name = "lblGames";
+            this.lblGames.Size = new System.Drawing.Size(49, 16);
+            this.lblGames.TabIndex = 0;
+            this.lblGames.Text = "games";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1363, 711);
+            this.Controls.Add(this.pnlGame);
             this.Controls.Add(this.pnlKlassen);
             this.Controls.Add(this.pnlLeerling);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pnlGames);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
@@ -477,6 +508,8 @@
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.pnlGame.ResumeLayout(false);
+            this.pnlGame.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -521,5 +554,8 @@
         private System.Windows.Forms.Label lblN1;
         private System.Windows.Forms.Label lblN2;
         private System.Windows.Forms.Label lblN3;
+        private System.Windows.Forms.Panel pnlGames;
+        private System.Windows.Forms.Panel pnlGame;
+        private System.Windows.Forms.Label lblGames;
     }
     }
