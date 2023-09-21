@@ -416,7 +416,7 @@ namespace Weekend
                             connection.Open();
 
                             //Gebruik van een parameters voor verkomen SQL injection
-                            string query = "SELECT `Gebruikersnaam`, `Wachtwoord` FROM `account` WHERE `Gebruikersnaam` = @Email AND `Wachtwoord` = @HashedPassword";
+                            string query = "SELECT `Email`, `Wachtwoord` FROM `account` WHERE `Gebruikersnaam` = @Email AND `Wachtwoord` = @HashedPassword";
                             MySqlCommand login = new MySqlCommand(query, connection);
                             login.Parameters.AddWithValue("@Email", email);
                             login.Parameters.AddWithValue("@HashedPassword", hashedPassword);
@@ -425,8 +425,28 @@ namespace Weekend
 
                             reader.Read();
                             if (reader.HasRows)
-                            {      
-
+                            {    
+                                for (int i = 1; i < 4; i++)
+                                {
+                                    MySqlCommand checkrol = new MySqlCommand("SELECT * FROM `profiel` LEFT JOIN `rollen` ON profiel.RolID = rollen.RolID WHERE profiel.RolID = @roll; ");
+                                    checkrol.Parameters.AddWithValue("@roll" ,i.ToString());
+                                    MySqlDataReader checkrolreader = checkrol.ExecuteReader();
+                                    if (checkrolreader.HasRows && i == 1)
+                                    {
+                                        // nog geen admin panel in huidige branche
+                                    }
+                                    else if(checkrolreader.HasRows && i == 2)
+                                    {
+                                        // kijken we later nog wel naar
+                                    }
+                                    else if(checkrolreader.HasRows && i == 3)
+                                    {
+                                        this.Hide();
+                                        var temp = new leerling.leerling();
+                                        temp.Show();
+                                        temp.Close();
+                                    }
+                                }
                             }
                             else
                             {
