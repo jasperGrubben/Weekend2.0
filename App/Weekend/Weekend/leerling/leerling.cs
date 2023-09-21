@@ -19,7 +19,7 @@ namespace Weekend.leerling
     {
         protected virtual string GetConnectString()
         {
-            return @"Server=127.0.0.1;Database=weekend;Uid=root;Pwd=root;";
+            return @"Server=127.0.0.1;Database=weekend;Uid=root;Pwd=;";
         }
         private void connection()
         {
