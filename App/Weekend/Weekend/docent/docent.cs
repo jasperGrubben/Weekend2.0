@@ -51,5 +51,10 @@ namespace Weekend.docent
         {
 
         }
+
+        private void pnlKlassen_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
