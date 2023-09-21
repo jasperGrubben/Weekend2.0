@@ -450,7 +450,7 @@ namespace Weekend
                             }
                             else
                             {
-                                MessageBox.Show("Probeer opnieuw, login gegevens onjuist");
+                                MessageBox.Show(MySqlErrorCode;
                                 return;
                             }
                         }
