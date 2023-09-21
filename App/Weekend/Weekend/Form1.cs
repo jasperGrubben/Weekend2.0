@@ -395,74 +395,82 @@ namespace Weekend
                 MessageBox.Show("Vul alle velden in");
                 return;
             }
-            else
+
+            try
             {
-                try
+                using (SHA256 sha256 = SHA256.Create())
                 {
-                    //maak de hasher
-                    using (SHA256 sha256 = SHA256.Create())
+                    byte[] passwordBytes = Encoding.UTF8.GetBytes(wachw);
+                    byte[] hashBytes = sha256.ComputeHash(passwordBytes);
+                    string hashedPassword = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+
+                    using (MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;"))
                     {
-                        // String omzetten in de bytes
-                        byte[] passwordBytes = Encoding.UTF8.GetBytes(wachw);
+                        connection.Open();
 
-                        // uitvoeren van de hash
-                        byte[] hashBytes = sha256.ComputeHash(passwordBytes);
+                        string query = "SELECT `Email`, `Wachtwoord` FROM `account` WHERE `Email` = @Email AND `Wachtwoord` = @Wachtwoord";
+                        MySqlCommand login = new MySqlCommand(query, connection);
+                        login.Parameters.AddWithValue("@Email", email);
+                        login.Parameters.AddWithValue("@Wachtwoord", hashedPassword);
 
-                        // hash -> string
-                        string hashedPassword = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
-
-                        using (MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;"))
+                        using (MySqlDataReader reader = login.ExecuteReader())
                         {
-                            connection.Open();
+                            if (reader.Read())
+                            {
+                                string storedHashedPassword = reader["Wachtwoord"].ToString();
 
-                            //Gebruik van een parameters voor verkomen SQL injection
-                            string query = "SELECT `Email`, `Wachtwoord` FROM `account` WHERE `Gebruikersnaam` = @Email AND `Wachtwoord` = @HashedPassword";
-                            MySqlCommand login = new MySqlCommand(query, connection);
-                            login.Parameters.AddWithValue("@Email", email);
-                            login.Parameters.AddWithValue("@HashedPassword", hashedPassword);
-
-                            MySqlDataReader reader = login.ExecuteReader();
-
-                            reader.Read();
-                            if (reader.HasRows)
-                            {    
-                                for (int i = 1; i < 4; i++)
+                                if (hashedPassword == storedHashedPassword)
                                 {
-                                    MySqlCommand checkrol = new MySqlCommand("SELECT * FROM `profiel` LEFT JOIN `rollen` ON profiel.RolID = rollen.RolID WHERE profiel.RolID = @roll; ");
-                                    checkrol.Parameters.AddWithValue("@roll" ,i.ToString());
-                                    MySqlDataReader checkrolreader = checkrol.ExecuteReader();
-                                    if (checkrolreader.HasRows && i == 1)
+                                    for (int i = 1; i < 4; i++)
                                     {
-                                        // nog geen admin panel in huidige branche
+                                        reader.Close();
+                                        string rolQuery = "SELECT * FROM `profiel` LEFT JOIN `rollen` ON profiel.RolID = rollen.RolID WHERE profiel.RolID = @roll";
+                                        MySqlCommand checkrol = new MySqlCommand(rolQuery, connection);
+                                        checkrol.Parameters.AddWithValue("@roll", i.ToString());
+
+                                        using (MySqlDataReader checkrolreader = checkrol.ExecuteReader())
+                                        {
+                                            if (checkrolreader.HasRows && i == 1)
+                                            {
+                                                // Handle admin panel logic here
+                                            }
+                                            else if ( checkrolreader.HasRows && i == 2)
+                                            {
+                                                //ga naar het docent paneel
+                                            }
+                                            else if (checkrolreader.HasRows && i == 3)
+                                            {
+                                                this.Hide();
+                                                var temp = new leerling.leerling();
+                                                temp.Show();
+                                                temp.Close();
+                                            }
+                                        }
                                     }
-                                    else if(checkrolreader.HasRows && i == 2)
-                                    {
-                                        // kijken we later nog wel naar
-                                    }
-                                    else if(checkrolreader.HasRows && i == 3)
-                                    {
-                                        this.Hide();
-                                        var temp = new leerling.leerling();
-                                        temp.Show();
-                                        temp.Close();
-                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Incorrect password.");
                                 }
                             }
                             else
                             {
-                                MessageBox.Show(MySqlErrorCode;
-                                return;
+                                MessageBox.Show("User not found.");
                             }
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    // Handle any exceptions that may occur during database connection or query execution
-                    MessageBox.Show("An error occurred: " + ex.Message);
-                }
+            }
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
+
 
 
         private Button btnInloggen;
