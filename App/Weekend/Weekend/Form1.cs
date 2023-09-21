@@ -1,3 +1,5 @@
+using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -91,14 +93,14 @@ namespace Weekend
             // 
             this.txtWachtwoordLogIn.Location = new System.Drawing.Point(317, 157);
             this.txtWachtwoordLogIn.Name = "txtWachtwoordLogIn";
-            this.txtWachtwoordLogIn.Size = new System.Drawing.Size(272, 22);
+            this.txtWachtwoordLogIn.Size = new System.Drawing.Size(272, 31);
             this.txtWachtwoordLogIn.TabIndex = 1;
             // 
             // txtEmailLogIn
             // 
             this.txtEmailLogIn.Location = new System.Drawing.Point(317, 126);
             this.txtEmailLogIn.Name = "txtEmailLogIn";
-            this.txtEmailLogIn.Size = new System.Drawing.Size(272, 22);
+            this.txtEmailLogIn.Size = new System.Drawing.Size(272, 31);
             this.txtEmailLogIn.TabIndex = 0;
             // 
             // lblLogIn
@@ -358,7 +360,7 @@ namespace Weekend
             // 
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1444, 652);
+            this.ClientSize = new System.Drawing.Size(2105, 1051);
             this.Controls.Add(this.pnlLogIn);
             this.Controls.Add(this.btnRegistreer);
             this.Controls.Add(this.pnlRegistreer);
@@ -388,31 +390,88 @@ namespace Weekend
             var email = txtEmailLogIn.Text;
             var wachw = txtWachtwoordLogIn.Text;
 
-            if(email == ""||  wachw == "")
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(wachw))
             {
-                MessageBox.Show("vul alle velden in");
+                MessageBox.Show("Vul alle velden in");
                 return;
             }
-            else
+
+            try
             {
-                // Create a SHA3_256 hasher
-                using (SHA256 sha3 = SHA256.Create())
+                using (SHA256 sha256 = SHA256.Create())
                 {
-                    // Convert the password string to bytes
                     byte[] passwordBytes = Encoding.UTF8.GetBytes(wachw);
-
-                    // Compute the hash
-                    byte[] hashBytes = sha3.ComputeHash(passwordBytes);
-
-                    // Convert the hash to a hexadecimal string
+                    byte[] hashBytes = sha256.ComputeHash(passwordBytes);
                     string hashedPassword = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
 
-                    // Now you can use the hashedPassword for storage or comparison
-                    // For example, you can store it in a database and compare it when a user logs in.
+                    using (MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;"))
+                    {
+                        connection.Open();
+
+                        string query = "SELECT `Email`, `Wachtwoord` FROM `account` WHERE `Email` = @Email AND `Wachtwoord` = @Wachtwoord";
+                        MySqlCommand login = new MySqlCommand(query, connection);
+                        login.Parameters.AddWithValue("@Email", email);
+                        login.Parameters.AddWithValue("@Wachtwoord", hashedPassword);
+
+                        using (MySqlDataReader reader = login.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string storedHashedPassword = reader["Wachtwoord"].ToString();
+
+                                if (hashedPassword == storedHashedPassword)
+                                {
+                                    for (int i = 1; i < 4; i++)
+                                    {
+                                        reader.Close();
+                                        string rolQuery = "SELECT * FROM `profiel` LEFT JOIN `rollen` ON profiel.RolID = rollen.RolID WHERE profiel.RolID = @roll";
+                                        MySqlCommand checkrol = new MySqlCommand(rolQuery, connection);
+                                        checkrol.Parameters.AddWithValue("@roll", i.ToString());
+
+                                        using (MySqlDataReader checkrolreader = checkrol.ExecuteReader())
+                                        {
+                                            if (checkrolreader.HasRows && i == 1)
+                                            {
+                                                // Handle admin panel logic here
+                                            }
+                                            else if ( checkrolreader.HasRows && i == 2)
+                                            {
+                                                //ga naar het docent paneel
+                                            }
+                                            else if (checkrolreader.HasRows && i == 3)
+                                            {
+                                                this.Hide();
+                                                var temp = new leerling.leerling();
+                                                temp.Show();
+                                                temp.Close();
+                                            }
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Incorrect password.");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("User not found.");
+                            }
+                        }
+                    }
                 }
             }
-            
+            catch (MySql.Data.MySqlClient.MySqlException ex)
+            {
+                //MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("An error occurred: " + ex.Message);
+            }
         }
+
+
 
         private Button btnInloggen;
 
