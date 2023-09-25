@@ -548,8 +548,20 @@ namespace Weekend
             var email = txtRegistreerEmail.Text;
             var pass = txtRegistreerPassword.Text;
             var passconfirm = txtPasswordConfirm.Text;
-            var rol= cmbAccType;
-
+            var role= cmbAccType.SelectedItem;
+            switch (cmbAccType.SelectedItem.ToString())
+            {
+                case "student":
+                    role = "3";
+                    break;
+                case "teacher":
+                    role = "2";
+                    break;
+                default:
+                    // Handle any other cases or set a default value if needed
+                    role = ""; // Default value (you can choose another value)
+                    break;
+            }
             if (fname == "" || lname == "" || usn == "" || email == "" || pass == "" || passconfirm == "")
             {
                 MessageBox.Show("vul alle velden in verplichte* velden in");
