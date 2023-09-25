@@ -63,6 +63,9 @@ namespace Weekend
             this.btnRegistreerConfirm = new System.Windows.Forms.Button();
             this.btnRegistreer = new System.Windows.Forms.Button();
             this.pnlLogIn = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbAccType = new System.Windows.Forms.ComboBox();
             this.pnlRegistreer.SuspendLayout();
             this.pnlLogIn.SuspendLayout();
             this.SuspendLayout();
@@ -157,6 +160,9 @@ namespace Weekend
             // 
             // pnlRegistreer
             // 
+            this.pnlRegistreer.Controls.Add(this.cmbAccType);
+            this.pnlRegistreer.Controls.Add(this.label8);
+            this.pnlRegistreer.Controls.Add(this.label5);
             this.pnlRegistreer.Controls.Add(this.lblHerhaalWachtwoord);
             this.pnlRegistreer.Controls.Add(this.txtRegistreerAchternaam);
             this.pnlRegistreer.Controls.Add(this.txtRegistreerUsername);
@@ -176,7 +182,7 @@ namespace Weekend
             this.pnlRegistreer.Controls.Add(this.btnRegistreerConfirm);
             this.pnlRegistreer.Location = new System.Drawing.Point(735, 21);
             this.pnlRegistreer.Name = "pnlRegistreer";
-            this.pnlRegistreer.Size = new System.Drawing.Size(684, 534);
+            this.pnlRegistreer.Size = new System.Drawing.Size(684, 596);
             this.pnlRegistreer.TabIndex = 100;
             this.pnlRegistreer.Visible = false;
             // 
@@ -186,9 +192,9 @@ namespace Weekend
             this.lblHerhaalWachtwoord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHerhaalWachtwoord.Location = new System.Drawing.Point(71, 339);
             this.lblHerhaalWachtwoord.Name = "lblHerhaalWachtwoord";
-            this.lblHerhaalWachtwoord.Size = new System.Drawing.Size(201, 25);
+            this.lblHerhaalWachtwoord.Size = new System.Drawing.Size(209, 25);
             this.lblHerhaalWachtwoord.TabIndex = 17;
-            this.lblHerhaalWachtwoord.Text = "Herhaal Wachtwoord:";
+            this.lblHerhaalWachtwoord.Text = "*Herhaal Wachtwoord:";
             // 
             // txtRegistreerAchternaam
             // 
@@ -231,9 +237,9 @@ namespace Weekend
             this.lblGebruikersNaamRegistreren.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGebruikersNaamRegistreren.Location = new System.Drawing.Point(83, 222);
             this.lblGebruikersNaamRegistreren.Name = "lblGebruikersNaamRegistreren";
-            this.lblGebruikersNaamRegistreren.Size = new System.Drawing.Size(170, 25);
+            this.lblGebruikersNaamRegistreren.Size = new System.Drawing.Size(178, 25);
             this.lblGebruikersNaamRegistreren.TabIndex = 11;
-            this.lblGebruikersNaamRegistreren.Text = "Gebruikers Naam:";
+            this.lblGebruikersNaamRegistreren.Text = "*Gebruikers Naam:";
             // 
             // lblAchternaam
             // 
@@ -241,9 +247,9 @@ namespace Weekend
             this.lblAchternaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAchternaam.Location = new System.Drawing.Point(106, 181);
             this.lblAchternaam.Name = "lblAchternaam";
-            this.lblAchternaam.Size = new System.Drawing.Size(124, 25);
+            this.lblAchternaam.Size = new System.Drawing.Size(132, 25);
             this.lblAchternaam.TabIndex = 10;
-            this.lblAchternaam.Text = "Achternaam:";
+            this.lblAchternaam.Text = "*Achternaam:";
             // 
             // lblTussenvoegsels
             // 
@@ -261,9 +267,9 @@ namespace Weekend
             this.lblVoornaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVoornaam.Location = new System.Drawing.Point(106, 110);
             this.lblVoornaam.Name = "lblVoornaam";
-            this.lblVoornaam.Size = new System.Drawing.Size(109, 25);
+            this.lblVoornaam.Size = new System.Drawing.Size(117, 25);
             this.lblVoornaam.TabIndex = 8;
-            this.lblVoornaam.Text = "Voornaam:";
+            this.lblVoornaam.Text = "*Voornaam:";
             // 
             // txtRegistreerVoornaam
             // 
@@ -295,9 +301,9 @@ namespace Weekend
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(102, 301);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(128, 25);
+            this.label9.Size = new System.Drawing.Size(136, 25);
             this.label9.TabIndex = 3;
-            this.label9.Text = "Wachtwoord:";
+            this.label9.Text = "*Wachtwoord:";
             // 
             // label10
             // 
@@ -305,14 +311,14 @@ namespace Weekend
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(128, 261);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(66, 25);
+            this.label10.Size = new System.Drawing.Size(74, 25);
             this.label10.TabIndex = 2;
-            this.label10.Text = "Email:";
+            this.label10.Text = "*Email:";
             // 
             // btnRegisteerAnnuleer
             // 
             this.btnRegisteerAnnuleer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegisteerAnnuleer.Location = new System.Drawing.Point(25, 405);
+            this.btnRegisteerAnnuleer.Location = new System.Drawing.Point(25, 431);
             this.btnRegisteerAnnuleer.Name = "btnRegisteerAnnuleer";
             this.btnRegisteerAnnuleer.Size = new System.Drawing.Size(307, 99);
             this.btnRegisteerAnnuleer.TabIndex = 8;
@@ -323,7 +329,7 @@ namespace Weekend
             // btnRegistreerConfirm
             // 
             this.btnRegistreerConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistreerConfirm.Location = new System.Drawing.Point(338, 405);
+            this.btnRegistreerConfirm.Location = new System.Drawing.Point(338, 431);
             this.btnRegistreerConfirm.Name = "btnRegistreerConfirm";
             this.btnRegistreerConfirm.Size = new System.Drawing.Size(307, 99);
             this.btnRegistreerConfirm.TabIndex = 7;
@@ -356,6 +362,36 @@ namespace Weekend
             this.pnlLogIn.Size = new System.Drawing.Size(668, 347);
             this.pnlLogIn.TabIndex = 7;
             this.pnlLogIn.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(97, 375);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(148, 25);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "*Account Type:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(130, 87);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(75, 16);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "* = verplicht";
+            // 
+            // cmbAccType
+            // 
+            this.cmbAccType.FormattingEnabled = true;
+            this.cmbAccType.Items.AddRange(new object[] {
+            "Student",
+            "Docent"});
+            this.cmbAccType.Location = new System.Drawing.Point(325, 375);
+            this.cmbAccType.Name = "cmbAccType";
+            this.cmbAccType.Size = new System.Drawing.Size(272, 24);
+            this.cmbAccType.TabIndex = 20;
             // 
             // Homepage
             // 
@@ -512,6 +548,7 @@ namespace Weekend
             var email = txtRegistreerEmail.Text;
             var pass = txtRegistreerPassword.Text;
             var passconfirm = txtPasswordConfirm.Text;
+            var rol= cmbAccType;
 
             if (fname == "" || lname == "" || usn == "" || email == "" || pass == "" || passconfirm == "")
             {
@@ -547,5 +584,9 @@ namespace Weekend
                 }
             }
         }
+
+        private ComboBox cmbAccType;
+        private Label label8;
+        private Label label5;
     }
 }
