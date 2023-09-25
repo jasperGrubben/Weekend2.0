@@ -389,32 +389,35 @@ namespace Weekend
         private void button1_Click(object sender, EventArgs e)
         {
             var email = txtEmailLogIn.Text;
-            var wachw = txtWachtwoordLogIn.Text;
+            var pass = txtWachtwoordLogIn.Text;
+            var passconfirm = txtPasswordConfirm.Text;
 
-            if(email == ""||  wachw == "")
-            {
-                MessageBox.Show("vul alle velden in");
-                return;
-            }
-            else
-            {
-                // Create a SHA3_256 hasher
-                using (SHA256 sha3 = SHA256.Create())
+            if (pass == passconfirm) {
+                if (email == "" || pass == "")
                 {
-                    // Convert the password string to bytes
-                    byte[] passwordBytes = Encoding.UTF8.GetBytes(wachw);
-
-                    // Compute the hash
-                    byte[] hashBytes = sha3.ComputeHash(passwordBytes);
-
-                    // Convert the hash to a hexadecimal string
-                    string hashedPassword = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
-
-                    // Now you can use the hashedPassword for storage or comparison
-                    // For example, you can store it in a database and compare it when a user logs in.
+                    MessageBox.Show("vul alle velden in");
+                    return;
                 }
+                else
+                {
+                    // Create a SHA3_256 hasher
+                    using (SHA256 sha3 = SHA256.Create())
+                    {
+                        // Convert the password string to bytes
+                        byte[] passwordBytes = Encoding.UTF8.GetBytes(pass);
+
+                        // Compute the hash
+                        byte[] hashBytes = sha3.ComputeHash(passwordBytes);
+
+                        // Convert the hash to a hexadecimal string
+                        string hashedPassword = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+
+                        // Now you can use the hashedPassword for storage or comparison
+                        // For example, you can store it in a database and compare it when a user logs in.
+                    }
+                }
+
             }
-            
         }
 
         private Button btnInloggen;
