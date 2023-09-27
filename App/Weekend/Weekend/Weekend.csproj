@@ -119,6 +119,7 @@
       <DependentUpon>leerling.cs</DependentUpon>
     </Compile>
     <Compile Include="leerling\snake\sakeGame.cs" />
+    <Compile Include="leerling\WhackAmole\whackAmoleGame.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -162,9 +163,6 @@
   <ItemGroup>
     <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
     <Content Include="obj\Debug\Weekend.csproj.FileListAbsolute.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="leerling\spel3\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
