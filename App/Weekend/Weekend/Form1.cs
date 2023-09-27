@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Weekend.leerling;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+
 namespace Weekend
 {
     public partial class Homepage : Form
@@ -63,6 +65,9 @@ namespace Weekend
             this.btnRegistreerConfirm = new System.Windows.Forms.Button();
             this.btnRegistreer = new System.Windows.Forms.Button();
             this.pnlLogIn = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbAccType = new System.Windows.Forms.ComboBox();
             this.pnlRegistreer.SuspendLayout();
             this.pnlLogIn.SuspendLayout();
             this.SuspendLayout();
@@ -109,7 +114,7 @@ namespace Weekend
             this.lblLogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogIn.Location = new System.Drawing.Point(224, 15);
             this.lblLogIn.Name = "lblLogIn";
-            this.lblLogIn.Size = new System.Drawing.Size(316, 108);
+            this.lblLogIn.Size = new System.Drawing.Size(201, 69);
             this.lblLogIn.TabIndex = 5;
             this.lblLogIn.Text = "Log In";
             this.lblLogIn.Click += new System.EventHandler(this.label8_Click);
@@ -120,7 +125,7 @@ namespace Weekend
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(139, 153);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(206, 37);
+            this.label7.Size = new System.Drawing.Size(128, 25);
             this.label7.TabIndex = 3;
             this.label7.Text = "Wachtwoord:";
             // 
@@ -130,7 +135,7 @@ namespace Weekend
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(165, 122);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(106, 37);
+            this.label6.Size = new System.Drawing.Size(66, 25);
             this.label6.TabIndex = 2;
             this.label6.Text = "Email:";
             // 
@@ -151,12 +156,15 @@ namespace Weekend
             this.lblWelkom.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWelkom.Location = new System.Drawing.Point(245, 39);
             this.lblWelkom.Name = "lblWelkom";
-            this.lblWelkom.Size = new System.Drawing.Size(397, 108);
+            this.lblWelkom.Size = new System.Drawing.Size(252, 69);
             this.lblWelkom.TabIndex = 4;
             this.lblWelkom.Text = "Welkom";
             // 
             // pnlRegistreer
             // 
+            this.pnlRegistreer.Controls.Add(this.cmbAccType);
+            this.pnlRegistreer.Controls.Add(this.label8);
+            this.pnlRegistreer.Controls.Add(this.label5);
             this.pnlRegistreer.Controls.Add(this.lblHerhaalWachtwoord);
             this.pnlRegistreer.Controls.Add(this.txtRegistreerAchternaam);
             this.pnlRegistreer.Controls.Add(this.txtRegistreerUsername);
@@ -174,9 +182,9 @@ namespace Weekend
             this.pnlRegistreer.Controls.Add(this.label10);
             this.pnlRegistreer.Controls.Add(this.btnRegisteerAnnuleer);
             this.pnlRegistreer.Controls.Add(this.btnRegistreerConfirm);
-            this.pnlRegistreer.Location = new System.Drawing.Point(955, 251);
+            this.pnlRegistreer.Location = new System.Drawing.Point(735, 21);
             this.pnlRegistreer.Name = "pnlRegistreer";
-            this.pnlRegistreer.Size = new System.Drawing.Size(1005, 619);
+            this.pnlRegistreer.Size = new System.Drawing.Size(684, 596);
             this.pnlRegistreer.TabIndex = 100;
             this.pnlRegistreer.Visible = false;
             // 
@@ -186,43 +194,43 @@ namespace Weekend
             this.lblHerhaalWachtwoord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHerhaalWachtwoord.Location = new System.Drawing.Point(71, 339);
             this.lblHerhaalWachtwoord.Name = "lblHerhaalWachtwoord";
-            this.lblHerhaalWachtwoord.Size = new System.Drawing.Size(327, 37);
+            this.lblHerhaalWachtwoord.Size = new System.Drawing.Size(209, 25);
             this.lblHerhaalWachtwoord.TabIndex = 17;
-            this.lblHerhaalWachtwoord.Text = "Herhaal Wachtwoord:";
+            this.lblHerhaalWachtwoord.Text = "*Herhaal Wachtwoord:";
             // 
             // txtRegistreerAchternaam
             // 
             this.txtRegistreerAchternaam.Location = new System.Drawing.Point(325, 185);
             this.txtRegistreerAchternaam.Name = "txtRegistreerAchternaam";
-            this.txtRegistreerAchternaam.Size = new System.Drawing.Size(272, 31);
+            this.txtRegistreerAchternaam.Size = new System.Drawing.Size(272, 22);
             this.txtRegistreerAchternaam.TabIndex = 2;
             // 
             // txtRegistreerUsername
             // 
             this.txtRegistreerUsername.Location = new System.Drawing.Point(325, 226);
             this.txtRegistreerUsername.Name = "txtRegistreerUsername";
-            this.txtRegistreerUsername.Size = new System.Drawing.Size(272, 31);
+            this.txtRegistreerUsername.Size = new System.Drawing.Size(272, 22);
             this.txtRegistreerUsername.TabIndex = 3;
             // 
             // txtPasswordConfirm
             // 
             this.txtPasswordConfirm.Location = new System.Drawing.Point(325, 343);
             this.txtPasswordConfirm.Name = "txtPasswordConfirm";
-            this.txtPasswordConfirm.Size = new System.Drawing.Size(272, 31);
+            this.txtPasswordConfirm.Size = new System.Drawing.Size(272, 22);
             this.txtPasswordConfirm.TabIndex = 6;
             // 
             // txtRegistreerPassword
             // 
             this.txtRegistreerPassword.Location = new System.Drawing.Point(325, 305);
             this.txtRegistreerPassword.Name = "txtRegistreerPassword";
-            this.txtRegistreerPassword.Size = new System.Drawing.Size(272, 31);
+            this.txtRegistreerPassword.Size = new System.Drawing.Size(272, 22);
             this.txtRegistreerPassword.TabIndex = 5;
             // 
             // txtRegistreerEmail
             // 
             this.txtRegistreerEmail.Location = new System.Drawing.Point(325, 265);
             this.txtRegistreerEmail.Name = "txtRegistreerEmail";
-            this.txtRegistreerEmail.Size = new System.Drawing.Size(272, 31);
+            this.txtRegistreerEmail.Size = new System.Drawing.Size(272, 22);
             this.txtRegistreerEmail.TabIndex = 4;
             // 
             // lblGebruikersNaamRegistreren
@@ -231,9 +239,9 @@ namespace Weekend
             this.lblGebruikersNaamRegistreren.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGebruikersNaamRegistreren.Location = new System.Drawing.Point(83, 222);
             this.lblGebruikersNaamRegistreren.Name = "lblGebruikersNaamRegistreren";
-            this.lblGebruikersNaamRegistreren.Size = new System.Drawing.Size(278, 37);
+            this.lblGebruikersNaamRegistreren.Size = new System.Drawing.Size(178, 25);
             this.lblGebruikersNaamRegistreren.TabIndex = 11;
-            this.lblGebruikersNaamRegistreren.Text = "Gebruikers Naam:";
+            this.lblGebruikersNaamRegistreren.Text = "*Gebruikers Naam:";
             // 
             // lblAchternaam
             // 
@@ -241,9 +249,9 @@ namespace Weekend
             this.lblAchternaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAchternaam.Location = new System.Drawing.Point(106, 181);
             this.lblAchternaam.Name = "lblAchternaam";
-            this.lblAchternaam.Size = new System.Drawing.Size(200, 37);
+            this.lblAchternaam.Size = new System.Drawing.Size(132, 25);
             this.lblAchternaam.TabIndex = 10;
-            this.lblAchternaam.Text = "Achternaam:";
+            this.lblAchternaam.Text = "*Achternaam:";
             // 
             // lblTussenvoegsels
             // 
@@ -251,7 +259,7 @@ namespace Weekend
             this.lblTussenvoegsels.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTussenvoegsels.Location = new System.Drawing.Point(83, 145);
             this.lblTussenvoegsels.Name = "lblTussenvoegsels";
-            this.lblTussenvoegsels.Size = new System.Drawing.Size(255, 37);
+            this.lblTussenvoegsels.Size = new System.Drawing.Size(162, 25);
             this.lblTussenvoegsels.TabIndex = 9;
             this.lblTussenvoegsels.Text = "Tussenvoegsels:";
             // 
@@ -261,22 +269,22 @@ namespace Weekend
             this.lblVoornaam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVoornaam.Location = new System.Drawing.Point(106, 110);
             this.lblVoornaam.Name = "lblVoornaam";
-            this.lblVoornaam.Size = new System.Drawing.Size(176, 37);
+            this.lblVoornaam.Size = new System.Drawing.Size(117, 25);
             this.lblVoornaam.TabIndex = 8;
-            this.lblVoornaam.Text = "Voornaam:";
+            this.lblVoornaam.Text = "*Voornaam:";
             // 
             // txtRegistreerVoornaam
             // 
             this.txtRegistreerVoornaam.Location = new System.Drawing.Point(325, 114);
             this.txtRegistreerVoornaam.Name = "txtRegistreerVoornaam";
-            this.txtRegistreerVoornaam.Size = new System.Drawing.Size(272, 31);
+            this.txtRegistreerVoornaam.Size = new System.Drawing.Size(272, 22);
             this.txtRegistreerVoornaam.TabIndex = 0;
             // 
             // txtRegistreerTussenvoegsels
             // 
             this.txtRegistreerTussenvoegsels.Location = new System.Drawing.Point(325, 149);
             this.txtRegistreerTussenvoegsels.Name = "txtRegistreerTussenvoegsels";
-            this.txtRegistreerTussenvoegsels.Size = new System.Drawing.Size(272, 31);
+            this.txtRegistreerTussenvoegsels.Size = new System.Drawing.Size(272, 22);
             this.txtRegistreerTussenvoegsels.TabIndex = 1;
             // 
             // lblRegistreer
@@ -285,7 +293,7 @@ namespace Weekend
             this.lblRegistreer.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRegistreer.Location = new System.Drawing.Point(84, 18);
             this.lblRegistreer.Name = "lblRegistreer";
-            this.lblRegistreer.Size = new System.Drawing.Size(890, 108);
+            this.lblRegistreer.Size = new System.Drawing.Size(563, 69);
             this.lblRegistreer.TabIndex = 5;
             this.lblRegistreer.Text = "Account Aanmaken";
             // 
@@ -295,9 +303,9 @@ namespace Weekend
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(102, 301);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(206, 37);
+            this.label9.Size = new System.Drawing.Size(136, 25);
             this.label9.TabIndex = 3;
-            this.label9.Text = "Wachtwoord:";
+            this.label9.Text = "*Wachtwoord:";
             // 
             // label10
             // 
@@ -305,14 +313,14 @@ namespace Weekend
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(128, 261);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(106, 37);
+            this.label10.Size = new System.Drawing.Size(74, 25);
             this.label10.TabIndex = 2;
-            this.label10.Text = "Email:";
+            this.label10.Text = "*Email:";
             // 
             // btnRegisteerAnnuleer
             // 
             this.btnRegisteerAnnuleer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegisteerAnnuleer.Location = new System.Drawing.Point(25, 405);
+            this.btnRegisteerAnnuleer.Location = new System.Drawing.Point(25, 431);
             this.btnRegisteerAnnuleer.Name = "btnRegisteerAnnuleer";
             this.btnRegisteerAnnuleer.Size = new System.Drawing.Size(307, 99);
             this.btnRegisteerAnnuleer.TabIndex = 8;
@@ -323,12 +331,13 @@ namespace Weekend
             // btnRegistreerConfirm
             // 
             this.btnRegistreerConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistreerConfirm.Location = new System.Drawing.Point(338, 405);
+            this.btnRegistreerConfirm.Location = new System.Drawing.Point(338, 431);
             this.btnRegistreerConfirm.Name = "btnRegistreerConfirm";
             this.btnRegistreerConfirm.Size = new System.Drawing.Size(307, 99);
             this.btnRegistreerConfirm.TabIndex = 7;
             this.btnRegistreerConfirm.Text = "Registreer";
             this.btnRegistreerConfirm.UseVisualStyleBackColor = true;
+            this.btnRegistreerConfirm.Click += new System.EventHandler(this.btnRegistreerConfirm_Click);
             // 
             // btnRegistreer
             // 
@@ -355,6 +364,36 @@ namespace Weekend
             this.pnlLogIn.Size = new System.Drawing.Size(668, 347);
             this.pnlLogIn.TabIndex = 7;
             this.pnlLogIn.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(97, 375);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(148, 25);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "*Account Type:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(130, 87);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(75, 16);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "* = verplicht";
+            // 
+            // cmbAccType
+            // 
+            this.cmbAccType.FormattingEnabled = true;
+            this.cmbAccType.Items.AddRange(new object[] {
+            "Student",
+            "Docent"});
+            this.cmbAccType.Location = new System.Drawing.Point(325, 375);
+            this.cmbAccType.Name = "cmbAccType";
+            this.cmbAccType.Size = new System.Drawing.Size(272, 24);
+            this.cmbAccType.TabIndex = 20;
             // 
             // Homepage
             // 
@@ -389,7 +428,8 @@ namespace Weekend
         private void button1_Click(object sender, EventArgs e)
         {
             var email = txtEmailLogIn.Text;
-            var wachw = txtWachtwoordLogIn.Text;
+            var pass = txtWachtwoordLogIn.Text;
+            var passconfirm = txtPasswordConfirm.Text;
 
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(wachw))
             {
@@ -408,6 +448,7 @@ namespace Weekend
                     using (MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;"))
                     {
                         connection.Open();
+                        byte[] hashBytes = sha3.ComputeHash(passwordBytes);
 
                         string query = "SELECT `Email`, `Wachtwoord` FROM `account` WHERE `Email` = @Email AND `Wachtwoord` = @Wachtwoord";
                         MySqlCommand login = new MySqlCommand(query, connection);
@@ -461,6 +502,7 @@ namespace Weekend
                         }
                     }
                 }
+
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
@@ -556,5 +598,67 @@ namespace Weekend
             pnlRegistreer.Location = new System.Drawing.Point(42,12);
 
         }
+
+        private void btnRegistreerConfirm_Click(object sender, EventArgs e)
+        {
+            var fname = txtRegistreerVoornaam.Text;
+            var Infix = txtRegistreerTussenvoegsels.Text;
+            var lname = txtRegistreerAchternaam.Text;
+            var usn = txtRegistreerUsername.Text;
+            var email = txtRegistreerEmail.Text;
+            var pass = txtRegistreerPassword.Text;
+            var passconfirm = txtPasswordConfirm.Text;
+            var role= cmbAccType.SelectedItem;
+            switch (cmbAccType.SelectedItem.ToString())
+            {
+                case "student":
+                    role = "3";
+                    break;
+                case "teacher":
+                    role = "2";
+                    break;
+                default:
+                    // Handle any other cases or set a default value if needed
+                    role = ""; // Default value (you can choose another value)
+                    break;
+            }
+            if (fname == "" || lname == "" || usn == "" || email == "" || pass == "" || passconfirm == "")
+            {
+                MessageBox.Show("vul alle velden in verplichte* velden in");
+                return;
+            }
+            else
+            {
+                if (pass != passconfirm)
+                {
+                    MessageBox.Show("Het herhaalde wachtwoord komt niet met het wachtwoord overeen.");
+                    return;
+                }
+                else
+                {
+                    // Create a SHA3_256 hasher
+                    using (SHA256 sha3 = SHA256.Create())
+                    {
+                        // Convert the password string to bytes
+                        byte[] passwordBytes = Encoding.UTF8.GetBytes(pass);
+
+                        // Compute the hash
+                        byte[] hashBytes = sha3.ComputeHash(passwordBytes);
+
+                        // Convert the hash to a hexadecimal string
+                        string hashedPassword = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+
+                        // Now you can use the hashedPassword for storage or comparison
+                        // For example, you can store it in a database and compare it when a user logs in.
+                    }
+
+
+                }
+            }
+        }
+
+        private ComboBox cmbAccType;
+        private Label label8;
+        private Label label5;
     }
 }
