@@ -49,6 +49,21 @@ namespace Weekend.docent
 
         private void gamesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Check if the panel is visible.
+            if (pnlGame.Visible)
+            {
+                // Set the panel's visibility to false.
+                pnlGame.Visible = false;
+            }
+            else
+            {
+                // Set the panel's visibility to true.
+                pnlGame.Visible = true;
+            }
+        }
+
+        private void pnlKlassen_Paint(object sender, PaintEventArgs e)
+        {
 
         }
 
