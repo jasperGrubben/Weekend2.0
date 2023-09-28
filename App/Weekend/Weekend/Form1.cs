@@ -437,7 +437,7 @@ namespace Weekend
                 MessageBox.Show("Vul alle velden in");
                 return;
             }
-            //belangrijke update!!branche1
+            //belangrijke update!!getto
             try
             {
                 using (SHA256 sha256 = SHA256.Create())
