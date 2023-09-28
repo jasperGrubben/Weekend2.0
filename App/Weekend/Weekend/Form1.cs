@@ -448,6 +448,7 @@ namespace Weekend
                     using (MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;"))
                     {
                         connection.Open();
+                        byte[] hashBytes = sha3.ComputeHash(passwordBytes);
 
                         string query = "SELECT `Email`, `Wachtwoord` FROM `account` WHERE `Email` = @Email AND `Wachtwoord` = @Wachtwoord";
                         MySqlCommand login = new MySqlCommand(query, connection);
