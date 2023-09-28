@@ -428,11 +428,11 @@ namespace Weekend
         //login knop
         private void button1_Click(object sender, EventArgs e)
         {
-            var email = txtEmailLogIn.Text;
+            var gebruiker = txtEmailLogIn.Text;
             var pass = txtWachtwoordLogIn.Text;
             //waarom is deze er??? var passconfirm = txtPasswordConfirm.Text;
 
-            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(pass))
+            if (string.IsNullOrWhiteSpace(gebruiker) || string.IsNullOrWhiteSpace(pass))
             {
                 MessageBox.Show("Vul alle velden in");
                 return;
@@ -449,13 +449,11 @@ namespace Weekend
                     {                        
                         connection.Open();
                         
-                        string query = "SELECT `Email`, `Wachtwoord` FROM `account` WHERE `Email` = @Email AND `Wachtwoord` = @Wachtwoord";
+                        string query = "SELECT `Gebruikersnaam`, `wachtwoord`,`RolID` FROM `account` WHERE `Gebruikersnaam`='@Gebruiker'";
                         MySqlCommand login = new MySqlCommand(query, connection);
-                        login.Parameters.AddWithValue("@Email", email);
+                        login.Parameters.AddWithValue("@Gebruiker", gebruiker);
                         login.Parameters.AddWithValue("@Wachtwoord", hashedPassword);
-
-                        using (MySqlDataReader reader = login.ExecuteReader())
-                        {
+                        MySqlDataReader reader = login.ExecuteReader();
                             if (reader.Read())
                             {
                                 string storedHashedPassword = reader["Wachtwoord"].ToString();
@@ -499,10 +497,8 @@ namespace Weekend
                             {
                                 MessageBox.Show("User not found.");
                             }
-                        }
                     }
                 }
-
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
