@@ -430,7 +430,6 @@ namespace Weekend
         {
             var gebruiker = txtEmailLogIn.Text;
             var pass = txtWachtwoordLogIn.Text;
-            //waarom is deze er??? var passconfirm = txtPasswordConfirm.Text;
 
             if (string.IsNullOrWhiteSpace(gebruiker) || string.IsNullOrWhiteSpace(pass))
             {
@@ -453,11 +452,18 @@ namespace Weekend
                         MySqlCommand login = new MySqlCommand(query, connection);
                         login.Parameters.AddWithValue("@Gebruiker", gebruiker);
                         login.Parameters.AddWithValue("@Wachtwoord", hashedPassword);
-                        MySqlDataReader reader = login.ExecuteReader();
-                            if (reader.Read())
+                        try
+                        {
+                            MySqlDataReader reader = login.ExecuteReader();
+                        }
+                        catch (Exception err)
+                        {
+                            MessageBox.Show("Error: " + err.Message);
+                        }
+                        /*if (reader.Read())
                             {
                                 string storedHashedPassword = reader["Wachtwoord"].ToString();
-
+                                
                                 if (hashedPassword == storedHashedPassword)
                                 {
                                     for (int i = 1; i < 4; i++)
@@ -496,7 +502,7 @@ namespace Weekend
                             else
                             {
                                 MessageBox.Show("User not found.");
-                            }
+                            }*/
                     }
                 }
             }
