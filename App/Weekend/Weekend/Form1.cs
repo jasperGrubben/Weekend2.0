@@ -23,6 +23,25 @@ namespace Weekend
             InitializeComponent();
         }
 
+        static void DB_Connect()
+        {
+            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;");
+        }
+
+
+        static string ComputeSHA256Hash(string unhashedpass)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] inputBytes = Encoding.UTF8.GetBytes(unhashedpass);
+                byte[] hashBytes = sha256.ComputeHash(inputBytes);
+                string hashedPassword = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+
+                return hashedPassword;
+            }
+        }
+
+
         private void btnLeerling_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -612,8 +631,10 @@ namespace Weekend
             {
                 if (pass != passconfirm)
                 {
-                    MessageBox.Show("Het herhaalde wachtwoord komt niet met het wachtwoord overeen.");
-                    return;
+                    ComputeSHA256Hash(pass);
+                    DB_Connect();
+                    MySqlCommand q = new MySqlCommand("INSERT INTO account(email, pass) VALUES (@email, @pass)");
+
                 }
                 else
                 {
@@ -652,6 +673,9 @@ namespace Weekend
                         }
                     }
                 }
+            }
+            else
+            { 
             }
         }
 
