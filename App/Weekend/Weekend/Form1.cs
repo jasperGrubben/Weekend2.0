@@ -1,3 +1,4 @@
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,25 @@ namespace Weekend
         {
             InitializeComponent();
         }
+
+        static void DB_Connect()
+        {
+            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;");
+        }
+
+
+        static string ComputeSHA256Hash(string unhashedpass)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] inputBytes = Encoding.UTF8.GetBytes(unhashedpass);
+                byte[] hashBytes = sha256.ComputeHash(inputBytes);
+                string hashedPassword = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+
+                return hashedPassword;
+            }
+        }
+
 
         private void btnLeerling_Click(object sender, EventArgs e)
         {
@@ -548,52 +568,34 @@ namespace Weekend
             var email = txtRegistreerEmail.Text;
             var pass = txtRegistreerPassword.Text;
             var passconfirm = txtPasswordConfirm.Text;
-            var role= cmbAccType.SelectedItem;
-            switch (cmbAccType.SelectedItem.ToString())
+            var selectedrole = Convert.ToString(cmbAccType.SelectedItem);
+            var role = "";
+            switch (selectedrole)
             {
-                case "student":
+                case "Student":
                     role = "3";
                     break;
-                case "teacher":
+                case "Docent":
                     role = "2";
                     break;
-                default:
-                    // Handle any other cases or set a default value if needed
-                    role = ""; // Default value (you can choose another value)
-                    break;
             }
-            if (fname == "" || lname == "" || usn == "" || email == "" || pass == "" || passconfirm == "")
+            if (fname != "" || lname != "" || usn != "" || email != "" || pass != "" || passconfirm != "" || role != "")
             {
-                MessageBox.Show("vul alle velden in verplichte* velden in");
-                return;
-            }
-            else
-            {
-                if (pass != passconfirm)
+                if (pass == passconfirm)
                 {
-                    MessageBox.Show("Het herhaalde wachtwoord komt niet met het wachtwoord overeen.");
-                    return;
+                    ComputeSHA256Hash(pass);
+                    DB_Connect();
+                    MySqlCommand q = new MySqlCommand("INSERT INTO account(email, pass) VALUES (@email, @pass)");
+
                 }
                 else
                 {
-                    // Create a SHA3_256 hasher
-                    using (SHA256 sha3 = SHA256.Create())
-                    {
-                        // Convert the password string to bytes
-                        byte[] passwordBytes = Encoding.UTF8.GetBytes(pass);
-
-                        // Compute the hash
-                        byte[] hashBytes = sha3.ComputeHash(passwordBytes);
-
-                        // Convert the hash to a hexadecimal string
-                        string hashedPassword = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
-
-                        // Now you can use the hashedPassword for storage or comparison
-                        // For example, you can store it in a database and compare it when a user logs in.
-                    }
-
-
+                    MessageBox.Show("vul alle velden in verplichte* velden in");
+                    return;
                 }
+            }
+            else
+            { 
             }
         }
 
