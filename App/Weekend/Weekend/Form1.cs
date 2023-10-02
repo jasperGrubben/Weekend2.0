@@ -448,19 +448,12 @@ namespace Weekend
                     {                        
                         connection.Open();
                         
-                        string query = "SELECT `Gebruikersnaam`, `wachtwoord`,`RolID` FROM `account` WHERE `Gebruikersnaam`='@Gebruiker'";
+                        string query = "SELECT `Gebruikersnaam`, `wachtwoord`,`RolID` FROM `account` WHERE `Gebruikersnaam`=@Gebruiker";
                         MySqlCommand login = new MySqlCommand(query, connection);
                         login.Parameters.AddWithValue("@Gebruiker", gebruiker);
                         login.Parameters.AddWithValue("@Wachtwoord", hashedPassword);
-                        try
-                        {
-                            MySqlDataReader reader = login.ExecuteReader();
-                        }
-                        catch (Exception err)
-                        {
-                            MessageBox.Show("Error: " + err.Message);
-                        }
-                        /*if (reader.Read())
+                        MySqlDataReader reader = login.ExecuteReader();
+                        if (reader.Read())
                             {
                                 string storedHashedPassword = reader["Wachtwoord"].ToString();
                                 
@@ -502,17 +495,17 @@ namespace Weekend
                             else
                             {
                                 MessageBox.Show("User not found.");
-                            }*/
+                            }
                     }
                 }
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("An error occurred: " + ex.Message);
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
 
