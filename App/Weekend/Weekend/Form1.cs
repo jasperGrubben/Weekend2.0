@@ -430,7 +430,6 @@ namespace Weekend
         {
             var gebruiker = txtEmailLogIn.Text;
             var pass = txtWachtwoordLogIn.Text;
-            //waarom is deze er??? var passconfirm = txtPasswordConfirm.Text;
 
             if (string.IsNullOrWhiteSpace(gebruiker) || string.IsNullOrWhiteSpace(pass))
             {
@@ -449,15 +448,15 @@ namespace Weekend
                     {                        
                         connection.Open();
                         
-                        string query = "SELECT `Gebruikersnaam`, `wachtwoord`,`RolID` FROM `account` WHERE `Gebruikersnaam`='@Gebruiker'";
+                        string query = "SELECT `Gebruikersnaam`, `wachtwoord`,`RolID` FROM `account` WHERE `Gebruikersnaam`=@Gebruiker";
                         MySqlCommand login = new MySqlCommand(query, connection);
                         login.Parameters.AddWithValue("@Gebruiker", gebruiker);
                         login.Parameters.AddWithValue("@Wachtwoord", hashedPassword);
                         MySqlDataReader reader = login.ExecuteReader();
-                            if (reader.Read())
+                        if (reader.Read())
                             {
                                 string storedHashedPassword = reader["Wachtwoord"].ToString();
-
+                                
                                 if (hashedPassword == storedHashedPassword)
                                 {
                                     for (int i = 1; i < 4; i++)
@@ -502,11 +501,11 @@ namespace Weekend
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("An error occurred: " + ex.Message);
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
 
