@@ -72,10 +72,10 @@
             // 
             // pbBird
             // 
-            this.pbBird.Image = global::Weekend.Properties.Resources.bird___kopie;
+            this.pbBird.Image = global::Weekend.Properties.Resources.bird;
             this.pbBird.Location = new System.Drawing.Point(69, 337);
             this.pbBird.Name = "pbBird";
-            this.pbBird.Size = new System.Drawing.Size(157, 105);
+            this.pbBird.Size = new System.Drawing.Size(157, 125);
             this.pbBird.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBird.TabIndex = 0;
             this.pbBird.TabStop = false;
@@ -114,6 +114,7 @@
             this.Controls.Add(this.pbBird);
             this.Name = "FlappyBird";
             this.Text = "FlappyBird";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pbTopPipe)).EndInit();
@@ -122,7 +123,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBird)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

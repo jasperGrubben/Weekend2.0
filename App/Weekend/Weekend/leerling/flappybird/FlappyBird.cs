@@ -68,7 +68,6 @@ namespace Weekend.leerling.flappybird
             _gravity = 15;
             _pipeSpeed = 8;
         }
-
         private void frmMain_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space)
