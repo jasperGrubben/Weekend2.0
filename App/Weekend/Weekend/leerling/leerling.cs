@@ -37,7 +37,7 @@ namespace Weekend.leerling
                     // Read the data
                     while (reader.Read())
                     {
-                        Console.WriteLine(reader["Username"]);
+                        Console.WriteLine(reader["Gebruikersnaam"]);
                     }
                     // Close the SqlDataReader object.
                     reader.Close();

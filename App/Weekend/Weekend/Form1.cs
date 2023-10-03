@@ -467,14 +467,13 @@ namespace Weekend
         {
             var gebruiker = txtEmailLogIn.Text;
             var pass = txtWachtwoordLogIn.Text;
-            //waarom is deze er??? var passconfirm = txtPasswordConfirm.Text;
 
             if (string.IsNullOrWhiteSpace(gebruiker) || string.IsNullOrWhiteSpace(pass))
             {
                 MessageBox.Show("Vul alle velden in");
                 return;
             }
-            //belangrijke update!!getto2
+
             try
             {
                 using (SHA256 sha256 = SHA256.Create())
@@ -486,21 +485,21 @@ namespace Weekend
                     {                        
                         connection.Open();
                         
-                        string query = "SELECT `Gebruikersnaam`, `wachtwoord`,`RolID` FROM `account` WHERE `Gebruikersnaam`='@Gebruiker'";
+                        string query = "SELECT `Gebruikersnaam`, `wachtwoord` FROM `account` WHERE `Gebruikersnaam`=@Gebruiker";
                         MySqlCommand login = new MySqlCommand(query, connection);
                         login.Parameters.AddWithValue("@Gebruiker", gebruiker);
                         login.Parameters.AddWithValue("@Wachtwoord", hashedPassword);
                         MySqlDataReader reader = login.ExecuteReader();
-                            if (reader.Read())
+                        if (reader.Read())
                             {
                                 string storedHashedPassword = reader["Wachtwoord"].ToString();
-
+                                
                                 if (hashedPassword == storedHashedPassword)
                                 {
                                     for (int i = 1; i < 4; i++)
                                     {
                                         reader.Close();
-                                        string rolQuery = "SELECT * FROM `profiel` LEFT JOIN `rollen` ON profiel.RolID = rollen.RolID WHERE profiel.RolID = @roll";
+                                        string rolQuery = "SELECT * FROM `account` LEFT JOIN `rol` ON account.RolID = Rol.RolID WHERE account.RolID = @roll";
                                         MySqlCommand checkrol = new MySqlCommand(rolQuery, connection);
                                         checkrol.Parameters.AddWithValue("@roll", i.ToString());
 
@@ -539,11 +538,11 @@ namespace Weekend
             }
             catch (MySql.Data.MySqlClient.MySqlException ex)
             {
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("An error occurred: " + ex.Message);
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
 
