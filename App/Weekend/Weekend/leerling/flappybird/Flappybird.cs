@@ -1,6 +1,6 @@
 ﻿namespace Weekend.leerling.flappybird
 {
-    public interface flappybirdGame
+    public interface Flappybird
     {
         
     }

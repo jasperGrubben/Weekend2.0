@@ -111,7 +111,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="leerling\flappybird\flappybirdGame.cs" />
+    <Compile Include="leerling\flappybird\Flappybird.cs" />
     <Compile Include="leerling\leerling.cs">
       <SubType>Form</SubType>
     </Compile>

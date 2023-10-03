@@ -480,7 +480,6 @@ namespace Weekend
                                                 this.Hide();
                                                 var temp = new leerling.leerling();
                                                 temp.Show();
-                                                temp.Close();
                                             }
                                         }
                                     }
