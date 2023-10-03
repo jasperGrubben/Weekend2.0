@@ -102,7 +102,6 @@
             this.Controls.Add(this.pbBird);
             this.Name = "FlappyBird";
             this.Text = "FlappyBird";
-            this.Load += new System.EventHandler(this.FlappyBird_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbTopPipe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPipeDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGround)).EndInit();

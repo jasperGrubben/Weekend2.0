@@ -96,11 +96,6 @@ namespace Weekend.leerling
             FillTextYESS();
             datum();
         }
-
-        private void lblconnection_Click(object sender, EventArgs e)
-        {
-
-        }
         public void datum()
         {
             lblDatum.Text = DateTime.Now.ToString();
@@ -110,13 +105,13 @@ namespace Weekend.leerling
         {
             this.Hide();
             temp = new flappybird.FlappyBird();
-            temp.FormClosed += FlappyBird_FormClosed; // Subscribe to the FormClosed event
+            temp.FormClosed += FlappyBird_FormClosed; 
             temp.Show();
         }
         
         private void FlappyBird_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Show(); // Show the original window when FlappyBird form is closed
+            this.Show(); // laat het orgigineel weer zien
         }
 
         private void FillTextYESS()

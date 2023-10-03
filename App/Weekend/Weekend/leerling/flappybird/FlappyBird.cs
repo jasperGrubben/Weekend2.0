@@ -12,11 +12,6 @@ namespace Weekend.leerling.flappybird
 {
     public partial class FlappyBird : Form
     {
-
-        private void FlappyBird_Load(object sender, EventArgs e)
-        {
-            InitializeComponent();
-        }
         private int _gravity = 15;
         private int _pipeSpeed = 8;
         private int _score = 0;
