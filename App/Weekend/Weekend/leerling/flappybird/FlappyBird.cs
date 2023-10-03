@@ -12,14 +12,10 @@ namespace Weekend.leerling.flappybird
 {
     public partial class FlappyBird : Form
     {
-        public FlappyBird()
-        {
-            InitializeComponent();
-        }
 
         private void FlappyBird_Load(object sender, EventArgs e)
         {
-
+            InitializeComponent();
         }
         private int _gravity = 15;
         private int _pipeSpeed = 8;
@@ -71,7 +67,7 @@ namespace Weekend.leerling.flappybird
             MessageBox.Show("Game Over !!");
         }
 
-        public frmMain()
+        public FlappyBird()
         {
             InitializeComponent();
             _gravity = 15;
