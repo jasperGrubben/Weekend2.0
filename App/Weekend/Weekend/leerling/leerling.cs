@@ -12,6 +12,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Xml.Linq;
 using System.Drawing.Text;
 using MySql.Data.MySqlClient;
+using Weekend.leerling.flappybird;
 
 namespace Weekend.leerling
 {
@@ -106,7 +107,8 @@ namespace Weekend.leerling
 
         private void btnOpdr1_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            var temp = new flappybird.FlappyBird();
         }
 
         private void FillTextYESS()

@@ -169,6 +169,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="leerling\flappybird\images\bird - kopie.png" />
+    <None Include="leerling\flappybird\images\ground.png" />
+    <None Include="leerling\flappybird\images\pipe.png" />
+    <None Include="leerling\flappybird\images\pipedown.png" />
     <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
     <Content Include="obj\Debug\Weekend.csproj.FileListAbsolute.txt" />
   </ItemGroup>
