@@ -68,7 +68,7 @@ namespace Weekend.leerling.flappybird
             _gravity = 15;
             _pipeSpeed = 8;
         }
-        private void frmMain_KeyDown(object sender, KeyEventArgs e)
+        private void FlappyBird_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space)
             {
@@ -89,7 +89,7 @@ namespace Weekend.leerling.flappybird
         }
 
 
-        private void frmMain_KeyUp(object sender, KeyEventArgs e)
+        private void FlappyBird_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space)
             {
@@ -116,7 +116,7 @@ namespace Weekend.leerling.flappybird
 
         }
 
-        private void frmMain_KeyPress(object sender, KeyPressEventArgs e)
+        private void FlappyBird_KeyPress(object sender, KeyPressEventArgs e)
         {
 
             // if (e.KeyChar ==  (Char)Keys.Space)

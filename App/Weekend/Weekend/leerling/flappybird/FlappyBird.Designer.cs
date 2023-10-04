@@ -115,8 +115,8 @@
             this.Name = "FlappyBird";
             this.Text = "FlappyBird";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyUp);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FlappyBird_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FlappyBird_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pbTopPipe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPipeDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGround)).EndInit();
