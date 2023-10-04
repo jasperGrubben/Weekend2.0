@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -55,8 +55,6 @@
     <Reference Include="MySql.Data, Version=8.1.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.1.0\lib\net48\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -87,7 +85,6 @@
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
-    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -97,7 +94,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
     <Reference Include="ZstdSharp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
       <HintPath>..\packages\ZstdSharp.Port.0.7.1\lib\net461\ZstdSharp.dll</HintPath>
     </Reference>
@@ -122,21 +118,7 @@
     <Compile Include="leerling\leerling.Designer.cs">
       <DependentUpon>leerling.cs</DependentUpon>
     </Compile>
-    <Compile Include="leerling\snake\snakegame\snakegame\App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="leerling\snake\snakegame\snakegame\AssemblyInfo.cs" />
-    <Compile Include="leerling\snake\snakegame\snakegame\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0-windows\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" />
-    <Compile Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0-windows\App.g.i.cs" />
-    <Compile Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0-windows\MainWindow.g.i.cs" />
-    <Compile Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0-windows\SnakeGame.AssemblyInfo.cs" />
-    <Compile Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" />
-    <Compile Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0\snakegame.AssemblyInfo.cs" />
-    <Compile Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0\snakegame.GlobalUsings.g.cs" />
-    <Compile Include="leerling\snake\snakegame\snakegame\Program.cs" />
+    <Compile Include="leerling\snake\sakeGame.cs" />
     <Compile Include="leerling\WhackAmole\whackAmoleGame.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
@@ -160,29 +142,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="leerling\snake\snakegame\snakegame\bin\Debug\net6.0\snakegame.deps.json" />
-    <None Include="leerling\snake\snakegame\snakegame\bin\Debug\net6.0\snakegame.runtimeconfig.json" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0-windows\SnakeGame.AssemblyInfoInputs.cache" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0-windows\SnakeGame.assets.cache" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0-windows\SnakeGame.csproj.AssemblyReference.cache" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0-windows\SnakeGame.designer.deps.json" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0-windows\SnakeGame.designer.runtimeconfig.json" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0-windows\SnakeGame.GeneratedMSBuildEditorConfig.editorconfig" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0-windows\SnakeGame_MarkupCompile.i.cache" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0-windows\SnakeGame_MarkupCompile.i.lref" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0\snakegame.AssemblyInfoInputs.cache" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0\snakegame.assets.cache" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0\snakegame.csproj.AssemblyReference.cache" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0\snakegame.csproj.BuildWithSkipAnalyzers" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0\snakegame.csproj.CoreCompileInputs.cache" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0\snakegame.GeneratedMSBuildEditorConfig.editorconfig" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0\snakegame.genruntimeconfig.cache" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\project.assets.json" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\project.nuget.cache" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\SnakeGame.csproj.nuget.dgspec.json" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\snakegame.csproj.nuget.g.props" />
-    <None Include="leerling\snake\snakegame\snakegame\obj\snakegame.csproj.nuget.g.targets" />
-    <None Include="leerling\snake\snakegame\snakegame\snakegame.csproj" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\Weekend.csproj.AssemblyReference.cache" />
@@ -202,34 +161,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="leerling\snake\snakegame\snakegame.sln" />
-    <Content Include="leerling\snake\snakegame\snakegame\bin\Debug\net6.0\snakegame.dll" />
-    <Content Include="leerling\snake\snakegame\snakegame\bin\Debug\net6.0\snakegame.exe" />
-    <Content Include="leerling\snake\snakegame\snakegame\bin\Debug\net6.0\snakegame.pdb" />
-    <Content Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0\apphost.exe" />
-    <Content Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0\refint\snakegame.dll" />
-    <Content Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0\ref\snakegame.dll" />
-    <Content Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0\snakegame.csproj.FileListAbsolute.txt" />
-    <Content Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0\snakegame.dll" />
-    <Content Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0\snakegame.pdb" />
-    <Content Include="leerling\snake\snakegame\snakegame\SnakeGame.csproj.user" />
     <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
     <Content Include="obj\Debug\Weekend.csproj.FileListAbsolute.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="leerling\snake\snakegame\snakegame\bin\Debug\net6.0-windows\" />
-    <Folder Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0-windows\refint\" />
-    <Folder Include="leerling\snake\snakegame\snakegame\obj\Debug\net6.0-windows\ref\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="leerling\snake\snakegame\snakegame\App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="leerling\snake\snakegame\snakegame\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
