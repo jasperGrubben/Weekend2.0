@@ -90,11 +90,15 @@
             this.lblScore.TabIndex = 4;
             this.lblScore.Text = "Score = 0";
             // 
+            // tmrGame
+            // 
+            this.tmrGame.Tick += new System.EventHandler(this.tmrGame_Tick);
+            // 
             // lblStart
             // 
             this.lblStart.AutoSize = true;
             this.lblStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStart.Location = new System.Drawing.Point(292, 358);
+            this.lblStart.Location = new System.Drawing.Point(294, 362);
             this.lblStart.Name = "lblStart";
             this.lblStart.Size = new System.Drawing.Size(988, 51);
             this.lblStart.TabIndex = 5;
@@ -114,15 +118,15 @@
             this.Controls.Add(this.pbBird);
             this.Name = "FlappyBird";
             this.Text = "FlappyBird";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.tmrGame_Tick);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FlappyBird_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FlappyBird_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.pbTopPipe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPipeDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGround)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBird)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
