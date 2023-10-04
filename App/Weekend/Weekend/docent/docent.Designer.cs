@@ -1,4 +1,4 @@
-﻿namespace Weekend.docent
+namespace Weekend.docent
 {
     partial class Form1
     {
@@ -83,49 +83,55 @@
             this.panel1.Controls.Add(this.lblALInummer);
             this.panel1.Controls.Add(this.lblALI);
             this.panel1.Controls.Add(this.lblAGO);
-            this.panel1.Location = new System.Drawing.Point(142, 71);
+            this.panel1.Location = new System.Drawing.Point(213, 111);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(750, 408);
+            this.panel1.Size = new System.Drawing.Size(1125, 638);
             this.panel1.TabIndex = 0;
             // 
             // lblAGOnummer
             // 
             this.lblAGOnummer.AutoSize = true;
-            this.lblAGOnummer.Location = new System.Drawing.Point(224, 69);
+            this.lblAGOnummer.Location = new System.Drawing.Point(336, 108);
+            this.lblAGOnummer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAGOnummer.Name = "lblAGOnummer";
-            this.lblAGOnummer.Size = new System.Drawing.Size(16, 16);
+            this.lblAGOnummer.Size = new System.Drawing.Size(30, 25);
             this.lblAGOnummer.TabIndex = 3;
             this.lblAGOnummer.Text = "...";
             // 
             // lblALInummer
             // 
             this.lblALInummer.AutoSize = true;
-            this.lblALInummer.Location = new System.Drawing.Point(207, 114);
+            this.lblALInummer.Location = new System.Drawing.Point(310, 178);
+            this.lblALInummer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblALInummer.Name = "lblALInummer";
-            this.lblALInummer.Size = new System.Drawing.Size(16, 16);
+            this.lblALInummer.Size = new System.Drawing.Size(30, 25);
             this.lblALInummer.TabIndex = 2;
             this.lblALInummer.Text = "...";
             // 
             // lblALI
             // 
             this.lblALI.AutoSize = true;
-            this.lblALI.Location = new System.Drawing.Point(35, 114);
+            this.lblALI.Location = new System.Drawing.Point(52, 178);
+            this.lblALI.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblALI.Name = "lblALI";
-            this.lblALI.Size = new System.Drawing.Size(166, 16);
+            this.lblALI.Size = new System.Drawing.Size(267, 25);
             this.lblALI.TabIndex = 1;
             this.lblALI.Text = "Aantal leerlingen ingelogd:";
             // 
             // lblAGO
             // 
             this.lblAGO.AutoSize = true;
-            this.lblAGO.Location = new System.Drawing.Point(35, 69);
+            this.lblAGO.Location = new System.Drawing.Point(52, 108);
+            this.lblAGO.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAGO.Name = "lblAGO";
-            this.lblAGO.Size = new System.Drawing.Size(183, 16);
+            this.lblAGO.Size = new System.Drawing.Size(293, 25);
             this.lblAGO.TabIndex = 0;
             this.lblAGO.Text = "Aantal gemaakte opdrachten:";
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.leerlingToolStripMenuItem,
@@ -140,21 +146,21 @@
             // leerlingToolStripMenuItem
             // 
             this.leerlingToolStripMenuItem.Name = "leerlingToolStripMenuItem";
-            this.leerlingToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
+            this.leerlingToolStripMenuItem.Size = new System.Drawing.Size(114, 36);
             this.leerlingToolStripMenuItem.Text = "leerling";
             this.leerlingToolStripMenuItem.Click += new System.EventHandler(this.leerlingToolStripMenuItem_Click);
             // 
             // klassenToolStripMenuItem
             // 
             this.klassenToolStripMenuItem.Name = "klassenToolStripMenuItem";
-            this.klassenToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
+            this.klassenToolStripMenuItem.Size = new System.Drawing.Size(111, 36);
             this.klassenToolStripMenuItem.Text = "klassen";
             this.klassenToolStripMenuItem.Click += new System.EventHandler(this.klassenToolStripMenuItem_Click);
             // 
             // gamesToolStripMenuItem
             // 
             this.gamesToolStripMenuItem.Name = "gamesToolStripMenuItem";
-            this.gamesToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
+            this.gamesToolStripMenuItem.Size = new System.Drawing.Size(104, 36);
             this.gamesToolStripMenuItem.Text = "games";
             this.gamesToolStripMenuItem.Click += new System.EventHandler(this.gamesToolStripMenuItem_Click);
             // 
@@ -164,9 +170,10 @@
             this.pnlLeerling.Controls.Add(this.lblLaatsteOpdracht);
             this.pnlLeerling.Controls.Add(this.lblLeerling);
             this.pnlLeerling.Controls.Add(this.lblLaatstIngelogd);
-            this.pnlLeerling.Location = new System.Drawing.Point(46, 94);
+            this.pnlLeerling.Location = new System.Drawing.Point(69, 147);
+            this.pnlLeerling.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pnlLeerling.Name = "pnlLeerling";
-            this.pnlLeerling.Size = new System.Drawing.Size(829, 347);
+            this.pnlLeerling.Size = new System.Drawing.Size(1244, 542);
             this.pnlLeerling.TabIndex = 5;
             this.pnlLeerling.Visible = false;
             // 
@@ -184,7 +191,7 @@
             this.lblLeerling.AutoSize = true;
             this.lblLeerling.Location = new System.Drawing.Point(102, 18);
             this.lblLeerling.Name = "lblLeerling";
-            this.lblLeerling.Size = new System.Drawing.Size(51, 16);
+            this.lblLeerling.Size = new System.Drawing.Size(82, 25);
             this.lblLeerling.TabIndex = 1;
             this.lblLeerling.Text = "leerling";
             // 
@@ -205,7 +212,7 @@
             this.pnlKlassen.Controls.Add(this.label3);
             this.pnlKlassen.Location = new System.Drawing.Point(34, 63);
             this.pnlKlassen.Name = "pnlKlassen";
-            this.pnlKlassen.Size = new System.Drawing.Size(890, 413);
+            this.pnlKlassen.Size = new System.Drawing.Size(1335, 645);
             this.pnlKlassen.TabIndex = 4;
             this.pnlKlassen.Visible = false;
             this.pnlKlassen.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlKlassen_Paint);
@@ -213,9 +220,10 @@
             // lblLeerling2
             // 
             this.lblLeerling2.AutoSize = true;
-            this.lblLeerling2.Location = new System.Drawing.Point(52, 28);
+            this.lblLeerling2.Location = new System.Drawing.Point(78, 44);
+            this.lblLeerling2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLeerling2.Name = "lblLeerling2";
-            this.lblLeerling2.Size = new System.Drawing.Size(51, 16);
+            this.lblLeerling2.Size = new System.Drawing.Size(82, 25);
             this.lblLeerling2.TabIndex = 5;
             this.lblLeerling2.Text = "leerling";
             // 
@@ -224,7 +232,7 @@
             this.lblKlas.AutoSize = true;
             this.lblKlas.Location = new System.Drawing.Point(310, 28);
             this.lblKlas.Name = "lblKlas";
-            this.lblKlas.Size = new System.Drawing.Size(32, 16);
+            this.lblKlas.Size = new System.Drawing.Size(51, 25);
             this.lblKlas.TabIndex = 6;
             this.lblKlas.Text = "klas";
             // 
@@ -484,7 +492,7 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1363, 711);
             this.Controls.Add(this.pnlGame);
@@ -494,8 +502,10 @@
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pnlGames);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
