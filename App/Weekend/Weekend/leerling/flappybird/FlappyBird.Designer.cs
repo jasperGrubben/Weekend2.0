@@ -118,6 +118,7 @@
             this.Controls.Add(this.pbBird);
             this.Name = "FlappyBird";
             this.Text = "FlappyBird";
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.tmrGame_Tick);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FlappyBird_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pbTopPipe)).EndInit();

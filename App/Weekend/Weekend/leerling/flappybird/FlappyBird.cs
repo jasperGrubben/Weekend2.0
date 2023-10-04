@@ -59,7 +59,8 @@ namespace Weekend.leerling.flappybird
 
         private void ResetBirdPos()
         {
-            pbBird.Location = new Point(69, 337);
+            pbBird.Left = 74;
+            pbBird.Top = 182;
         }
 
         private void CheckCollision()
