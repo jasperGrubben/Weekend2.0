@@ -98,11 +98,12 @@
             // 
             this.lblStart.AutoSize = true;
             this.lblStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStart.Location = new System.Drawing.Point(294, 362);
+            this.lblStart.Location = new System.Drawing.Point(375, 348);
             this.lblStart.Name = "lblStart";
-            this.lblStart.Size = new System.Drawing.Size(988, 51);
+            this.lblStart.Size = new System.Drawing.Size(777, 51);
             this.lblStart.TabIndex = 5;
-            this.lblStart.Text = "Druk op een van de pijltjes toetsen om te beginnen";
+            this.lblStart.Text = "Druk op de Spatie toets om te beginnen";
+            this.lblStart.Click += new System.EventHandler(this.lblStart_Click);
             // 
             // FlappyBird
             // 
@@ -127,7 +128,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBird)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
