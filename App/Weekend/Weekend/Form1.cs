@@ -159,7 +159,8 @@ namespace Weekend
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(92, 123);
+            this.label6.Location = new System.Drawing.Point(92, 126);
+
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(162, 25);
             this.label6.TabIndex = 2;
@@ -454,6 +455,8 @@ namespace Weekend
             this.pnlWelkom.ResumeLayout(false);
             this.pnlWelkom.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
+
 
         }
 
