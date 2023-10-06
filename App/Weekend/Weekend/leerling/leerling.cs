@@ -12,11 +12,13 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Xml.Linq;
 using System.Drawing.Text;
 using MySql.Data.MySqlClient;
+using Weekend.leerling.flappybird;
 
 namespace Weekend.leerling
 {
     public partial class leerling : Form
     {
+        private flappybird.FlappyBird temp;
         protected virtual string GetConnectString()
         {
             return @"Server=127.0.0.1;Database=weekend;Uid=root;Pwd=;";
@@ -94,11 +96,6 @@ namespace Weekend.leerling
             FillTextYESS();
             datum();
         }
-
-        private void lblconnection_Click(object sender, EventArgs e)
-        {
-
-        }
         public void datum()
         {
             lblDatum.Text = DateTime.Now.ToString();
@@ -106,7 +103,15 @@ namespace Weekend.leerling
 
         private void btnOpdr1_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            temp = new flappybird.FlappyBird();
+            temp.FormClosed += FlappyBird_FormClosed; 
+            temp.Show();
+        }
+        
+        private void FlappyBird_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Show(); // laat het orgigineel weer zien
         }
 
         private void FillTextYESS()
@@ -128,11 +133,6 @@ namespace Weekend.leerling
             }
             catch (MySqlException ex)
             {
-                Console.WriteLine(ex.Message);
-            }
-            try
-            {
-                connection.Open();
                 // Test
                 MySqlCommand command = new MySqlCommand("SELECT `userID` FROM `score`", connection);
                 // Execute
