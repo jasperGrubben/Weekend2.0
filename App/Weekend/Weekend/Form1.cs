@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Weekend.leerling;
+using Weekend.leerling.WhackAmole;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Weekend
@@ -92,6 +93,7 @@ namespace Weekend
             this.btnRegistreer = new System.Windows.Forms.Button();
             this.pnlLogIn = new System.Windows.Forms.Panel();
             this.pnlWelkom = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlRegistreer.SuspendLayout();
             this.pnlLogIn.SuspendLayout();
             this.pnlWelkom.SuspendLayout();
@@ -160,7 +162,6 @@ namespace Weekend
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(92, 126);
-
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(162, 25);
             this.label6.TabIndex = 2;
@@ -427,6 +428,7 @@ namespace Weekend
             // 
             // pnlWelkom
             // 
+            this.pnlWelkom.Controls.Add(this.button1);
             this.pnlWelkom.Controls.Add(this.lblWelkom);
             this.pnlWelkom.Controls.Add(this.btnRegistreer);
             this.pnlWelkom.Controls.Add(this.btnInloggen);
@@ -434,6 +436,16 @@ namespace Weekend
             this.pnlWelkom.Name = "pnlWelkom";
             this.pnlWelkom.Size = new System.Drawing.Size(808, 335);
             this.pnlWelkom.TabIndex = 101;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(699, 48);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 102;
+            this.button1.Text = "wek a mol";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // Homepage
             // 
@@ -455,8 +467,6 @@ namespace Weekend
             this.pnlWelkom.ResumeLayout(false);
             this.pnlWelkom.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
-
 
         }
 
@@ -706,6 +716,15 @@ namespace Weekend
         private void lblWelkom_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private Button button1;
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            //this.Visible = false;
+            var game = new leerling.WhackAmole.Whack_A_Mole();
+            game.Visible = true;
         }
     }
 }
