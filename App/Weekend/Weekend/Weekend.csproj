@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -178,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\bird.png" />
+    <None Include="Resources\dirt_hole_bg.png" />
     <None Include="leerling\flappybird\images\bird - kopie.png" />
     <None Include="leerling\flappybird\images\ground.png" />
     <None Include="leerling\flappybird\images\pipe.png" />
