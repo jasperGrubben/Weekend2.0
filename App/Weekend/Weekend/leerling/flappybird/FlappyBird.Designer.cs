@@ -45,9 +45,9 @@
             // pbTopPipe
             // 
             this.pbTopPipe.Image = global::Weekend.Properties.Resources.pipedown;
-            this.pbTopPipe.Location = new System.Drawing.Point(654, -378);
+            this.pbTopPipe.Location = new System.Drawing.Point(694, -268);
             this.pbTopPipe.Name = "pbTopPipe";
-            this.pbTopPipe.Size = new System.Drawing.Size(284, 637);
+            this.pbTopPipe.Size = new System.Drawing.Size(190, 557);
             this.pbTopPipe.TabIndex = 3;
             this.pbTopPipe.TabStop = false;
             this.pbTopPipe.Click += new System.EventHandler(this.pbTopPipe_Click);
@@ -55,18 +55,18 @@
             // pbPipeDown
             // 
             this.pbPipeDown.Image = global::Weekend.Properties.Resources.pipe;
-            this.pbPipeDown.Location = new System.Drawing.Point(654, 525);
+            this.pbPipeDown.Location = new System.Drawing.Point(694, 662);
             this.pbPipeDown.Name = "pbPipeDown";
-            this.pbPipeDown.Size = new System.Drawing.Size(310, 609);
+            this.pbPipeDown.Size = new System.Drawing.Size(190, 611);
             this.pbPipeDown.TabIndex = 2;
             this.pbPipeDown.TabStop = false;
             // 
             // pbGround
             // 
             this.pbGround.Image = global::Weekend.Properties.Resources.ground;
-            this.pbGround.Location = new System.Drawing.Point(-7, 810);
+            this.pbGround.Location = new System.Drawing.Point(-6, 907);
             this.pbGround.Name = "pbGround";
-            this.pbGround.Size = new System.Drawing.Size(1386, 168);
+            this.pbGround.Size = new System.Drawing.Size(1782, 227);
             this.pbGround.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbGround.TabIndex = 1;
             this.pbGround.TabStop = false;
@@ -111,7 +111,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lime;
-            this.ClientSize = new System.Drawing.Size(1369, 975);
+            this.ClientSize = new System.Drawing.Size(1529, 1125);
             this.Controls.Add(this.lblStart);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.pbTopPipe);

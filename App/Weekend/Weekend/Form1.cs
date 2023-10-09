@@ -455,14 +455,12 @@ namespace Weekend
                         MySqlDataReader reader = login.ExecuteReader();
                         if (reader.Read())
                         {
-                            var gebruikers = reader["AccountID"];
-                            Gevevens.Gebruikersnaam = gebruikers.ToString();
+                            var gebruikersID = reader["AccountID"];
+                            Gevevens.Gebruikersnaam = gebruikersID.ToString();
                                 string storedHashedPassword = reader["Wachtwoord"].ToString();
                                 
                                 if (hashedPassword == storedHashedPassword)
                                 {
-                                    
-                                    Gevevens.Gebruikersnaam = gebruiker;
                                     for (int i = 1; i < 4; i++)
                                     {
                                         reader.Close();

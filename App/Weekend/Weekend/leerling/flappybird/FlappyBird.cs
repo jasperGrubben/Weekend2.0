@@ -74,10 +74,33 @@ namespace Weekend.leerling.flappybird
         }
 
         private void ScoreDataB()
-        { 
-            var gebruikersid = Gevevens.Gebruikersnaam;
-            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-appe;Uid=root;Pwd=;");
-            var query = $"INSERT INTO `score`(`AccountID`, `score`) VALUES (gebruikersid,{score})";
+        {
+            try
+            {
+                //get the user ID from a class
+                var gebruikersid = Gevevens.Gebruikersnaam;
+                MessageBox.Show(gebruikersid);
+                MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;");
+                connection.Open();
+                var query = $"INSERT INTO `score`(`AccountID`, `score`) VALUES (@gebruikers,@score)";
+                MySqlCommand InsertData = new MySqlCommand(query, connection);
+                InsertData.Parameters.AddWithValue("@gebruikers", gebruikersid);
+                InsertData.Parameters.AddWithValue("@score", score);
+                
+                int rowsAffected = InsertData.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Data inserted successfully.");
+                }
+                else
+                {
+                    MessageBox.Show("Failed to insert data.");
+                }
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
         private void EndGame()
         {
