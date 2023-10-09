@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Weekend.leerling.flappybird
 {
@@ -14,6 +15,8 @@ namespace Weekend.leerling.flappybird
         public FlappyBird()
         {
             InitializeComponent();
+            pbBird.Left = 125;
+            pbBird.Top = 157;
             InitializeGame();
         }
 
@@ -72,9 +75,39 @@ namespace Weekend.leerling.flappybird
             }
         }
 
+        private void ScoreDataB()
+        {
+            try
+            {
+                //get the user ID from a class
+                var gebruikersid = Gevevens.Gebruikersnaam;
+                MessageBox.Show(gebruikersid);
+                MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;");
+                connection.Open();
+                var query = $"INSERT INTO `score`(`AccountID`, `score`) VALUES (@gebruikers,@score)";
+                MySqlCommand InsertData = new MySqlCommand(query, connection);
+                InsertData.Parameters.AddWithValue("@gebruikers", gebruikersid);
+                InsertData.Parameters.AddWithValue("@score", score);
+                
+                int rowsAffected = InsertData.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Data inserted successfully.");
+                }
+                else
+                {
+                    MessageBox.Show("Failed to insert data.");
+                }
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+        }
         private void EndGame()
         {
             tmrGame.Stop();
+            ScoreDataB();
             MessageBox.Show($"Game Over! Your Score: {score}");
             InitializeGame();
         }
@@ -110,6 +143,21 @@ namespace Weekend.leerling.flappybird
         }
 
         private void lblStart_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void pbTopPipe_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void pbGround_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void pbPipeDown_Click(object sender, EventArgs e)
         {
             throw new System.NotImplementedException();
         }
