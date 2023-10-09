@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Weekend.leerling.flappybird
 {
@@ -72,9 +73,16 @@ namespace Weekend.leerling.flappybird
             }
         }
 
+        private void ScoreDataB()
+        { 
+            var gebruikersid = Gevevens.Gebruikersnaam;
+            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-appe;Uid=root;Pwd=;");
+            var query = $"INSERT INTO `score`(`AccountID`, `score`) VALUES (gebruikersid,{score})";
+        }
         private void EndGame()
         {
             tmrGame.Stop();
+            ScoreDataB();
             MessageBox.Show($"Game Over! Your Score: {score}");
             InitializeGame();
         }
@@ -110,6 +118,16 @@ namespace Weekend.leerling.flappybird
         }
 
         private void lblStart_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void pbTopPipe_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void pbGround_Click(object sender, EventArgs e)
         {
             throw new System.NotImplementedException();
         }
