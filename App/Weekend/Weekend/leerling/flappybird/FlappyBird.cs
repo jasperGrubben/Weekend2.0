@@ -15,6 +15,8 @@ namespace Weekend.leerling.flappybird
         public FlappyBird()
         {
             InitializeComponent();
+            pbBird.Left = 125;
+            pbBird.Top = 157;
             InitializeGame();
         }
 
@@ -151,6 +153,11 @@ namespace Weekend.leerling.flappybird
         }
 
         private void pbGround_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void pbPipeDown_Click(object sender, EventArgs e)
         {
             throw new System.NotImplementedException();
         }
