@@ -45,18 +45,19 @@
             // pbTopPipe
             // 
             this.pbTopPipe.Image = global::Weekend.Properties.Resources.pipedown;
-            this.pbTopPipe.Location = new System.Drawing.Point(660, -378);
+            this.pbTopPipe.Location = new System.Drawing.Point(654, -378);
             this.pbTopPipe.Name = "pbTopPipe";
-            this.pbTopPipe.Size = new System.Drawing.Size(182, 554);
+            this.pbTopPipe.Size = new System.Drawing.Size(284, 637);
             this.pbTopPipe.TabIndex = 3;
             this.pbTopPipe.TabStop = false;
+            this.pbTopPipe.Click += new System.EventHandler(this.pbTopPipe_Click);
             // 
             // pbPipeDown
             // 
             this.pbPipeDown.Image = global::Weekend.Properties.Resources.pipe;
-            this.pbPipeDown.Location = new System.Drawing.Point(654, 561);
+            this.pbPipeDown.Location = new System.Drawing.Point(654, 525);
             this.pbPipeDown.Name = "pbPipeDown";
-            this.pbPipeDown.Size = new System.Drawing.Size(188, 573);
+            this.pbPipeDown.Size = new System.Drawing.Size(310, 609);
             this.pbPipeDown.TabIndex = 2;
             this.pbPipeDown.TabStop = false;
             // 
