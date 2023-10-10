@@ -101,6 +101,7 @@ namespace Weekend.leerling.flappybird
             }
             catch (MySqlException e)
             {
+                txtError.Text = e.ToString();
                 MessageBox.Show(e.ToString());
             }
         }

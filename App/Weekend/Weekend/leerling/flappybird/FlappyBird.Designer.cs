@@ -36,6 +36,7 @@
             this.lblScore = new System.Windows.Forms.Label();
             this.tmrGame = new System.Windows.Forms.Timer(this.components);
             this.lblStart = new System.Windows.Forms.Label();
+            this.txtError = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbTopPipe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPipeDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGround)).BeginInit();
@@ -109,12 +110,21 @@
             this.lblStart.Text = "Druk op de Spatie toets om te beginnen";
             this.lblStart.Click += new System.EventHandler(this.lblStart_Click);
             // 
+            // txtError
+            // 
+            this.txtError.Location = new System.Drawing.Point(195, 600);
+            this.txtError.Multiline = true;
+            this.txtError.Name = "txtError";
+            this.txtError.Size = new System.Drawing.Size(267, 146);
+            this.txtError.TabIndex = 6;
+            // 
             // FlappyBird
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lime;
             this.ClientSize = new System.Drawing.Size(1529, 1125);
+            this.Controls.Add(this.txtError);
             this.Controls.Add(this.lblStart);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.pbTopPipe);
@@ -133,6 +143,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.TextBox txtError;
 
         #endregion
 
