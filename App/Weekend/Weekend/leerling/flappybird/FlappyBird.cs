@@ -81,27 +81,35 @@ namespace Weekend.leerling.flappybird
             {
                 //get the user ID from a class
                 var gebruikersid = Gevevens.Gebruikersnaam;
-                MessageBox.Show(gebruikersid);
+                //MessageBox.Show(gebruikersid);
                 MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;");
                 connection.Open();
-                var query = $"INSERT INTO `score`(`AccountID`, `score`) VALUES (@gebruikers,@score)";
-                MySqlCommand InsertData = new MySqlCommand(query, connection);
-                InsertData.Parameters.AddWithValue("@gebruikers", gebruikersid);
-                InsertData.Parameters.AddWithValue("@score", score);
-                
-                int rowsAffected = InsertData.ExecuteNonQuery();
-                if (rowsAffected > 0)
+                if (score == 0)
                 {
-                    MessageBox.Show("Data inserted successfully.");
+                    return;
                 }
-                else
+
+                if (score > 0)
                 {
-                    MessageBox.Show("Failed to insert data.");
+                    var query = $"INSERT INTO `score`(`AccountID`, `score`) VALUES (@gebruikers,@score)";
+                    MySqlCommand InsertData = new MySqlCommand(query, connection);
+                    InsertData.Parameters.AddWithValue("@gebruikers", gebruikersid);
+                    InsertData.Parameters.AddWithValue("@score", score);
+
+                    int rowsAffected = InsertData.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Data inserted successfully.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to insert data.");
+                    }
                 }
+
             }
             catch (MySqlException e)
             {
-                txtError.Text = e.ToString();
                 MessageBox.Show(e.ToString());
             }
         }
@@ -109,7 +117,15 @@ namespace Weekend.leerling.flappybird
         {
             tmrGame.Stop();
             ScoreDataB();
-            MessageBox.Show($"Game Over! Your Score: {score}");
+            if (score < 1)
+            {
+                MessageBox.Show("Haal een hogere score!!!");
+                return;
+            }
+            else if (score > 1 )
+            {
+                MessageBox.Show($"Game Over! Your Score: {score}");
+            }
             InitializeGame();
         }
 
