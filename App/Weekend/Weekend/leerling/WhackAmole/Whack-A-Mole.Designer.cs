@@ -1,4 +1,4 @@
-﻿namespace Weekend.leerling.WhackAmole
+namespace Weekend.leerling.WhackAmole
 {
     partial class Whack_A_Mole
     {
