@@ -178,6 +178,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\bird.png" />
+    <None Include="Resources\meow.png" />
+    <None Include="Resources\Screenshot 2023-10-06 1140491.png" />
+    <None Include="Resources\Screenshot 2023-10-06 114049.png" />
     <None Include="Resources\dirt_hole_bg.png" />
     <None Include="leerling\flappybird\images\bird - kopie.png" />
     <None Include="leerling\flappybird\images\ground.png" />
