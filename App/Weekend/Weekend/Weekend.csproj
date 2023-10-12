@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -125,7 +125,12 @@
       <DependentUpon>leerling.cs</DependentUpon>
     </Compile>
     <Compile Include="leerling\snake\sakeGame.cs" />
-    <Compile Include="leerling\WhackAmole\whackAmoleGame.cs" />
+    <Compile Include="leerling\WhackAmole\Whack-A-Mole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="leerling\WhackAmole\Whack-A-Mole.Designer.cs">
+      <DependentUpon>Whack-A-Mole.cs</DependentUpon>
+    </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -140,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="leerling\leerling.resx">
       <DependentUpon>leerling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="leerling\WhackAmole\Whack-A-Mole.resx">
+      <DependentUpon>Whack-A-Mole.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -171,6 +179,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\bird.png" />
+    <None Include="Resources\meow.png" />
+    <None Include="Resources\Screenshot 2023-10-06 1140491.png" />
+    <None Include="Resources\Screenshot 2023-10-06 114049.png" />
+    <None Include="Resources\dirt_hole_bg.png" />
     <None Include="leerling\flappybird\images\bird - kopie.png" />
     <None Include="leerling\flappybird\images\ground.png" />
     <None Include="leerling\flappybird\images\pipe.png" />

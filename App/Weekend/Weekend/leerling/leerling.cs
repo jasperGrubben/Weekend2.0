@@ -159,5 +159,12 @@ namespace Weekend.leerling
         {
             
         }
+
+        private void btnOpdracht2_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            var game = new WhackAmole.Whack_A_Mole();
+            game.Visible = true;
+        }
     }
 }

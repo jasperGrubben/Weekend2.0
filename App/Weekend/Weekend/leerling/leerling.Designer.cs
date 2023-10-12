@@ -149,7 +149,7 @@ namespace Weekend.leerling
             this.pnlScores.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlScores.Controls.Add(this.lblScores);
             this.pnlScores.Location = new System.Drawing.Point(1187, 492);
-            this.pnlScores.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlScores.Margin = new System.Windows.Forms.Padding(2);
             this.pnlScores.Name = "pnlScores";
             this.pnlScores.Size = new System.Drawing.Size(427, 509);
             this.pnlScores.TabIndex = 6;
@@ -175,7 +175,7 @@ namespace Weekend.leerling
             this.pnlHighS.Controls.Add(this.txtNaam);
             this.pnlHighS.Controls.Add(this.lblHighScoresHead);
             this.pnlHighS.Location = new System.Drawing.Point(331, 50);
-            this.pnlHighS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlHighS.Margin = new System.Windows.Forms.Padding(2);
             this.pnlHighS.Name = "pnlHighS";
             this.pnlHighS.Size = new System.Drawing.Size(772, 540);
             this.pnlHighS.TabIndex = 7;
@@ -194,7 +194,7 @@ namespace Weekend.leerling
             // txtScore
             // 
             this.txtScore.Location = new System.Drawing.Point(223, 95);
-            this.txtScore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtScore.Margin = new System.Windows.Forms.Padding(2);
             this.txtScore.Multiline = true;
             this.txtScore.Name = "txtScore";
             this.txtScore.Size = new System.Drawing.Size(163, 389);
@@ -213,7 +213,7 @@ namespace Weekend.leerling
             // txtNaam
             // 
             this.txtNaam.Location = new System.Drawing.Point(23, 95);
-            this.txtNaam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNaam.Margin = new System.Windows.Forms.Padding(2);
             this.txtNaam.Multiline = true;
             this.txtNaam.Name = "txtNaam";
             this.txtNaam.Size = new System.Drawing.Size(163, 389);
@@ -238,7 +238,7 @@ namespace Weekend.leerling
             this.pnlOpdrachten.Controls.Add(this.btnOpdr1);
             this.pnlOpdrachten.Controls.Add(this.lblOpdrachtenHead);
             this.pnlOpdrachten.Location = new System.Drawing.Point(17, 50);
-            this.pnlOpdrachten.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlOpdrachten.Margin = new System.Windows.Forms.Padding(2);
             this.pnlOpdrachten.Name = "pnlOpdrachten";
             this.pnlOpdrachten.Size = new System.Drawing.Size(1305, 582);
             this.pnlOpdrachten.TabIndex = 8;
@@ -247,7 +247,7 @@ namespace Weekend.leerling
             // btnOpdracht3
             // 
             this.btnOpdracht3.Location = new System.Drawing.Point(22, 209);
-            this.btnOpdracht3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOpdracht3.Margin = new System.Windows.Forms.Padding(2);
             this.btnOpdracht3.Name = "btnOpdracht3";
             this.btnOpdracht3.Size = new System.Drawing.Size(159, 51);
             this.btnOpdracht3.TabIndex = 10;
@@ -257,17 +257,18 @@ namespace Weekend.leerling
             // btnOpdracht2
             // 
             this.btnOpdracht2.Location = new System.Drawing.Point(22, 143);
-            this.btnOpdracht2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOpdracht2.Margin = new System.Windows.Forms.Padding(2);
             this.btnOpdracht2.Name = "btnOpdracht2";
             this.btnOpdracht2.Size = new System.Drawing.Size(159, 51);
             this.btnOpdracht2.TabIndex = 9;
-            this.btnOpdracht2.Text = "Opdracht2";
+            this.btnOpdracht2.Text = "Whack-A-Mole";
             this.btnOpdracht2.UseVisualStyleBackColor = true;
+            this.btnOpdracht2.Click += new System.EventHandler(this.btnOpdracht2_Click);
             // 
             // btnOpdr1
             // 
             this.btnOpdr1.Location = new System.Drawing.Point(22, 78);
-            this.btnOpdr1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOpdr1.Margin = new System.Windows.Forms.Padding(2);
             this.btnOpdr1.Name = "btnOpdr1";
             this.btnOpdr1.Size = new System.Drawing.Size(161, 52);
             this.btnOpdr1.TabIndex = 2;
@@ -310,7 +311,7 @@ namespace Weekend.leerling
             this.Controls.Add(this.lblWelkom);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "leerling";
             this.Text = "leerling";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
