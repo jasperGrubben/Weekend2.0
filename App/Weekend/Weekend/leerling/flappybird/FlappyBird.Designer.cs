@@ -45,27 +45,31 @@
             // pbTopPipe
             // 
             this.pbTopPipe.Image = global::Weekend.Properties.Resources.pipedown;
-            this.pbTopPipe.Location = new System.Drawing.Point(660, -378);
+            this.pbTopPipe.Location = new System.Drawing.Point(694, -360);
             this.pbTopPipe.Name = "pbTopPipe";
-            this.pbTopPipe.Size = new System.Drawing.Size(182, 554);
+            this.pbTopPipe.Size = new System.Drawing.Size(190, 556);
+            this.pbTopPipe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbTopPipe.TabIndex = 3;
             this.pbTopPipe.TabStop = false;
+            this.pbTopPipe.Click += new System.EventHandler(this.pbTopPipe_Click);
             // 
             // pbPipeDown
             // 
             this.pbPipeDown.Image = global::Weekend.Properties.Resources.pipe;
-            this.pbPipeDown.Location = new System.Drawing.Point(654, 561);
+            this.pbPipeDown.Location = new System.Drawing.Point(694, 653);
             this.pbPipeDown.Name = "pbPipeDown";
-            this.pbPipeDown.Size = new System.Drawing.Size(188, 573);
+            this.pbPipeDown.Size = new System.Drawing.Size(190, 556);
+            this.pbPipeDown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPipeDown.TabIndex = 2;
             this.pbPipeDown.TabStop = false;
+            this.pbPipeDown.Click += new System.EventHandler(this.pbPipeDown_Click);
             // 
             // pbGround
             // 
             this.pbGround.Image = global::Weekend.Properties.Resources.ground;
-            this.pbGround.Location = new System.Drawing.Point(-7, 810);
+            this.pbGround.Location = new System.Drawing.Point(-6, 907);
             this.pbGround.Name = "pbGround";
-            this.pbGround.Size = new System.Drawing.Size(1386, 168);
+            this.pbGround.Size = new System.Drawing.Size(1782, 227);
             this.pbGround.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbGround.TabIndex = 1;
             this.pbGround.TabStop = false;
@@ -98,18 +102,19 @@
             // 
             this.lblStart.AutoSize = true;
             this.lblStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStart.Location = new System.Drawing.Point(294, 362);
+            this.lblStart.Location = new System.Drawing.Point(375, 348);
             this.lblStart.Name = "lblStart";
-            this.lblStart.Size = new System.Drawing.Size(988, 51);
+            this.lblStart.Size = new System.Drawing.Size(777, 51);
             this.lblStart.TabIndex = 5;
-            this.lblStart.Text = "Druk op een van de pijltjes toetsen om te beginnen";
+            this.lblStart.Text = "Druk op de Spatie toets om te beginnen";
+            this.lblStart.Click += new System.EventHandler(this.lblStart_Click);
             // 
             // FlappyBird
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lime;
-            this.ClientSize = new System.Drawing.Size(1369, 975);
+            this.ClientSize = new System.Drawing.Size(1529, 1125);
             this.Controls.Add(this.lblStart);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.pbTopPipe);
@@ -127,7 +132,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBird)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

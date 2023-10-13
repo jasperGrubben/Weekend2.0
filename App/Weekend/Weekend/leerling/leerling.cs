@@ -103,10 +103,8 @@ namespace Weekend.leerling
 
         private void btnOpdr1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            temp = new flappybird.FlappyBird();
-            temp.FormClosed += FlappyBird_FormClosed; 
-            temp.Show();
+            pnlOpdr1.Show();
+            
         }
         
         private void FlappyBird_FormClosed(object sender, FormClosedEventArgs e)
@@ -166,5 +164,45 @@ namespace Weekend.leerling
             var game = new WhackAmole.Whack_A_Mole();
             game.Visible = true;
         }
+
+        private bool antwoorden(string juiste, string foute)
+        {
+            //som 1
+            var random = new Random(); // Create a new instance of Random
+
+            // Generate random numbers in the desired range
+            var getal11 = random.Next(1, 11);
+            var getal12 = random.Next(1, 10);
+            
+            lbSom11.Text = getal11.ToString(); // Assign the value of getal11 to lbSom11.Text
+            lbSom12.Text = getal12.ToString(); // Assign the value of getal12 to lblSom12.Text
+
+            var getal13 = getal11 + getal12;
+            var antw1 = txtAntw1.Text;
+            if (int.TryParse(antw1, out int antwoord))
+            {
+                if (getal13 == antwoord)
+                {
+                    return true;
+                }
+            }
+            return false;
+
+        }
+        private void btnBev1_Click(object sender, EventArgs e)
+        {
+            if (antwoorden("juiste value", "foute value")) // Replace "juiste value" and "foute value" with appropriate string values
+            {
+                this.Hide();
+                temp = new flappybird.FlappyBird();
+                temp.FormClosed += FlappyBird_FormClosed; 
+                temp.Show();
+            }
+            else
+            {
+                MessageBox.Show("probeer opnieuw");
+            }
+        }
+
     }
 }

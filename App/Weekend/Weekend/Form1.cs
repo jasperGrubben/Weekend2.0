@@ -478,6 +478,7 @@ namespace Weekend
         //login knop
         private void button1_Click(object sender, EventArgs e)
         {
+            
             var gebruiker = txtEmailLogIn.Text;
             var pass = txtWachtwoordLogIn.Text;
 
@@ -498,13 +499,15 @@ namespace Weekend
                     {                        
                         connection.Open();
                         
-                        string query = "SELECT `Gebruikersnaam`, `wachtwoord` FROM `account` WHERE `Gebruikersnaam`=@Gebruiker";
+                        string query = "SELECT * FROM `account` WHERE `Gebruikersnaam`=@Gebruiker";
                         MySqlCommand login = new MySqlCommand(query, connection);
                         login.Parameters.AddWithValue("@Gebruiker", gebruiker);
                         login.Parameters.AddWithValue("@Wachtwoord", hashedPassword);
                         MySqlDataReader reader = login.ExecuteReader();
                         if (reader.Read())
-                            {
+                        {
+                            var gebruikersID = reader["AccountID"];
+                            Gevevens.Gebruikersnaam = gebruikersID.ToString();
                                 string storedHashedPassword = reader["Wachtwoord"].ToString();
                                 
                                 if (hashedPassword == storedHashedPassword)
