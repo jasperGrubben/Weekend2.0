@@ -112,6 +112,11 @@ namespace Weekend.leerling
             this.Show(); // laat het orgigineel weer zien
         }
 
+        private void WhackAMole_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Visible = true; // laat het orgigineel weer zien
+        }
+
         private void FillTextYESS()
         {
             MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-appe;Uid=root;Pwd=;");
@@ -162,6 +167,7 @@ namespace Weekend.leerling
         {
             this.Visible = false;
             var game = new WhackAmole.Whack_A_Mole();
+            game.FormClosed += WhackAMole_FormClosed;
             game.Visible = true;
         }
 

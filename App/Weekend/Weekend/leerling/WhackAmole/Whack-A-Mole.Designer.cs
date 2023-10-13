@@ -37,6 +37,16 @@ namespace Weekend.leerling.WhackAmole
             this.pbHole3 = new System.Windows.Forms.PictureBox();
             this.pbHole2 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lblAss2 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.lblAss3 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.lblAss5 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.lblAss4 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.lblAss6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbHole5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHole6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHole4)).BeginInit();
@@ -49,7 +59,7 @@ namespace Weekend.leerling.WhackAmole
             // 
             this.lblAss1.AutoSize = true;
             this.lblAss1.ForeColor = System.Drawing.Color.White;
-            this.lblAss1.Location = new System.Drawing.Point(200, 78);
+            this.lblAss1.Location = new System.Drawing.Point(231, 170);
             this.lblAss1.Name = "lblAss1";
             this.lblAss1.Size = new System.Drawing.Size(16, 16);
             this.lblAss1.TabIndex = 8;
@@ -58,7 +68,7 @@ namespace Weekend.leerling.WhackAmole
             // pbHole5
             // 
             this.pbHole5.Image = global::Weekend.Properties.Resources.dirt_hole_bg;
-            this.pbHole5.Location = new System.Drawing.Point(478, 401);
+            this.pbHole5.Location = new System.Drawing.Point(565, 485);
             this.pbHole5.Name = "pbHole5";
             this.pbHole5.Size = new System.Drawing.Size(284, 269);
             this.pbHole5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -68,7 +78,7 @@ namespace Weekend.leerling.WhackAmole
             // pbHole6
             // 
             this.pbHole6.Image = global::Weekend.Properties.Resources.dirt_hole_bg;
-            this.pbHole6.Location = new System.Drawing.Point(880, 523);
+            this.pbHole6.Location = new System.Drawing.Point(1002, 610);
             this.pbHole6.Name = "pbHole6";
             this.pbHole6.Size = new System.Drawing.Size(284, 269);
             this.pbHole6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -78,7 +88,7 @@ namespace Weekend.leerling.WhackAmole
             // pbHole4
             // 
             this.pbHole4.Image = global::Weekend.Properties.Resources.dirt_hole_bg;
-            this.pbHole4.Location = new System.Drawing.Point(69, 523);
+            this.pbHole4.Location = new System.Drawing.Point(98, 610);
             this.pbHole4.Name = "pbHole4";
             this.pbHole4.Size = new System.Drawing.Size(287, 269);
             this.pbHole4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -88,7 +98,7 @@ namespace Weekend.leerling.WhackAmole
             // pbHole1
             // 
             this.pbHole1.Image = global::Weekend.Properties.Resources.dirt_hole_bg;
-            this.pbHole1.Location = new System.Drawing.Point(69, 125);
+            this.pbHole1.Location = new System.Drawing.Point(98, 218);
             this.pbHole1.Name = "pbHole1";
             this.pbHole1.Size = new System.Drawing.Size(287, 269);
             this.pbHole1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -98,7 +108,7 @@ namespace Weekend.leerling.WhackAmole
             // pbHole3
             // 
             this.pbHole3.Image = global::Weekend.Properties.Resources.dirt_hole_bg;
-            this.pbHole3.Location = new System.Drawing.Point(880, 125);
+            this.pbHole3.Location = new System.Drawing.Point(1002, 218);
             this.pbHole3.Name = "pbHole3";
             this.pbHole3.Size = new System.Drawing.Size(284, 269);
             this.pbHole3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -108,7 +118,7 @@ namespace Weekend.leerling.WhackAmole
             // pbHole2
             // 
             this.pbHole2.Image = global::Weekend.Properties.Resources.dirt_hole_bg;
-            this.pbHole2.Location = new System.Drawing.Point(478, 12);
+            this.pbHole2.Location = new System.Drawing.Point(565, 70);
             this.pbHole2.Name = "pbHole2";
             this.pbHole2.Size = new System.Drawing.Size(284, 269);
             this.pbHole2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -119,17 +129,122 @@ namespace Weekend.leerling.WhackAmole
             // 
             this.textBox1.BackColor = System.Drawing.Color.DarkGreen;
             this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(157, 97);
+            this.textBox1.Location = new System.Drawing.Point(191, 190);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 9;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.DarkGreen;
+            this.textBox2.ForeColor = System.Drawing.Color.White;
+            this.textBox2.Location = new System.Drawing.Point(659, 42);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.TabIndex = 11;
+            // 
+            // lblAss2
+            // 
+            this.lblAss2.AutoSize = true;
+            this.lblAss2.ForeColor = System.Drawing.Color.White;
+            this.lblAss2.Location = new System.Drawing.Point(699, 22);
+            this.lblAss2.Name = "lblAss2";
+            this.lblAss2.Size = new System.Drawing.Size(16, 16);
+            this.lblAss2.TabIndex = 10;
+            this.lblAss2.Text = "...";
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.DarkGreen;
+            this.textBox3.ForeColor = System.Drawing.Color.White;
+            this.textBox3.Location = new System.Drawing.Point(1098, 190);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 22);
+            this.textBox3.TabIndex = 13;
+            // 
+            // lblAss3
+            // 
+            this.lblAss3.AutoSize = true;
+            this.lblAss3.ForeColor = System.Drawing.Color.White;
+            this.lblAss3.Location = new System.Drawing.Point(1138, 170);
+            this.lblAss3.Name = "lblAss3";
+            this.lblAss3.Size = new System.Drawing.Size(16, 16);
+            this.lblAss3.TabIndex = 12;
+            this.lblAss3.Text = "...";
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.Color.DarkGreen;
+            this.textBox4.ForeColor = System.Drawing.Color.White;
+            this.textBox4.Location = new System.Drawing.Point(659, 457);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 22);
+            this.textBox4.TabIndex = 15;
+            // 
+            // lblAss5
+            // 
+            this.lblAss5.AutoSize = true;
+            this.lblAss5.ForeColor = System.Drawing.Color.White;
+            this.lblAss5.Location = new System.Drawing.Point(699, 437);
+            this.lblAss5.Name = "lblAss5";
+            this.lblAss5.Size = new System.Drawing.Size(16, 16);
+            this.lblAss5.TabIndex = 14;
+            this.lblAss5.Text = "...";
+            // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.Color.DarkGreen;
+            this.textBox5.ForeColor = System.Drawing.Color.White;
+            this.textBox5.Location = new System.Drawing.Point(191, 582);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 22);
+            this.textBox5.TabIndex = 17;
+            // 
+            // lblAss4
+            // 
+            this.lblAss4.AutoSize = true;
+            this.lblAss4.ForeColor = System.Drawing.Color.White;
+            this.lblAss4.Location = new System.Drawing.Point(231, 562);
+            this.lblAss4.Name = "lblAss4";
+            this.lblAss4.Size = new System.Drawing.Size(16, 16);
+            this.lblAss4.TabIndex = 16;
+            this.lblAss4.Text = "...";
+            // 
+            // textBox6
+            // 
+            this.textBox6.BackColor = System.Drawing.Color.DarkGreen;
+            this.textBox6.ForeColor = System.Drawing.Color.White;
+            this.textBox6.Location = new System.Drawing.Point(1098, 582);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 22);
+            this.textBox6.TabIndex = 19;
+            // 
+            // lblAss6
+            // 
+            this.lblAss6.AutoSize = true;
+            this.lblAss6.ForeColor = System.Drawing.Color.White;
+            this.lblAss6.Location = new System.Drawing.Point(1138, 562);
+            this.lblAss6.Name = "lblAss6";
+            this.lblAss6.Size = new System.Drawing.Size(16, 16);
+            this.lblAss6.TabIndex = 18;
+            this.lblAss6.Text = "...";
             // 
             // Whack_A_Mole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
-            this.ClientSize = new System.Drawing.Size(1224, 804);
+            this.ClientSize = new System.Drawing.Size(1384, 964);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.lblAss6);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.lblAss4);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.lblAss5);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.lblAss3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.lblAss2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblAss1);
             this.Controls.Add(this.pbHole5);
@@ -161,5 +276,15 @@ namespace Weekend.leerling.WhackAmole
         private System.Windows.Forms.PictureBox pbHole5;
         private System.Windows.Forms.Label lblAss1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label lblAss2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label lblAss3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label lblAss5;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label lblAss4;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label lblAss6;
     }
 }

@@ -19,10 +19,12 @@ namespace Weekend.leerling.WhackAmole
             InitializeComponent();
             RNGesus();
         }
+
         private async void RNGesus(){
-            for(int x = 0; x < 30; x++) { 
+            for(int x = 0; x++ < 30;) { 
                 Random Delay2 = new Random();
                 int a = 0, b = 0, c = 0;
+                var Ass = "";
                 Random rng = new Random();
                 int AssType = rng.Next(1, 4);
                 switch (AssType)
@@ -31,21 +33,25 @@ namespace Weekend.leerling.WhackAmole
                         a = rng.Next(0, 1000);
                         b = rng.Next(0, 1000);
                         c = b + a;
+                        Ass = b + "+" + a;
                         break;
                     case 2:
                         a = rng.Next(0, 1000);
                         b = rng.Next(0, 1000);
                         c = b - a;
+                        Ass = b + "-" + a;
                         break;
                     case 3:
                         a = rng.Next(0, 100);
                         b = rng.Next(0, 100);
                         c = b * a;
+                        Ass = b + "*" + a;
                         break;
                      case 4:
                         a = rng.Next(0, 10);
                         b = rng.Next(0, 100);
                         c = b / a;
+                        Ass = b + "/" + a;
                         break;
                 }
 
@@ -57,22 +63,22 @@ namespace Weekend.leerling.WhackAmole
                 switch (Hole)
                 {
                     case 1:
-                        lblAss1.Text = (a).ToString() + "+" + (b).ToString();
+                        lblAss1.Text = Ass;
                         break;
                     case 2:
-                        lblAss1.Text = (a).ToString() + "+" + (b).ToString();
+                        lblAss2.Text = Ass;
                         break;
                     case 3:
-                        lblAss1.Text = (a).ToString() + "+" + (b).ToString();
+                        lblAss3.Text = Ass;
                         break;
                     case 4:
-                        lblAss1.Text = (a).ToString() + "+" + (b).ToString();
+                        lblAss4.Text = Ass;
                         break;
                     case 5:
-                        lblAss1.Text = (a).ToString() + "+" + (b).ToString();
+                        lblAss5.Text = Ass;
                         break;
                     case 6:
-                        lblAss1.Text = (a).ToString() + "+" + (b).ToString();
+                        lblAss6.Text = Ass;
                         break;
                 }
             }
