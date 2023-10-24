@@ -100,10 +100,12 @@ namespace Weekend.leerling.flappybird
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Data inserted successfully.");
+                        this.Close();
                     }
                     else
                     {
                         MessageBox.Show("Failed to insert data.");
+                        this.Close();
                     }
                 }
 
@@ -126,7 +128,7 @@ namespace Weekend.leerling.flappybird
             {
                 MessageBox.Show($"Game Over! Your Score: {score}");
             }
-            InitializeGame();
+            this.Close();
         }
 
         private void ResetPipePosition()

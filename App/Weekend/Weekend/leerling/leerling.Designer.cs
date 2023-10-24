@@ -51,7 +51,7 @@ namespace Weekend.leerling
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.lnSom42 = new System.Windows.Forms.Label();
+            this.lblSom42 = new System.Windows.Forms.Label();
             this.lbSom32 = new System.Windows.Forms.Label();
             this.lbSom22 = new System.Windows.Forms.Label();
             this.lbSom12 = new System.Windows.Forms.Label();
@@ -130,6 +130,7 @@ namespace Weekend.leerling
             this.label1.Size = new System.Drawing.Size(155, 55);
             this.label1.TabIndex = 3;
             this.label1.Text = "Sussy";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -245,7 +246,7 @@ namespace Weekend.leerling
             this.pnlOpdrachten.Controls.Add(this.btnOpdracht2);
             this.pnlOpdrachten.Controls.Add(this.btnOpdr1);
             this.pnlOpdrachten.Controls.Add(this.lblOpdrachtenHead);
-            this.pnlOpdrachten.Location = new System.Drawing.Point(12, 104);
+            this.pnlOpdrachten.Location = new System.Drawing.Point(162, 343);
             this.pnlOpdrachten.Name = "pnlOpdrachten";
             this.pnlOpdrachten.Size = new System.Drawing.Size(1956, 908);
             this.pnlOpdrachten.TabIndex = 8;
@@ -257,7 +258,7 @@ namespace Weekend.leerling
             this.pnlOpdr1.Controls.Add(this.label9);
             this.pnlOpdr1.Controls.Add(this.label8);
             this.pnlOpdr1.Controls.Add(this.label7);
-            this.pnlOpdr1.Controls.Add(this.lnSom42);
+            this.pnlOpdr1.Controls.Add(this.lblSom42);
             this.pnlOpdr1.Controls.Add(this.lbSom32);
             this.pnlOpdr1.Controls.Add(this.lbSom22);
             this.pnlOpdr1.Controls.Add(this.lbSom12);
@@ -312,13 +313,13 @@ namespace Weekend.leerling
             this.label7.TabIndex = 17;
             this.label7.Text = "=";
             // 
-            // lnSom42
+            // lblSom42
             // 
-            this.lnSom42.Location = new System.Drawing.Point(200, 266);
-            this.lnSom42.Name = "lnSom42";
-            this.lnSom42.Size = new System.Drawing.Size(77, 37);
-            this.lnSom42.TabIndex = 16;
-            this.lnSom42.Text = "...";
+            this.lblSom42.Location = new System.Drawing.Point(200, 266);
+            this.lblSom42.Name = "lblSom42";
+            this.lblSom42.Size = new System.Drawing.Size(77, 37);
+            this.lblSom42.TabIndex = 16;
+            this.lblSom42.Text = "...";
             // 
             // lbSom32
             // 
@@ -545,7 +546,7 @@ namespace Weekend.leerling
         private System.Windows.Forms.Label lbSom12;
         private System.Windows.Forms.Label lbSom22;
         private System.Windows.Forms.Label lbSom32;
-        private System.Windows.Forms.Label lnSom42;
+        private System.Windows.Forms.Label lblSom42;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
