@@ -200,7 +200,7 @@ namespace Weekend.leerling
             var getal13 = getal11 + getal12;
             var getal23 = getal21 - getal22;
             var getal33 = getal31 * getal32;
-            var getal43 = getal41 / getal41;
+            var getal43 = getal41 * getal41;
             var antw1 = txtAntw1.Text;
             var antw2 = txtAntw2.Text;
             var antw3 = txtAntw3.Text;
@@ -222,14 +222,14 @@ namespace Weekend.leerling
             // Pass the correct and incorrect values to the `antwoorden()` method
             if (antwoorden()==true)
             {
+                MessageBox.Show("probeer opnieuw");
+            }
+            else
+            {
                 this.Hide();
                 temp = new flappybird.FlappyBird();
                 temp.FormClosed += FlappyBird_FormClosed;
                 temp.Show();
-            }
-            else
-            {
-                MessageBox.Show("probeer opnieuw");
             }
         }
 

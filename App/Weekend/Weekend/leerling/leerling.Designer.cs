@@ -351,7 +351,7 @@ namespace Weekend.leerling
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 37);
             this.label6.TabIndex = 12;
-            this.label6.Text = "/";
+            this.label6.Text = "*";
             // 
             // lbSom3
             // 
@@ -472,7 +472,7 @@ namespace Weekend.leerling
             this.btnOpdr1.Name = "btnOpdr1";
             this.btnOpdr1.Size = new System.Drawing.Size(242, 81);
             this.btnOpdr1.TabIndex = 2;
-            this.btnOpdr1.Text = "Opdracht 1";
+            this.btnOpdr1.Text = "Flappybird";
             this.btnOpdr1.UseVisualStyleBackColor = true;
             this.btnOpdr1.Click += new System.EventHandler(this.btnOpdr1_Click);
             // 
