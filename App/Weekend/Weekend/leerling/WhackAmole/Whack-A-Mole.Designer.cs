@@ -36,17 +36,19 @@ namespace Weekend.leerling.WhackAmole
             this.pbHole1 = new System.Windows.Forms.PictureBox();
             this.pbHole3 = new System.Windows.Forms.PictureBox();
             this.pbHole2 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtAnswer1 = new System.Windows.Forms.TextBox();
+            this.txtAnswer2 = new System.Windows.Forms.TextBox();
             this.lblAss2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtAnswer3 = new System.Windows.Forms.TextBox();
             this.lblAss3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.lblAss5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtAnswer4 = new System.Windows.Forms.TextBox();
             this.lblAss4 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtAnswer6 = new System.Windows.Forms.TextBox();
             this.lblAss6 = new System.Windows.Forms.Label();
+            this.lblScore = new System.Windows.Forms.Label();
+            this.txtAnswer5 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbHole5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHole6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbHole4)).BeginInit();
@@ -125,23 +127,26 @@ namespace Weekend.leerling.WhackAmole
             this.pbHole2.TabIndex = 2;
             this.pbHole2.TabStop = false;
             // 
-            // textBox1
+            // txtAnswer1
             // 
-            this.textBox1.BackColor = System.Drawing.Color.DarkGreen;
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(191, 190);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 9;
+            this.txtAnswer1.BackColor = System.Drawing.Color.DarkGreen;
+            this.txtAnswer1.ForeColor = System.Drawing.Color.White;
+            this.txtAnswer1.Location = new System.Drawing.Point(191, 190);
+            this.txtAnswer1.Name = "txtAnswer1";
+            this.txtAnswer1.Size = new System.Drawing.Size(100, 22);
+            this.txtAnswer1.TabIndex = 9;
+            this.txtAnswer1.TextChanged += new System.EventHandler(this.txtAnswer1_TextChange);
+            this.txtAnswer1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAnswer1_KeyDown);
             // 
-            // textBox2
+            // txtAnswer2
             // 
-            this.textBox2.BackColor = System.Drawing.Color.DarkGreen;
-            this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(659, 42);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 11;
+            this.txtAnswer2.BackColor = System.Drawing.Color.DarkGreen;
+            this.txtAnswer2.ForeColor = System.Drawing.Color.White;
+            this.txtAnswer2.Location = new System.Drawing.Point(659, 42);
+            this.txtAnswer2.Name = "txtAnswer2";
+            this.txtAnswer2.Size = new System.Drawing.Size(100, 22);
+            this.txtAnswer2.TabIndex = 11;
+            this.txtAnswer2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAnswer2_KeyDown);
             // 
             // lblAss2
             // 
@@ -153,14 +158,14 @@ namespace Weekend.leerling.WhackAmole
             this.lblAss2.TabIndex = 10;
             this.lblAss2.Text = "...";
             // 
-            // textBox3
+            // txtAnswer3
             // 
-            this.textBox3.BackColor = System.Drawing.Color.DarkGreen;
-            this.textBox3.ForeColor = System.Drawing.Color.White;
-            this.textBox3.Location = new System.Drawing.Point(1098, 190);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 13;
+            this.txtAnswer3.BackColor = System.Drawing.Color.DarkGreen;
+            this.txtAnswer3.ForeColor = System.Drawing.Color.White;
+            this.txtAnswer3.Location = new System.Drawing.Point(1098, 190);
+            this.txtAnswer3.Name = "txtAnswer3";
+            this.txtAnswer3.Size = new System.Drawing.Size(100, 22);
+            this.txtAnswer3.TabIndex = 13;
             // 
             // lblAss3
             // 
@@ -172,15 +177,6 @@ namespace Weekend.leerling.WhackAmole
             this.lblAss3.TabIndex = 12;
             this.lblAss3.Text = "...";
             // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.Color.DarkGreen;
-            this.textBox4.ForeColor = System.Drawing.Color.White;
-            this.textBox4.Location = new System.Drawing.Point(659, 457);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 15;
-            // 
             // lblAss5
             // 
             this.lblAss5.AutoSize = true;
@@ -191,14 +187,14 @@ namespace Weekend.leerling.WhackAmole
             this.lblAss5.TabIndex = 14;
             this.lblAss5.Text = "...";
             // 
-            // textBox5
+            // txtAnswer4
             // 
-            this.textBox5.BackColor = System.Drawing.Color.DarkGreen;
-            this.textBox5.ForeColor = System.Drawing.Color.White;
-            this.textBox5.Location = new System.Drawing.Point(191, 582);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 22);
-            this.textBox5.TabIndex = 17;
+            this.txtAnswer4.BackColor = System.Drawing.Color.DarkGreen;
+            this.txtAnswer4.ForeColor = System.Drawing.Color.White;
+            this.txtAnswer4.Location = new System.Drawing.Point(191, 582);
+            this.txtAnswer4.Name = "txtAnswer4";
+            this.txtAnswer4.Size = new System.Drawing.Size(100, 22);
+            this.txtAnswer4.TabIndex = 17;
             // 
             // lblAss4
             // 
@@ -210,14 +206,14 @@ namespace Weekend.leerling.WhackAmole
             this.lblAss4.TabIndex = 16;
             this.lblAss4.Text = "...";
             // 
-            // textBox6
+            // txtAnswer6
             // 
-            this.textBox6.BackColor = System.Drawing.Color.DarkGreen;
-            this.textBox6.ForeColor = System.Drawing.Color.White;
-            this.textBox6.Location = new System.Drawing.Point(1098, 582);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 22);
-            this.textBox6.TabIndex = 19;
+            this.txtAnswer6.BackColor = System.Drawing.Color.DarkGreen;
+            this.txtAnswer6.ForeColor = System.Drawing.Color.White;
+            this.txtAnswer6.Location = new System.Drawing.Point(1098, 582);
+            this.txtAnswer6.Name = "txtAnswer6";
+            this.txtAnswer6.Size = new System.Drawing.Size(100, 22);
+            this.txtAnswer6.TabIndex = 19;
             // 
             // lblAss6
             // 
@@ -229,23 +225,56 @@ namespace Weekend.leerling.WhackAmole
             this.lblAss6.TabIndex = 18;
             this.lblAss6.Text = "...";
             // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScore.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblScore.Location = new System.Drawing.Point(93, 9);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(27, 25);
+            this.lblScore.TabIndex = 20;
+            this.lblScore.Text = "...";
+            // 
+            // txtAnswer5
+            // 
+            this.txtAnswer5.BackColor = System.Drawing.Color.DarkGreen;
+            this.txtAnswer5.ForeColor = System.Drawing.Color.White;
+            this.txtAnswer5.Location = new System.Drawing.Point(659, 457);
+            this.txtAnswer5.Name = "txtAnswer5";
+            this.txtAnswer5.Size = new System.Drawing.Size(100, 22);
+            this.txtAnswer5.TabIndex = 21;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 25);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "Score:";
+            // 
             // Whack_A_Mole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(1384, 964);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtAnswer5);
+            this.Controls.Add(this.lblScore);
+            this.Controls.Add(this.txtAnswer6);
             this.Controls.Add(this.lblAss6);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtAnswer4);
             this.Controls.Add(this.lblAss4);
-            this.Controls.Add(this.textBox4);
             this.Controls.Add(this.lblAss5);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtAnswer3);
             this.Controls.Add(this.lblAss3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtAnswer2);
             this.Controls.Add(this.lblAss2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtAnswer1);
             this.Controls.Add(this.lblAss1);
             this.Controls.Add(this.pbHole5);
             this.Controls.Add(this.pbHole6);
@@ -275,16 +304,18 @@ namespace Weekend.leerling.WhackAmole
         private System.Windows.Forms.PictureBox pbHole6;
         private System.Windows.Forms.PictureBox pbHole5;
         private System.Windows.Forms.Label lblAss1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtAnswer1;
+        private System.Windows.Forms.TextBox txtAnswer2;
         private System.Windows.Forms.Label lblAss2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtAnswer3;
         private System.Windows.Forms.Label lblAss3;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label lblAss5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtAnswer4;
         private System.Windows.Forms.Label lblAss4;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtAnswer6;
         private System.Windows.Forms.Label lblAss6;
+        private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.TextBox txtAnswer5;
+        private System.Windows.Forms.Label label1;
     }
 }
