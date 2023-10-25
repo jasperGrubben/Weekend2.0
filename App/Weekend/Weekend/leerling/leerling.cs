@@ -21,11 +21,11 @@ namespace Weekend.leerling
         private flappybird.FlappyBird temp;
         protected virtual string GetConnectString()
         {
-            return @"Server=127.0.0.1;Database=weekend;Uid=root;Pwd=;";
+            return @"Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;";
         }
         private void connection()
         {
-            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;");
+            MySqlConnection connection = new MySqlConnection(GetConnectString());
             try
             {
                 connection.Open();
@@ -40,6 +40,7 @@ namespace Weekend.leerling
                     while (reader.Read())
                     {
                         Console.WriteLine(reader["Gebruikersnaam"]);
+                        lbName.Text = reader["Gebruikersnaam"].ToString();
                     }
                     // Close the SqlDataReader object.
                     reader.Close();
@@ -57,13 +58,7 @@ namespace Weekend.leerling
             {
                 Console.WriteLine(ex.Message);
             }
-            finally
-            {
-                // Close the SqlConnection object.
-                connection.Close();
-            }
         }
-
 
         public leerling()
         {
@@ -226,13 +221,13 @@ namespace Weekend.leerling
             }
             else
             {
+                pnlOpdr1.Hide();
                 this.Hide();
                 temp = new flappybird.FlappyBird();
                 temp.FormClosed += FlappyBird_FormClosed;
                 temp.Show();
             }
         }
-
 
         private void label1_Click(object sender, EventArgs e)
         {
