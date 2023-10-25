@@ -135,7 +135,7 @@ namespace Weekend.leerling.WhackAmole
             this.txtAnswer1.Name = "txtAnswer1";
             this.txtAnswer1.Size = new System.Drawing.Size(100, 22);
             this.txtAnswer1.TabIndex = 9;
-            this.txtAnswer1.TextChanged += new System.EventHandler(this.txtAnswer1_TextChange);
+            this.txtAnswer1.TextChanged += new System.EventHandler(this.txtAnswer1_TextChanged);
             this.txtAnswer1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAnswer1_KeyDown);
             // 
             // txtAnswer2
@@ -146,6 +146,7 @@ namespace Weekend.leerling.WhackAmole
             this.txtAnswer2.Name = "txtAnswer2";
             this.txtAnswer2.Size = new System.Drawing.Size(100, 22);
             this.txtAnswer2.TabIndex = 11;
+            this.txtAnswer2.TextChanged += new System.EventHandler(this.txtAnswer2_TextChanged);
             this.txtAnswer2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAnswer2_KeyDown);
             // 
             // lblAss2
@@ -166,6 +167,8 @@ namespace Weekend.leerling.WhackAmole
             this.txtAnswer3.Name = "txtAnswer3";
             this.txtAnswer3.Size = new System.Drawing.Size(100, 22);
             this.txtAnswer3.TabIndex = 13;
+            this.txtAnswer3.TextChanged += new System.EventHandler(this.txtAnswer3_TextChanged);
+            this.txtAnswer3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAnswer3_KeyDown);
             // 
             // lblAss3
             // 
@@ -195,6 +198,8 @@ namespace Weekend.leerling.WhackAmole
             this.txtAnswer4.Name = "txtAnswer4";
             this.txtAnswer4.Size = new System.Drawing.Size(100, 22);
             this.txtAnswer4.TabIndex = 17;
+            this.txtAnswer4.TextChanged += new System.EventHandler(this.txtAnswer4_TextChanged);
+            this.txtAnswer4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAnswer4_KeyDown);
             // 
             // lblAss4
             // 
@@ -214,6 +219,8 @@ namespace Weekend.leerling.WhackAmole
             this.txtAnswer6.Name = "txtAnswer6";
             this.txtAnswer6.Size = new System.Drawing.Size(100, 22);
             this.txtAnswer6.TabIndex = 19;
+            this.txtAnswer6.TextChanged += new System.EventHandler(this.txtAnswer6_TextChanged);
+            this.txtAnswer6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAnswer6_KeyDown);
             // 
             // lblAss6
             // 
@@ -244,6 +251,8 @@ namespace Weekend.leerling.WhackAmole
             this.txtAnswer5.Name = "txtAnswer5";
             this.txtAnswer5.Size = new System.Drawing.Size(100, 22);
             this.txtAnswer5.TabIndex = 21;
+            this.txtAnswer5.TextChanged += new System.EventHandler(this.txtAnswer5_TextChanged);
+            this.txtAnswer5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAnswer5_KeyDown);
             // 
             // label1
             // 
