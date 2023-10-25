@@ -104,7 +104,7 @@ namespace Weekend.leerling
         private void btnOpdr1_Click(object sender, EventArgs e)
         {
             pnlOpdr1.Show();
-            
+            Randomnummer();
         }
         
         private void FlappyBird_FormClosed(object sender, FormClosedEventArgs e)
@@ -164,45 +164,84 @@ namespace Weekend.leerling
             var game = new WhackAmole.Whack_A_Mole();
             game.Visible = true;
         }
-
-        private bool antwoorden(string juiste, string foute)
+        public void Randomnummer()
         {
-            //som 1
             var random = new Random(); // Create a new instance of Random
+            getal11 = random.Next(1, 11);
+            getal12 = random.Next(1, 10);
+            getal21 = random.Next(1, 10);
+            getal22 = random.Next(1, 10);
+            getal31 = random.Next(1, 10);
+            getal32 = random.Next(1, 10);
+            getal41 = random.Next(1, 10);
+            getal42 = random.Next(1, 10);
 
-            // Generate random numbers in the desired range
-            var getal11 = random.Next(1, 11);
-            var getal12 = random.Next(1, 10);
-            
-            lbSom11.Text = getal11.ToString(); // Assign the value of getal11 to lbSom11.Text
-            lbSom12.Text = getal12.ToString(); // Assign the value of getal12 to lblSom12.Text
-
-            var getal13 = getal11 + getal12;
-            var antw1 = txtAntw1.Text;
-            if (int.TryParse(antw1, out int antwoord))
-            {
-                if (getal13 == antwoord)
-                {
-                    return true;
-                }
-            }
-            return false;
-
+            lbSom11.Text = getal11.ToString();
+            lbSom12.Text = getal12.ToString();
+            lbSom21.Text = getal21.ToString();
+            lbSom22.Text = getal22.ToString();
+            lbSom31.Text = getal31.ToString();
+            lbSom32.Text = getal32.ToString();
+            lblSom41.Text = getal41.ToString();
+            lblSom42.Text = getal42.ToString();
         }
-        private void btnBev1_Click(object sender, EventArgs e)
+
+        private int getal11;
+        private int getal12;
+        private int getal21;
+        private int getal22;
+        private int getal31;
+        private int getal32;
+        private int getal41;
+        private int getal42;
+
+        private bool antwoorden()
         {
-            if (antwoorden("juiste value", "foute value")) // Replace "juiste value" and "foute value" with appropriate string values
+            var getal13 = getal11 + getal12;
+            var getal23 = getal21 - getal22;
+            var getal33 = getal31 * getal32;
+            var getal43 = getal41 * getal41;
+            var antw1 = txtAntw1.Text;
+            var antw2 = txtAntw2.Text;
+            var antw3 = txtAntw3.Text;
+            var antw4 = txtAntw4.Text;
+
+            // Check if all answers are correct
+            if (antw1 == getal13.ToString() && antw2 == getal23.ToString() && antw3 == getal33.ToString() && antw4 == getal43.ToString())
             {
-                this.Hide();
-                temp = new flappybird.FlappyBird();
-                temp.FormClosed += FlappyBird_FormClosed; 
-                temp.Show();
+                return true;
             }
             else
             {
-                MessageBox.Show("probeer opnieuw");
+                return false;
             }
         }
 
+        private void btnBev1_Click(object sender, EventArgs e)
+        {
+            // Pass the correct and incorrect values to the `antwoorden()` method
+            if (antwoorden()==true)
+            {
+                MessageBox.Show("probeer opnieuw");
+            }
+            else
+            {
+                this.Hide();
+                temp = new flappybird.FlappyBird();
+                temp.FormClosed += FlappyBird_FormClosed;
+                temp.Show();
+            }
+        }
+
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void ladennaam()
+        {
+            connection();
+        }
     }
 }
