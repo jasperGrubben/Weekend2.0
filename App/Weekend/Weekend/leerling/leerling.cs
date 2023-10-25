@@ -19,52 +19,76 @@ namespace Weekend.leerling
     public partial class leerling : Form
     {
         private flappybird.FlappyBird temp;
+        private MySqlConnection CreateConnection()
+        {
+            return new MySqlConnection(GetConnectString());
+        }
+
         protected virtual string GetConnectString()
         {
             return @"Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;";
         }
+
         private void connection()
         {
-            MySqlConnection connection = new MySqlConnection(GetConnectString());
-            try
+            using (MySqlConnection connection = CreateConnection())
             {
-                connection.Open();
-                // als er geen connectie is dan
-                if (connection.State == ConnectionState.Open)
+                try
                 {
-                    // Test
-                    MySqlCommand command = new MySqlCommand("SELECT * FROM Account", connection);
-                    // Execute
-                    MySqlDataReader reader = command.ExecuteReader();
-                    // Read the data
-                    while (reader.Read())
+                    connection.Open();
+                    // als er geen connectie is dan
+                    if (connection.State == ConnectionState.Open)
                     {
-                        Console.WriteLine(reader["Gebruikersnaam"]);
-                        lbName.Text = reader["Gebruikersnaam"].ToString();
+                        // Test
+                        MySqlCommand command = new MySqlCommand("SELECT * FROM Account", connection);
+                        // Execute
+                        MySqlDataReader reader = command.ExecuteReader();
+                        // Read the data
+                        while (reader.Read())
+                        {
+                            Console.WriteLine(reader["Gebruikersnaam"]);
+                            lbName.Text = reader["voornaam"].ToString();
+                        }
+                        // Close the SqlDataReader object.
+                        reader.Close();
+                        label5.Text = "true";
+                        Console.WriteLine("geen connectie");
                     }
-                    // Close the SqlDataReader object.
-                    reader.Close();
-                    label5.Text = "true";
-                    Console.WriteLine("geen connectie");
+                    //return
+                    else
+                    {
+                        label5.Text = "false";
+                        return;
+                    }
                 }
-                //return
-                else
+                catch (MySqlException ex)
                 {
-                    label5.Text = "false";
-                    return;
+                    Console.WriteLine(ex.Message);
                 }
-            }
-            catch (MySqlException ex)
-            {
-                Console.WriteLine(ex.Message);
             }
         }
 
+        private void LoadHighScores()
+        {
+            connection();
+            using (var connection = CreateConnection())
+            {
+                connection.Open();
+                var query = "SELECT * FROM `score` LEFT JOIN `account` ON account.AccountID = score.AccountID ORDER BY score.score DESC; ; ";
+                MySqlCommand HighscoresCommand = new MySqlCommand(query, connection);
+                MySqlDataReader HighscoreReader = HighscoresCommand.ExecuteReader();
+                while (HighscoreReader.Read())
+                {
+                    LsBnaam.Items.Add(HighscoreReader["voornaam"]);
+                    LsBscore.Items.Add(HighscoreReader["score"]);
+                }
+                HighscoreReader.Close();
+            }
+        }  
         public leerling()
         {
             InitializeComponent();
         }
-
         private void scoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlScores.Visible = true;
@@ -88,7 +112,8 @@ namespace Weekend.leerling
         private void leerling_Load(object sender, EventArgs e)
         {
             connection();
-            FillTextYESS();
+            //FillTextYESS();
+            LoadHighScores();
             datum();
         }
         public void datum()
@@ -107,7 +132,7 @@ namespace Weekend.leerling
             this.Show(); // laat het orgigineel weer zien
         }
 
-        private void FillTextYESS()
+        /*private void FillTextYESS()
         {
             MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-appe;Uid=root;Pwd=;");
             try
@@ -147,7 +172,7 @@ namespace Weekend.leerling
             {
                 txtScore.Text = "er kon niet verbonden worden";
             }
-        }
+        }*/
         private void txtNaam_TextChanged(object sender, EventArgs e)
         {
             
@@ -234,9 +259,12 @@ namespace Weekend.leerling
             throw new System.NotImplementedException();
         }
 
-        private void ladennaam()
+        
+
+        private void txtNaam_TextChanged_1(object sender, EventArgs e)
         {
-            connection();
+            throw new System.NotImplementedException();
         }
+        
     }
 }

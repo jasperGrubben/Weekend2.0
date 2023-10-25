@@ -41,9 +41,7 @@ namespace Weekend.leerling
             this.lblScores = new System.Windows.Forms.Label();
             this.pnlHighS = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtScore = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtNaam = new System.Windows.Forms.TextBox();
             this.lblHighScoresHead = new System.Windows.Forms.Label();
             this.pnlOpdrachten = new System.Windows.Forms.Panel();
             this.pnlOpdr1 = new System.Windows.Forms.Panel();
@@ -73,6 +71,8 @@ namespace Weekend.leerling
             this.btnOpdr1 = new System.Windows.Forms.Button();
             this.lblOpdrachtenHead = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.LsBnaam = new System.Windows.Forms.ListBox();
+            this.LsBscore = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.pnlScores.SuspendLayout();
             this.pnlHighS.SuspendLayout();
@@ -183,10 +183,10 @@ namespace Weekend.leerling
             // pnlHighS
             // 
             this.pnlHighS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlHighS.Controls.Add(this.LsBscore);
+            this.pnlHighS.Controls.Add(this.LsBnaam);
             this.pnlHighS.Controls.Add(this.label4);
-            this.pnlHighS.Controls.Add(this.txtScore);
             this.pnlHighS.Controls.Add(this.label3);
-            this.pnlHighS.Controls.Add(this.txtNaam);
             this.pnlHighS.Controls.Add(this.lblHighScoresHead);
             this.pnlHighS.Location = new System.Drawing.Point(738, 85);
             this.pnlHighS.Name = "pnlHighS";
@@ -203,14 +203,6 @@ namespace Weekend.leerling
             this.label4.TabIndex = 4;
             this.label4.Text = "Score";
             // 
-            // txtScore
-            // 
-            this.txtScore.Location = new System.Drawing.Point(334, 148);
-            this.txtScore.Multiline = true;
-            this.txtScore.Name = "txtScore";
-            this.txtScore.Size = new System.Drawing.Size(242, 606);
-            this.txtScore.TabIndex = 3;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -219,14 +211,6 @@ namespace Weekend.leerling
             this.label3.Size = new System.Drawing.Size(56, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "wie?";
-            // 
-            // txtNaam
-            // 
-            this.txtNaam.Location = new System.Drawing.Point(34, 148);
-            this.txtNaam.Multiline = true;
-            this.txtNaam.Name = "txtNaam";
-            this.txtNaam.Size = new System.Drawing.Size(242, 606);
-            this.txtNaam.TabIndex = 1;
             // 
             // lblHighScoresHead
             // 
@@ -246,7 +230,7 @@ namespace Weekend.leerling
             this.pnlOpdrachten.Controls.Add(this.btnOpdracht2);
             this.pnlOpdrachten.Controls.Add(this.btnOpdr1);
             this.pnlOpdrachten.Controls.Add(this.lblOpdrachtenHead);
-            this.pnlOpdrachten.Location = new System.Drawing.Point(162, 343);
+            this.pnlOpdrachten.Location = new System.Drawing.Point(170, 880);
             this.pnlOpdrachten.Name = "pnlOpdrachten";
             this.pnlOpdrachten.Size = new System.Drawing.Size(1956, 908);
             this.pnlOpdrachten.TabIndex = 8;
@@ -496,6 +480,24 @@ namespace Weekend.leerling
             this.label5.TabIndex = 9;
             this.label5.Text = "label5";
             // 
+            // LsBnaam
+            // 
+            this.LsBnaam.FormattingEnabled = true;
+            this.LsBnaam.ItemHeight = 25;
+            this.LsBnaam.Location = new System.Drawing.Point(40, 172);
+            this.LsBnaam.Name = "LsBnaam";
+            this.LsBnaam.Size = new System.Drawing.Size(218, 579);
+            this.LsBnaam.TabIndex = 5;
+            // 
+            // LsBscore
+            // 
+            this.LsBscore.FormattingEnabled = true;
+            this.LsBscore.ItemHeight = 25;
+            this.LsBscore.Location = new System.Drawing.Point(330, 175);
+            this.LsBscore.Name = "LsBscore";
+            this.LsBscore.Size = new System.Drawing.Size(218, 579);
+            this.LsBscore.TabIndex = 6;
+            // 
             // leerling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -528,6 +530,9 @@ namespace Weekend.leerling
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ListBox LsBnaam;
+        private System.Windows.Forms.ListBox LsBscore;
 
         private System.Windows.Forms.Panel pnlOpdr1;
         private System.Windows.Forms.Button btnBev1;
@@ -572,9 +577,7 @@ namespace Weekend.leerling
         private System.Windows.Forms.Button btnOpdr1;
         private System.Windows.Forms.Button btnOpdracht2;
         private System.Windows.Forms.Button btnOpdracht3;
-        private System.Windows.Forms.TextBox txtScore;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNaam;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
     }
