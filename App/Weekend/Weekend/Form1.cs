@@ -500,11 +500,11 @@ namespace Weekend
                                             {
                                                 // Handle admin panel logic here
                                             }
-                                            else if ( checkrolreader.HasRows && i == 2)
+                                            if ( checkrolreader.HasRows && i == 2)
                                             {
                                                 //ga naar het docent paneel
                                             }
-                                            else if (checkrolreader.HasRows && i == 3)
+                                            if (checkrolreader.HasRows && i == 3)
                                             {
                                                 this.Hide();
                                                 var temp = new leerling.leerling();
