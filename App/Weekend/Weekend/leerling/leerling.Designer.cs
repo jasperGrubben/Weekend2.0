@@ -40,8 +40,13 @@ namespace Weekend.leerling
             this.pnlScores = new System.Windows.Forms.Panel();
             this.lblScores = new System.Windows.Forms.Label();
             this.pnlHighS = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnShowWhack = new System.Windows.Forms.Button();
+            this.btnScoreSnake = new System.Windows.Forms.Button();
+            this.btnScoreFlappy = new System.Windows.Forms.Button();
+            this.LsBscore = new System.Windows.Forms.ListBox();
+            this.LsBnaam = new System.Windows.Forms.ListBox();
+            this.lblScore = new System.Windows.Forms.Label();
+            this.lblWho = new System.Windows.Forms.Label();
             this.lblHighScoresHead = new System.Windows.Forms.Label();
             this.pnlOpdrachten = new System.Windows.Forms.Panel();
             this.pnlOpdr1 = new System.Windows.Forms.Panel();
@@ -71,8 +76,6 @@ namespace Weekend.leerling
             this.btnOpdr1 = new System.Windows.Forms.Button();
             this.lblOpdrachtenHead = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.LsBnaam = new System.Windows.Forms.ListBox();
-            this.LsBscore = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.pnlScores.SuspendLayout();
             this.pnlHighS.SuspendLayout();
@@ -183,34 +186,89 @@ namespace Weekend.leerling
             // pnlHighS
             // 
             this.pnlHighS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlHighS.Controls.Add(this.btnShowWhack);
+            this.pnlHighS.Controls.Add(this.btnScoreSnake);
+            this.pnlHighS.Controls.Add(this.btnScoreFlappy);
             this.pnlHighS.Controls.Add(this.LsBscore);
             this.pnlHighS.Controls.Add(this.LsBnaam);
-            this.pnlHighS.Controls.Add(this.label4);
-            this.pnlHighS.Controls.Add(this.label3);
+            this.pnlHighS.Controls.Add(this.lblScore);
+            this.pnlHighS.Controls.Add(this.lblWho);
             this.pnlHighS.Controls.Add(this.lblHighScoresHead);
-            this.pnlHighS.Location = new System.Drawing.Point(738, 85);
+            this.pnlHighS.Location = new System.Drawing.Point(480, 48);
             this.pnlHighS.Name = "pnlHighS";
             this.pnlHighS.Size = new System.Drawing.Size(1157, 843);
             this.pnlHighS.TabIndex = 7;
             this.pnlHighS.Visible = false;
             // 
-            // label4
+            // btnShowWhack
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(330, 111);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 25);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Score";
+            this.btnShowWhack.Location = new System.Drawing.Point(182, 123);
+            this.btnShowWhack.Name = "btnShowWhack";
+            this.btnShowWhack.Size = new System.Drawing.Size(122, 68);
+            this.btnShowWhack.TabIndex = 9;
+            this.btnShowWhack.Text = "Whack A Mole";
+            this.btnShowWhack.UseVisualStyleBackColor = true;
+            this.btnShowWhack.Click += new System.EventHandler(this.btnShowWhack_Click);
             // 
-            // label3
+            // btnScoreSnake
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 111);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 25);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "wie?";
+            this.btnScoreSnake.Location = new System.Drawing.Point(334, 123);
+            this.btnScoreSnake.Name = "btnScoreSnake";
+            this.btnScoreSnake.Size = new System.Drawing.Size(124, 53);
+            this.btnScoreSnake.TabIndex = 8;
+            this.btnScoreSnake.Text = "Snake";
+            this.btnScoreSnake.UseVisualStyleBackColor = true;
+            this.btnScoreSnake.Click += new System.EventHandler(this.btnScoreSnake_Click);
+            // 
+            // btnScoreFlappy
+            // 
+            this.btnScoreFlappy.Location = new System.Drawing.Point(41, 123);
+            this.btnScoreFlappy.Name = "btnScoreFlappy";
+            this.btnScoreFlappy.Size = new System.Drawing.Size(124, 53);
+            this.btnScoreFlappy.TabIndex = 7;
+            this.btnScoreFlappy.Text = "Flappybird";
+            this.btnScoreFlappy.UseVisualStyleBackColor = true;
+            this.btnScoreFlappy.Click += new System.EventHandler(this.btnScoreFlappy_Click);
+            // 
+            // LsBscore
+            // 
+            this.LsBscore.FormattingEnabled = true;
+            this.LsBscore.ItemHeight = 25;
+            this.LsBscore.Location = new System.Drawing.Point(330, 246);
+            this.LsBscore.Name = "LsBscore";
+            this.LsBscore.Size = new System.Drawing.Size(218, 579);
+            this.LsBscore.TabIndex = 6;
+            this.LsBscore.Visible = false;
+            // 
+            // LsBnaam
+            // 
+            this.LsBnaam.FormattingEnabled = true;
+            this.LsBnaam.ItemHeight = 25;
+            this.LsBnaam.Location = new System.Drawing.Point(41, 246);
+            this.LsBnaam.Name = "LsBnaam";
+            this.LsBnaam.Size = new System.Drawing.Size(218, 579);
+            this.LsBnaam.TabIndex = 5;
+            this.LsBnaam.Visible = false;
+            // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.Location = new System.Drawing.Point(330, 203);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(68, 25);
+            this.lblScore.TabIndex = 4;
+            this.lblScore.Text = "Score";
+            this.lblScore.Visible = false;
+            // 
+            // lblWho
+            // 
+            this.lblWho.AutoSize = true;
+            this.lblWho.Location = new System.Drawing.Point(41, 203);
+            this.lblWho.Name = "lblWho";
+            this.lblWho.Size = new System.Drawing.Size(56, 25);
+            this.lblWho.TabIndex = 2;
+            this.lblWho.Text = "wie?";
+            this.lblWho.Visible = false;
             // 
             // lblHighScoresHead
             // 
@@ -480,24 +538,6 @@ namespace Weekend.leerling
             this.label5.TabIndex = 9;
             this.label5.Text = "label5";
             // 
-            // LsBnaam
-            // 
-            this.LsBnaam.FormattingEnabled = true;
-            this.LsBnaam.ItemHeight = 25;
-            this.LsBnaam.Location = new System.Drawing.Point(40, 172);
-            this.LsBnaam.Name = "LsBnaam";
-            this.LsBnaam.Size = new System.Drawing.Size(218, 579);
-            this.LsBnaam.TabIndex = 5;
-            // 
-            // LsBscore
-            // 
-            this.LsBscore.FormattingEnabled = true;
-            this.LsBscore.ItemHeight = 25;
-            this.LsBscore.Location = new System.Drawing.Point(330, 175);
-            this.LsBscore.Name = "LsBscore";
-            this.LsBscore.Size = new System.Drawing.Size(218, 579);
-            this.LsBscore.TabIndex = 6;
-            // 
             // leerling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -530,6 +570,10 @@ namespace Weekend.leerling
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button btnScoreFlappy;
+        private System.Windows.Forms.Button btnScoreSnake;
+        private System.Windows.Forms.Button btnShowWhack;
 
         private System.Windows.Forms.ListBox LsBnaam;
         private System.Windows.Forms.ListBox LsBscore;
@@ -577,8 +621,8 @@ namespace Weekend.leerling
         private System.Windows.Forms.Button btnOpdr1;
         private System.Windows.Forms.Button btnOpdracht2;
         private System.Windows.Forms.Button btnOpdracht3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblWho;
+        private System.Windows.Forms.Label lblScore;
         private System.Windows.Forms.Label label5;
     }
 }

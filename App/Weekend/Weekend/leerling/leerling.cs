@@ -20,6 +20,7 @@ namespace Weekend.leerling
     public partial class leerling : Form
     {
         private flappybird.FlappyBird temp;
+        private int spelid;
         private MySqlConnection CreateConnection()
         {
             return new MySqlConnection(GetConnectString());
@@ -71,12 +72,20 @@ namespace Weekend.leerling
 
         private void LoadHighScores()
         {
+            LsBnaam.Items.Clear();
+            LsBscore.Items.Clear();
+            lblScore.Visible = true;
+            lblWho.Visible = true;
+            LsBnaam.Visible = true;
+            LsBscore.Visible = true;
             connection();
             using (var connection = CreateConnection())
             {
+                var getspel = spelid;
                 connection.Open();
-                var query = "SELECT * FROM `score` LEFT JOIN `account` ON account.AccountID = score.AccountID ORDER BY score.score DESC; ; ";
+                var query = "SELECT * FROM `score` LEFT JOIN `account` ON account.AccountID = score.AccountID WHERE score.SpelID=@spelid ORDER BY score.score DESC;  ; ";
                 MySqlCommand HighscoresCommand = new MySqlCommand(query, connection);
+                HighscoresCommand.Parameters.AddWithValue("@spelid", getspel);
                 MySqlDataReader HighscoreReader = HighscoresCommand.ExecuteReader();
                 while (HighscoreReader.Read())
                 {
@@ -114,7 +123,7 @@ namespace Weekend.leerling
         {
             connection();
             //FillTextYESS();
-            LoadHighScores();
+            //LoadHighScores();
             datum();
         }
         public void datum()
@@ -273,6 +282,23 @@ namespace Weekend.leerling
         {
             throw new System.NotImplementedException();
         }
-        
+
+        private void btnScoreFlappy_Click(object sender, EventArgs e)
+        {
+            spelid = 1;
+            LoadHighScores();
+        }
+
+        private void btnShowWhack_Click(object sender, EventArgs e)
+        {
+            spelid = 2;
+            LoadHighScores();
+        }
+
+        private void btnScoreSnake_Click(object sender, EventArgs e)
+        {
+            spelid = 3;
+            LoadHighScores();
+        }
     }
 }
