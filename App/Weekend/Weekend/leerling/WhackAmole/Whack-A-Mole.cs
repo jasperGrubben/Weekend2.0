@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Timers;
 using System.Security.Cryptography;
 using System.Reflection;
+using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace Weekend.leerling.WhackAmole
 {
@@ -18,10 +20,36 @@ namespace Weekend.leerling.WhackAmole
         public Whack_A_Mole()
         {
             InitializeComponent();
+            InsertScore();
             RNGesus();
         }
         private int a,b,k,score,q;
         private float c,d,f,g,h,i,j,Ans;
+        private MySqlConnection connection;
+
+
+        private void InsertScore()
+        {
+            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;");
+            connection.Open();
+            try
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    var AccountID = Gevevens.Gebruikersnaam;
+                    string stmt = "INSERT INTO `score`(`AccountID`,`Score`,`SpelID`) VALUES ('@AccountID','@Score','2');";
+                    MySqlCommand invoer = new MySqlCommand(stmt, connection);
+                    invoer.Parameters.AddWithValue("@AccountID", AccountID);
+                    invoer.Parameters.AddWithValue("@Score", score);
+                    MessageBox.Show(AccountID + " | " + score);
+                    invoer.ExecuteNonQuery();
+                }
+            }
+            catch (MySqlException e) { 
+            MessageBox.Show(e.Message);
+            }
+
+        }
 
         private async void RNGesus()
         {
@@ -30,10 +58,11 @@ namespace Weekend.leerling.WhackAmole
             {
                 Random rng = new Random();
                 Random Delay1 = new Random();
-                await Task.Delay(Convert.ToInt32(Delay1.Next(0, 2500)));
                 lblAss1.Text = lblAss2.Text = lblAss3.Text = lblAss4.Text = lblAss5.Text = lblAss6.Text = "...";
                 var Ass = "";
                 a = b = 0;
+                c = d = f = g = h = i = j = 0;
+                await Task.Delay(Convert.ToInt32(Delay1.Next(0, 2500)));
                 int AssType = rng.Next(1, 4);
                 switch (AssType)
                 {
@@ -348,7 +377,11 @@ namespace Weekend.leerling.WhackAmole
                 txtAnswer1.SelectionStart = txtAnswer1.Text.Length;
                 txtAnswer1.SelectionLength = 0;
             }
-            else if (!int.TryParse(txtAnswer1.Text, out int y))
+            else if (string.IsNullOrWhiteSpace(txtAnswer1.Text))
+            {
+                txtAnswer1.Text = "";
+            }
+            if (!int.TryParse(txtAnswer1.Text, out int y))
             {
                 txtAnswer1.Text = "";
             }
