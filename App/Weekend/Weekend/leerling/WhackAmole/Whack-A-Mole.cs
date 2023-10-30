@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Timers;
 using System.Security.Cryptography;
+using System.Reflection;
+using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace Weekend.leerling.WhackAmole
 {
@@ -17,13 +20,49 @@ namespace Weekend.leerling.WhackAmole
         public Whack_A_Mole()
         {
             InitializeComponent();
+            InsertScore();
             RNGesus();
         }
-        private async void RNGesus(){
-            for(int x = 0; x < 30; x++) { 
-                Random Delay2 = new Random();
-                int a = 0, b = 0, c = 0;
+        private int a,b,k,score,q;
+        private float c,d,f,g,h,i,j,Ans;
+        private MySqlConnection connection;
+
+
+        private void InsertScore()
+        {
+            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;");
+            connection.Open();
+            try
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    var AccountID = Gevevens.Gebruikersnaam;
+                    string stmt = "INSERT INTO `score`(`AccountID`,`Score`,`SpelID`) VALUES ('@AccountID','@Score','2');";
+                    MySqlCommand invoer = new MySqlCommand(stmt, connection);
+                    invoer.Parameters.AddWithValue("@AccountID", AccountID);
+                    invoer.Parameters.AddWithValue("@Score", score);
+                    MessageBox.Show(AccountID + " | " + score);
+                    invoer.ExecuteNonQuery();
+                }
+            }
+            catch (MySqlException e) { 
+            MessageBox.Show(e.Message);
+            }
+
+        }
+
+        private async void RNGesus()
+        {
+            await Task.Delay(5000);
+            for (int x = 0; x++ < 30;)
+            {
                 Random rng = new Random();
+                Random Delay1 = new Random();
+                lblAss1.Text = lblAss2.Text = lblAss3.Text = lblAss4.Text = lblAss5.Text = lblAss6.Text = "...";
+                var Ass = "";
+                a = b = 0;
+                c = d = f = g = h = i = j = 0;
+                await Task.Delay(Convert.ToInt32(Delay1.Next(0, 2500)));
                 int AssType = rng.Next(1, 4);
                 switch (AssType)
                 {
@@ -31,56 +70,391 @@ namespace Weekend.leerling.WhackAmole
                         a = rng.Next(0, 1000);
                         b = rng.Next(0, 1000);
                         c = b + a;
+                        Ass = b + "+" + a;
                         break;
                     case 2:
-                        a = rng.Next(0, 1000);
-                        b = rng.Next(0, 1000);
+                        a = rng.Next(0, 100);
+                        b = rng.Next(100, 1000);
                         c = b - a;
+                        Ass = b + "-" + a;
                         break;
                     case 3:
-                        a = rng.Next(0, 100);
+                        a = rng.Next(0, 10);
                         b = rng.Next(0, 100);
                         c = b * a;
+                        Ass = b + "*" + a;
                         break;
-                     case 4:
+                    case 4:
                         a = rng.Next(0, 10);
                         b = rng.Next(0, 100);
                         c = b / a;
+                        Ass = b + "/" + a;
                         break;
                 }
 
-                Random Delay1 = new Random();
-                await Task.Delay(Convert.ToInt32(Delay1.Next(7500, 15000)));
-          
                 Random RNGHole = new Random();
                 int Hole = RNGHole.Next(1, 6);
                 switch (Hole)
                 {
                     case 1:
-                        lblAss1.Text = (a).ToString() + "+" + (b).ToString();
+                        lblAss1.Text = Ass;
+                        txtAnswer1.Focus();
+                        d = c;
+                        for (q = 7500; q > 0; q = q - 10)
+                        {
+                            if (k == 1)
+                            {
+                                score = score + q;
+                                lblScore.Text = score.ToString();
+                                lblAss1.Text = "...";
+                                txtAnswer1.Text = "";
+                                k = q = 0;
+                                d = 0;
+                                break;
+                            }
+                            else if (k == 2)
+                            {
+                                MessageBox.Show("Wrong.\nQuestion: " + Ass + ".\nYour Answer: " + Ans + ".\nCorrect Answer: " + d + ".");
+                                lblAss1.Text = "...";
+                                txtAnswer1.Text = "";
+                                k = q = 0;
+                                d = 0;
+                                break;
+                            }
+                            await Task.Delay(10);
+                        }
                         break;
                     case 2:
-                        lblAss1.Text = (a).ToString() + "+" + (b).ToString();
+                        lblAss2.Text = Ass;
+                        txtAnswer2.Focus();
+                        f = c;
+                        for (q = 7500; q > 0; q = q - 10)
+                        {
+                            if (k == 1)
+                            {
+                                score = score + q;
+                                lblScore.Text = score.ToString();
+                                lblAss2.Text = "...";
+                                txtAnswer2.Text = "";
+                                k = q = 0;
+                                f = 0;
+                                break;
+                            }
+                            else if (k == 2)
+                            {
+                                MessageBox.Show("Wrong.\nQuestion: " + Ass + ".\nYour Answer: " + Ans + ".\nCorrect Answer: " + f + ".");
+                                lblAss2.Text = "...";
+                                txtAnswer2.Text = "";
+                                k = q = 0;
+                                f = 0;
+                                break;
+                            }
+                            await Task.Delay(10);
+                        }
                         break;
                     case 3:
-                        lblAss1.Text = (a).ToString() + "+" + (b).ToString();
+                        lblAss3.Text = Ass;
+                        txtAnswer3.Focus();
+                        g = c;
+                        for (q = 7500; q > 0; q = q - 10)
+                        {
+                            if (k == 1)
+                            {
+                                score = score + q;
+                                lblScore.Text = score.ToString();
+                                lblAss3.Text = "...";
+                                txtAnswer3.Text = "";
+                                k = q = 0;
+                                g = 0;
+                                break;
+                            }
+                            else if (k == 2)
+                            {
+                                MessageBox.Show("Wrong.\nQuestion: " + Ass + ".\nYour Answer: " + Ans + ".\nCorrect Answer: " + g + ".");
+                                lblAss3.Text = "...";
+                                txtAnswer3.Text = "";
+                                k = q = 0;
+                                g = 0;
+                                break;
+                            }
+                            await Task.Delay(10);
+                        }
                         break;
                     case 4:
-                        lblAss1.Text = (a).ToString() + "+" + (b).ToString();
+                        lblAss4.Text = Ass;
+                        txtAnswer4.Focus();
+                        h = c;
+                        for (q = 7500; q > 0; q = q - 10)
+                        {
+                            if (k == 1)
+                            {
+                                score = score + q;
+                                lblScore.Text = score.ToString();
+                                lblAss4.Text = "...";
+                                txtAnswer4.Text = "";
+                                k = q = 0;
+                                h = 0;
+                                break;
+                            }
+                            else if (k == 2)
+                            {
+                                MessageBox.Show("Wrong.\nQuestion: " + Ass + ".\nYour Answer: " + Ans + ".\nCorrect Answer: " + h + ".");
+                                lblAss4.Text = "...";
+                                txtAnswer4.Text = "";
+                                k = q = 0;
+                                h = 0;
+                                break;
+                            }
+                            await Task.Delay(10);
+                        }
                         break;
                     case 5:
-                        lblAss1.Text = (a).ToString() + "+" + (b).ToString();
+                        lblAss5.Text = Ass;
+                        txtAnswer5.Focus();
+                        i = c;
+                        for (q = 7500; q > 0; q = q - 10)
+                        {
+                            if (k == 1)
+                            {
+                                score = score + q;
+                                lblScore.Text = score.ToString();
+                                lblAss5.Text = "...";
+                                txtAnswer5.Text = "";
+                                k = q = 0;
+                                i = 0;
+                                break;
+                            }
+                            else if (k == 2)
+                            {
+                                MessageBox.Show("Wrong.\nQuestion: " + Ass + ".\nYour Answer: " + Ans + ".\nCorrect Answer: " + i + ".");
+                                lblAss5.Text = "...";
+                                txtAnswer5.Text = "";
+                                k = q = 0;
+                                i = 0;
+                                break;
+                            }
+                            await Task.Delay(10);
+                        }
                         break;
                     case 6:
-                        lblAss1.Text = (a).ToString() + "+" + (b).ToString();
+                        lblAss6.Text = Ass;
+                        txtAnswer6.Focus();
+                        j = c;
+                        for (q = 7500; q > 0; q = q - 10)
+                        {
+                            if (k == 1)
+                            {
+                                score = score + q;
+                                lblScore.Text = score.ToString();
+                                lblAss6.Text = "...";
+                                txtAnswer6.Text = "";
+                                k = q = 0;
+                                j = 0;
+                                break;
+                            }
+                            else if (k == 2)
+                            {
+                                MessageBox.Show("Wrong.\nQuestion: " + Ass + ".\nYour Answer: " + Ans + ".\nCorrect Answer: " + j + ".");
+                                lblAss6.Text = "...";
+                                txtAnswer6.Text = "";
+                                k = q = 0;
+                                j = 0;
+                                break;
+                            }
+                            await Task.Delay(10);
+                        }
                         break;
                 }
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
 
+        //KeyDown-Events
+        private void txtAnswer1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Ans = Convert.ToInt32(txtAnswer1.Text);
+                if (Ans == d)
+                {
+                    k = 1;
+                }
+                else
+                {
+                    k = 2;
+                }
+            }
+        }
+
+        private void txtAnswer2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Ans = Convert.ToInt32(txtAnswer2.Text);
+                if (Ans == f)
+                {
+                    k = 1;
+                }
+                else
+                {
+                    k = 2;
+                }
+            }
+        }
+
+        private void txtAnswer3_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Ans = Convert.ToInt32(txtAnswer3.Text);
+                if (Ans == g)
+                {
+                    k = 1;
+                }
+                else
+                {
+                    k = 2;
+                }
+            }
+        }
+
+        private void txtAnswer4_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Ans = Convert.ToInt32(txtAnswer4.Text);
+                if (Ans == h)
+                {
+                    k = 1;
+                }
+                else
+                {
+                    k = 2;
+                }
+            }
+        }
+
+        private void txtAnswer5_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Ans = Convert.ToInt32(txtAnswer5.Text);
+                if (Ans == i)
+                {
+                    k = 1;
+                }
+                else
+                {
+                    k = 2;
+                }
+            }
+
+        }
+
+        private void txtAnswer6_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Ans = Convert.ToInt32(txtAnswer6.Text);
+                if (Ans == j)
+                {
+                    k = 1;
+                }
+                else
+                {
+                    k = 2;
+                }
+            }
+        }
+
+
+        //TextChanged-Events
+        private void txtAnswer1_TextChanged(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtAnswer1.Text, out int x) && txtAnswer1.Text.Length > 1)
+            {
+                txtAnswer1.Text = txtAnswer1.Text.Substring(0, txtAnswer1.Text.Length - 1);
+                txtAnswer1.SelectionStart = txtAnswer1.Text.Length;
+                txtAnswer1.SelectionLength = 0;
+            }
+            else if (string.IsNullOrWhiteSpace(txtAnswer1.Text))
+            {
+                txtAnswer1.Text = "";
+            }
+            if (!int.TryParse(txtAnswer1.Text, out int y))
+            {
+                txtAnswer1.Text = "";
+            }
+        }
+
+        private void txtAnswer2_TextChanged(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtAnswer2.Text, out int x) && txtAnswer2.Text.Length > 1)
+            {
+                txtAnswer2.Text = txtAnswer2.Text.Substring(0, txtAnswer2.Text.Length - 1);
+                txtAnswer2.SelectionStart = txtAnswer2.Text.Length;
+                txtAnswer2.SelectionLength = 0;
+            }
+            else if (!int.TryParse(txtAnswer2.Text, out int y))
+            {
+                txtAnswer2.Text = "";
+            }
+        }
+
+        private void txtAnswer3_TextChanged(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtAnswer3.Text, out int x) && txtAnswer3.Text.Length > 1)
+            {
+                txtAnswer3.Text = txtAnswer3.Text.Substring(0, txtAnswer3.Text.Length - 1);
+                txtAnswer3.SelectionStart = txtAnswer3.Text.Length;
+                txtAnswer3.SelectionLength = 0;
+            }
+            else if (!int.TryParse(txtAnswer3.Text, out int y))
+            {
+                txtAnswer3.Text = "";
+            }
+        }
+
+        private void txtAnswer4_TextChanged(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtAnswer4.Text, out int x) && txtAnswer4.Text.Length > 1)
+            {
+                txtAnswer4.Text = txtAnswer4.Text.Substring(0, txtAnswer4.Text.Length - 1);
+                txtAnswer4.SelectionStart = txtAnswer4.Text.Length;
+                txtAnswer4.SelectionLength = 0;
+            }
+            else if (!int.TryParse(txtAnswer4.Text, out int y))
+            {
+                txtAnswer4.Text = "";
+            }
+        }
+
+        private void txtAnswer5_TextChanged(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtAnswer5.Text, out int x) && txtAnswer5.Text.Length > 1)
+            {
+                txtAnswer5.Text = txtAnswer5.Text.Substring(0, txtAnswer5.Text.Length - 1);
+                txtAnswer5.SelectionStart = txtAnswer5.Text.Length;
+                txtAnswer5.SelectionLength = 0;
+            }
+            else if (!int.TryParse(txtAnswer5.Text, out int y))
+            {
+                txtAnswer5.Text = "";
+            }
+        }
+
+        private void txtAnswer6_TextChanged(object sender, EventArgs e)
+        {
+            if (!int.TryParse(txtAnswer6.Text, out int x) && txtAnswer6.Text.Length > 1)
+            {
+                txtAnswer6.Text = txtAnswer6.Text.Substring(0, txtAnswer6.Text.Length - 1);
+                txtAnswer6.SelectionStart = txtAnswer6.Text.Length;
+                txtAnswer6.SelectionLength = 0;
+            }
+            else if (!int.TryParse(txtAnswer6.Text, out int y))
+            {
+                txtAnswer6.Text = "";
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -91,11 +91,10 @@ namespace Weekend.leerling.flappybird
 
                 if (score > 0)
                 {
-                    var query = $"INSERT INTO `score`(`AccountID`, `score`) VALUES (@gebruikers,@score)";
+                    var query = $"INSERT INTO `score`(`AccountID`,`score`,SpelID) VALUES (@gebruikers,@score,'1')";
                     MySqlCommand InsertData = new MySqlCommand(query, connection);
                     InsertData.Parameters.AddWithValue("@gebruikers", gebruikersid);
                     InsertData.Parameters.AddWithValue("@score", score);
-
                     int rowsAffected = InsertData.ExecuteNonQuery();
                     if (rowsAffected > 0)
                     {
@@ -179,6 +178,11 @@ namespace Weekend.leerling.flappybird
         private void pbPipeDown_Click(object sender, EventArgs e)
         {
             throw new System.NotImplementedException();
-        }
+        }
+
+        private void pbBird_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
