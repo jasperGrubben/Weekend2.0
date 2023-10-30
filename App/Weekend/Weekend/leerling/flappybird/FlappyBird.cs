@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -96,6 +96,16 @@ namespace Weekend.leerling.flappybird
                     InsertData.Parameters.AddWithValue("@gebruikers", gebruikersid);
                     InsertData.Parameters.AddWithValue("@score", score);
                     int rowsAffected = InsertData.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Data inserted successfully.");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to insert data.");
+                        this.Close();
+                    }
                 }
 
             }
@@ -117,7 +127,7 @@ namespace Weekend.leerling.flappybird
             {
                 MessageBox.Show($"Game Over! Your Score: {score}");
             }
-            InitializeGame();
+            this.Close();
         }
 
         private void ResetPipePosition()
@@ -168,11 +178,11 @@ namespace Weekend.leerling.flappybird
         private void pbPipeDown_Click(object sender, EventArgs e)
         {
             throw new System.NotImplementedException();
-        }
-
-        private void pbBird_Click(object sender, EventArgs e)
-        {
-
-        }
+        }
+
+        private void pbBird_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

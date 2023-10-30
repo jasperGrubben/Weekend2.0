@@ -37,7 +37,7 @@ namespace Weekend.leerling.WhackAmole
                 if (connection.State == ConnectionState.Open)
                 {
                     var AccountID = Gevevens.Gebruikersnaam;
-                    string stmt = "INSERT INTO `score`(`AccountID`,`Score`,`SpelID`) VALUES ('@AccountID','@Score','2');";
+                    string stmt = "INSERT INTO `score`(`AccountID`,`Score`,`SpelID`) VALUES (@AccountID,@Score,'2');";
                     MySqlCommand invoer = new MySqlCommand(stmt, connection);
                     invoer.Parameters.AddWithValue("@AccountID", AccountID);
                     invoer.Parameters.AddWithValue("@Score", score);

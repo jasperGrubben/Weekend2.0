@@ -33,7 +33,7 @@ namespace Weekend.leerling
             this.highScoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opdrachtenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblWelkom = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblDatum = new System.Windows.Forms.Label();
             this.pnl = new System.Windows.Forms.Panel();
@@ -41,9 +41,7 @@ namespace Weekend.leerling
             this.lblScores = new System.Windows.Forms.Label();
             this.pnlHighS = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtScore = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtNaam = new System.Windows.Forms.TextBox();
             this.lblHighScoresHead = new System.Windows.Forms.Label();
             this.pnlOpdrachten = new System.Windows.Forms.Panel();
             this.pnlOpdr1 = new System.Windows.Forms.Panel();
@@ -51,7 +49,7 @@ namespace Weekend.leerling
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.lnSom42 = new System.Windows.Forms.Label();
+            this.lblSom42 = new System.Windows.Forms.Label();
             this.lbSom32 = new System.Windows.Forms.Label();
             this.lbSom22 = new System.Windows.Forms.Label();
             this.lbSom12 = new System.Windows.Forms.Label();
@@ -73,6 +71,8 @@ namespace Weekend.leerling
             this.btnOpdr1 = new System.Windows.Forms.Button();
             this.lblOpdrachtenHead = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.LsBnaam = new System.Windows.Forms.ListBox();
+            this.LsBscore = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.pnlScores.SuspendLayout();
             this.pnlHighS.SuspendLayout();
@@ -121,15 +121,16 @@ namespace Weekend.leerling
             this.lblWelkom.TabIndex = 2;
             this.lblWelkom.Text = "Welkom,";
             // 
-            // label1
+            // lbName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(296, 150);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 55);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Sussy";
+            this.lbName.AutoSize = true;
+            this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbName.Location = new System.Drawing.Point(296, 150);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(63, 55);
+            this.lbName.TabIndex = 3;
+            this.lbName.Text = "...";
+            this.lbName.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -182,10 +183,10 @@ namespace Weekend.leerling
             // pnlHighS
             // 
             this.pnlHighS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlHighS.Controls.Add(this.LsBscore);
+            this.pnlHighS.Controls.Add(this.LsBnaam);
             this.pnlHighS.Controls.Add(this.label4);
-            this.pnlHighS.Controls.Add(this.txtScore);
             this.pnlHighS.Controls.Add(this.label3);
-            this.pnlHighS.Controls.Add(this.txtNaam);
             this.pnlHighS.Controls.Add(this.lblHighScoresHead);
             this.pnlHighS.Location = new System.Drawing.Point(738, 85);
             this.pnlHighS.Name = "pnlHighS";
@@ -202,14 +203,6 @@ namespace Weekend.leerling
             this.label4.TabIndex = 4;
             this.label4.Text = "Score";
             // 
-            // txtScore
-            // 
-            this.txtScore.Location = new System.Drawing.Point(334, 148);
-            this.txtScore.Multiline = true;
-            this.txtScore.Name = "txtScore";
-            this.txtScore.Size = new System.Drawing.Size(242, 606);
-            this.txtScore.TabIndex = 3;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -218,14 +211,6 @@ namespace Weekend.leerling
             this.label3.Size = new System.Drawing.Size(56, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "wie?";
-            // 
-            // txtNaam
-            // 
-            this.txtNaam.Location = new System.Drawing.Point(34, 148);
-            this.txtNaam.Multiline = true;
-            this.txtNaam.Name = "txtNaam";
-            this.txtNaam.Size = new System.Drawing.Size(242, 606);
-            this.txtNaam.TabIndex = 1;
             // 
             // lblHighScoresHead
             // 
@@ -245,7 +230,7 @@ namespace Weekend.leerling
             this.pnlOpdrachten.Controls.Add(this.btnOpdracht2);
             this.pnlOpdrachten.Controls.Add(this.btnOpdr1);
             this.pnlOpdrachten.Controls.Add(this.lblOpdrachtenHead);
-            this.pnlOpdrachten.Location = new System.Drawing.Point(12, 104);
+            this.pnlOpdrachten.Location = new System.Drawing.Point(170, 880);
             this.pnlOpdrachten.Name = "pnlOpdrachten";
             this.pnlOpdrachten.Size = new System.Drawing.Size(1956, 908);
             this.pnlOpdrachten.TabIndex = 8;
@@ -257,7 +242,7 @@ namespace Weekend.leerling
             this.pnlOpdr1.Controls.Add(this.label9);
             this.pnlOpdr1.Controls.Add(this.label8);
             this.pnlOpdr1.Controls.Add(this.label7);
-            this.pnlOpdr1.Controls.Add(this.lnSom42);
+            this.pnlOpdr1.Controls.Add(this.lblSom42);
             this.pnlOpdr1.Controls.Add(this.lbSom32);
             this.pnlOpdr1.Controls.Add(this.lbSom22);
             this.pnlOpdr1.Controls.Add(this.lbSom12);
@@ -312,13 +297,13 @@ namespace Weekend.leerling
             this.label7.TabIndex = 17;
             this.label7.Text = "=";
             // 
-            // lnSom42
+            // lblSom42
             // 
-            this.lnSom42.Location = new System.Drawing.Point(200, 266);
-            this.lnSom42.Name = "lnSom42";
-            this.lnSom42.Size = new System.Drawing.Size(77, 37);
-            this.lnSom42.TabIndex = 16;
-            this.lnSom42.Text = "...";
+            this.lblSom42.Location = new System.Drawing.Point(200, 266);
+            this.lblSom42.Name = "lblSom42";
+            this.lblSom42.Size = new System.Drawing.Size(77, 37);
+            this.lblSom42.TabIndex = 16;
+            this.lblSom42.Text = "...";
             // 
             // lbSom32
             // 
@@ -350,7 +335,7 @@ namespace Weekend.leerling
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 37);
             this.label6.TabIndex = 12;
-            this.label6.Text = "/";
+            this.label6.Text = "*";
             // 
             // lbSom3
             // 
@@ -471,7 +456,7 @@ namespace Weekend.leerling
             this.btnOpdr1.Name = "btnOpdr1";
             this.btnOpdr1.Size = new System.Drawing.Size(242, 81);
             this.btnOpdr1.TabIndex = 2;
-            this.btnOpdr1.Text = "Opdracht 1";
+            this.btnOpdr1.Text = "Flappybird";
             this.btnOpdr1.UseVisualStyleBackColor = true;
             this.btnOpdr1.Click += new System.EventHandler(this.btnOpdr1_Click);
             // 
@@ -495,6 +480,24 @@ namespace Weekend.leerling
             this.label5.TabIndex = 9;
             this.label5.Text = "label5";
             // 
+            // LsBnaam
+            // 
+            this.LsBnaam.FormattingEnabled = true;
+            this.LsBnaam.ItemHeight = 25;
+            this.LsBnaam.Location = new System.Drawing.Point(40, 172);
+            this.LsBnaam.Name = "LsBnaam";
+            this.LsBnaam.Size = new System.Drawing.Size(218, 579);
+            this.LsBnaam.TabIndex = 5;
+            // 
+            // LsBscore
+            // 
+            this.LsBscore.FormattingEnabled = true;
+            this.LsBscore.ItemHeight = 25;
+            this.LsBscore.Location = new System.Drawing.Point(330, 175);
+            this.LsBscore.Name = "LsBscore";
+            this.LsBscore.Size = new System.Drawing.Size(218, 579);
+            this.LsBscore.TabIndex = 6;
+            // 
             // leerling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -506,7 +509,7 @@ namespace Weekend.leerling
             this.Controls.Add(this.pnlScores);
             this.Controls.Add(this.lblDatum);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbName);
             this.Controls.Add(this.lblWelkom);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -528,6 +531,9 @@ namespace Weekend.leerling
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.ListBox LsBnaam;
+        private System.Windows.Forms.ListBox LsBscore;
+
         private System.Windows.Forms.Panel pnlOpdr1;
         private System.Windows.Forms.Button btnBev1;
         private System.Windows.Forms.TextBox txtAntw1;
@@ -545,7 +551,7 @@ namespace Weekend.leerling
         private System.Windows.Forms.Label lbSom12;
         private System.Windows.Forms.Label lbSom22;
         private System.Windows.Forms.Label lbSom32;
-        private System.Windows.Forms.Label lnSom42;
+        private System.Windows.Forms.Label lblSom42;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
@@ -557,7 +563,7 @@ namespace Weekend.leerling
         private System.Windows.Forms.ToolStripMenuItem scoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem highScoresToolStripMenuItem;
         private System.Windows.Forms.Label lblWelkom;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblDatum;
         private System.Windows.Forms.ToolStripMenuItem opdrachtenToolStripMenuItem;
@@ -571,9 +577,7 @@ namespace Weekend.leerling
         private System.Windows.Forms.Button btnOpdr1;
         private System.Windows.Forms.Button btnOpdracht2;
         private System.Windows.Forms.Button btnOpdracht3;
-        private System.Windows.Forms.TextBox txtScore;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNaam;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
     }

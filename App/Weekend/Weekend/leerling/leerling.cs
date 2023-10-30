@@ -20,57 +20,76 @@ namespace Weekend.leerling
     public partial class leerling : Form
     {
         private flappybird.FlappyBird temp;
+        private MySqlConnection CreateConnection()
+        {
+            return new MySqlConnection(GetConnectString());
+        }
+
         protected virtual string GetConnectString()
         {
-            return @"Server=127.0.0.1;Database=weekend;Uid=root;Pwd=;";
+            return @"Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;";
         }
+
         private void connection()
         {
-            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;");
-            try
+            using (MySqlConnection connection = CreateConnection())
             {
-                connection.Open();
-                // als er geen connectie is dan
-                if (connection.State == ConnectionState.Open)
+                try
                 {
-                    // Test
-                    MySqlCommand command = new MySqlCommand("SELECT * FROM Account", connection);
-                    // Execute
-                    MySqlDataReader reader = command.ExecuteReader();
-                    // Read the data
-                    while (reader.Read())
+                    connection.Open();
+                    // als er geen connectie is dan
+                    if (connection.State == ConnectionState.Open)
                     {
-                        Console.WriteLine(reader["Gebruikersnaam"]);
+                        // Test
+                        MySqlCommand command = new MySqlCommand("SELECT * FROM Account", connection);
+                        // Execute
+                        MySqlDataReader reader = command.ExecuteReader();
+                        // Read the data
+                        while (reader.Read())
+                        {
+                            Console.WriteLine(reader["Gebruikersnaam"]);
+                            lbName.Text = reader["voornaam"].ToString();
+                        }
+                        // Close the SqlDataReader object.
+                        reader.Close();
+                        label5.Text = "true";
+                        Console.WriteLine("geen connectie");
                     }
-                    // Close the SqlDataReader object.
-                    reader.Close();
-                    label5.Text = "true";
-                    Console.WriteLine("geen connectie");
+                    //return
+                    else
+                    {
+                        label5.Text = "false";
+                        return;
+                    }
                 }
-                //return
-                else
+                catch (MySqlException ex)
                 {
-                    label5.Text = "false";
-                    return;
+                    Console.WriteLine(ex.Message);
                 }
-            }
-            catch (MySqlException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            finally
-            {
-                // Close the SqlConnection object.
-                connection.Close();
             }
         }
 
-
+        private void LoadHighScores()
+        {
+            connection();
+            using (var connection = CreateConnection())
+            {
+                connection.Open();
+                var query = "SELECT * FROM `score` LEFT JOIN `account` ON account.AccountID = score.AccountID ORDER BY score.score DESC; ; ";
+                MySqlCommand HighscoresCommand = new MySqlCommand(query, connection);
+                MySqlDataReader HighscoreReader = HighscoresCommand.ExecuteReader();
+                while (HighscoreReader.Read())
+                {
+                    LsBnaam.Items.Add(HighscoreReader["voornaam"]);
+                    LsBscore.Items.Add(HighscoreReader["score"]);
+                }
+                HighscoreReader.Close();
+            }
+        }  
         public leerling()
         {
             InitializeComponent();
         }
-
         private void scoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlScores.Visible = true;
@@ -94,7 +113,8 @@ namespace Weekend.leerling
         private void leerling_Load(object sender, EventArgs e)
         {
             connection();
-            FillTextYESS();
+            //FillTextYESS();
+            LoadHighScores();
             datum();
         }
         public void datum()
@@ -105,7 +125,7 @@ namespace Weekend.leerling
         private void btnOpdr1_Click(object sender, EventArgs e)
         {
             pnlOpdr1.Show();
-            
+            Randomnummer();
         }
         
         private void FlappyBird_FormClosed(object sender, FormClosedEventArgs e)
@@ -118,7 +138,8 @@ namespace Weekend.leerling
             this.Visible = true; // laat het orgigineel weer zien
         }
 
-        private void FillTextYESS()
+        //private void FillTextYESS()
+        /*private void FillTextYESS()
         {
             MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-appe;Uid=root;Pwd=;");
             try
@@ -158,7 +179,7 @@ namespace Weekend.leerling
             {
                 txtScore.Text = "er kon niet verbonden worden";
             }
-        }
+        }*/
         private void txtNaam_TextChanged(object sender, EventArgs e)
         {
             
@@ -171,45 +192,87 @@ namespace Weekend.leerling
             game.FormClosed += WhackAMole_FormClosed;
             game.Visible = true;
         }
-
-        private bool antwoorden(string juiste, string foute)
+        public void Randomnummer()
         {
-            //som 1
             var random = new Random(); // Create a new instance of Random
+            getal11 = random.Next(1, 11);
+            getal12 = random.Next(1, 10);
+            getal21 = random.Next(1, 10);
+            getal22 = random.Next(1, 10);
+            getal31 = random.Next(1, 10);
+            getal32 = random.Next(1, 10);
+            getal41 = random.Next(1, 10);
+            getal42 = random.Next(1, 10);
 
-            // Generate random numbers in the desired range
-            var getal11 = random.Next(1, 11);
-            var getal12 = random.Next(1, 10);
-            
-            lbSom11.Text = getal11.ToString(); // Assign the value of getal11 to lbSom11.Text
-            lbSom12.Text = getal12.ToString(); // Assign the value of getal12 to lblSom12.Text
-
-            var getal13 = getal11 + getal12;
-            var antw1 = txtAntw1.Text;
-            if (int.TryParse(antw1, out int antwoord))
-            {
-                if (getal13 == antwoord)
-                {
-                    return true;
-                }
-            }
-            return false;
-
+            lbSom11.Text = getal11.ToString();
+            lbSom12.Text = getal12.ToString();
+            lbSom21.Text = getal21.ToString();
+            lbSom22.Text = getal22.ToString();
+            lbSom31.Text = getal31.ToString();
+            lbSom32.Text = getal32.ToString();
+            lblSom41.Text = getal41.ToString();
+            lblSom42.Text = getal42.ToString();
         }
-        private void btnBev1_Click(object sender, EventArgs e)
+
+        private int getal11;
+        private int getal12;
+        private int getal21;
+        private int getal22;
+        private int getal31;
+        private int getal32;
+        private int getal41;
+        private int getal42;
+
+        private bool antwoorden()
         {
-            if (antwoorden("juiste value", "foute value")) // Replace "juiste value" and "foute value" with appropriate string values
+            var getal13 = getal11 + getal12;
+            var getal23 = getal21 - getal22;
+            var getal33 = getal31 * getal32;
+            var getal43 = getal41 * getal41;
+            var antw1 = txtAntw1.Text;
+            var antw2 = txtAntw2.Text;
+            var antw3 = txtAntw3.Text;
+            var antw4 = txtAntw4.Text;
+
+            // Check if all answers are correct
+            if (antw1 == getal13.ToString() && antw2 == getal23.ToString() && antw3 == getal33.ToString() && antw4 == getal43.ToString())
             {
-                this.Hide();
-                temp = new flappybird.FlappyBird();
-                temp.FormClosed += FlappyBird_FormClosed; 
-                temp.Show();
+                return true;
             }
             else
             {
-                MessageBox.Show("probeer opnieuw");
+                return false;
             }
         }
 
+        private void btnBev1_Click(object sender, EventArgs e)
+        {
+            // Pass the correct and incorrect values to the `antwoorden()` method
+            if (antwoorden()==true)
+            {
+                MessageBox.Show("probeer opnieuw");
+            }
+            else
+            {
+                pnlOpdr1.Hide();
+                this.Hide();
+                temp = new flappybird.FlappyBird();
+                temp.FormClosed += FlappyBird_FormClosed;
+                temp.Show();
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        
+
+        private void txtNaam_TextChanged_1(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+        
     }
 }
