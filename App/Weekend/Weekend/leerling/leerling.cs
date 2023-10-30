@@ -138,7 +138,7 @@ namespace Weekend.leerling
             this.Visible = true; // laat het orgigineel weer zien
         }
 
-        private void FillTextYESS()
+        //private void FillTextYESS()
         /*private void FillTextYESS()
         {
             MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-appe;Uid=root;Pwd=;");
