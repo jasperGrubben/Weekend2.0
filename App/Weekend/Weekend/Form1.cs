@@ -533,6 +533,7 @@ namespace Weekend
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
+                Console.WriteLine(ex);
             }
         }
 
