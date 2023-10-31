@@ -1,4 +1,5 @@
 using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
 using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
@@ -625,6 +626,24 @@ namespace Weekend
 
         }
 
+        public static bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            try
+            {
+                // Regular expression to validate the email
+                string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+
+                return Regex.IsMatch(email, pattern);
+            }
+            catch (ArgumentException)
+            {
+                // Syntax error in the regular expression
+                return false;
+            }
+        }
         private void btnRegistreerConfirm_Click(object sender, EventArgs e)
         {
             var fname = txtRegistreerVoornaam.Text;
@@ -634,6 +653,10 @@ namespace Weekend
             var email = txtRegistreerEmail.Text;
             var pass = txtRegistreerPassword.Text;
             var passconfirm = txtPasswordConfirm.Text;
+            if (!IsValidEmail(email))
+            {
+                MessageBox.Show("Ongeldig e-mailadres");
+            }
             if (string.IsNullOrWhiteSpace(fname) || string.IsNullOrWhiteSpace(Infix) || string.IsNullOrWhiteSpace(lname) || string.IsNullOrWhiteSpace(usn) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(pass))
             {
                 MessageBox.Show("vul alle velden in verplichte* velden in");
