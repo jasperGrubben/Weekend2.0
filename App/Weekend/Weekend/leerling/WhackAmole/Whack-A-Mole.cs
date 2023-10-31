@@ -12,6 +12,9 @@ using System.Security.Cryptography;
 using System.Reflection;
 using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
+using System.Diagnostics.Eventing.Reader;
+using Google.Protobuf.WellKnownTypes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Weekend.leerling.WhackAmole
 {
@@ -20,10 +23,8 @@ namespace Weekend.leerling.WhackAmole
         public Whack_A_Mole()
         {
             InitializeComponent();
-            InsertScore();
-            RNGesus();
         }
-        private int a,b,k,score,q;
+        private int a,b,k,score,q,r,x,difficulty;
         private float c,d,f,g,h,i,j,Ans;
         private MySqlConnection connection;
 
@@ -32,29 +33,56 @@ namespace Weekend.leerling.WhackAmole
         {
             MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;");
             connection.Open();
-            try
+            if (connection.State == ConnectionState.Open)
             {
-                if (connection.State == ConnectionState.Open)
-                {
-                    var AccountID = Gevevens.Gebruikersnaam;
-                    string stmt = "INSERT INTO `score`(`AccountID`,`Score`,`SpelID`) VALUES (@AccountID,@Score,'2');";
-                    MySqlCommand invoer = new MySqlCommand(stmt, connection);
-                    invoer.Parameters.AddWithValue("@AccountID", AccountID);
-                    invoer.Parameters.AddWithValue("@Score", score);
-                    MessageBox.Show(AccountID + " | " + score);
-                    invoer.ExecuteNonQuery();
-                }
+                string AccountID = Gevevens.Gebruikersnaam;
+                string stmt = "INSERT INTO `score`(`AccountID`,`Score`,`SpelID`) VALUES (@AccountID,@Score,'2');";
+                MySqlCommand SQL = new MySqlCommand(stmt, connection);
+                SQL.Parameters.AddWithValue("@AccountID", AccountID);
+                SQL.Parameters.AddWithValue("@Score", lblScore.Text);
+                MessageBox.Show(AccountID + " | " + score);
+                SQL.ExecuteNonQuery();
             }
-            catch (MySqlException e) { 
-            MessageBox.Show(e.Message);
-            }
+        }
 
+        private void btnExitGame_Click(object sender, EventArgs e)
+        {
+            difficulty = 0;
+            this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnStartGame_Click(object sender, EventArgs e)
+        {
+            if (cmbDifficulty.SelectedIndex > -1)
+            {
+                var cmb_difficulty = cmbDifficulty.SelectedItem;
+                string SelectedDifficulty = cmb_difficulty.ToString();
+                if (SelectedDifficulty == "Makkelijk")
+                {
+                    difficulty = 1;
+                }
+                else if (SelectedDifficulty == "Moeilijk")
+                {
+                    difficulty = 2;
+                }
+                pnlGameHomeScreen.Visible = false;
+                RNGesus();
+            }
+            else
+            {
+                MessageBox.Show("Selecteer Een Optie");
+            }
         }
 
         private async void RNGesus()
         {
-            await Task.Delay(5000);
-            for (int x = 0; x++ < 30;)
+            await Task.Delay(5000);           
+            for (x = 0; x++ < 30;)
             {
                 Random rng = new Random();
                 Random Delay1 = new Random();
@@ -63,37 +91,77 @@ namespace Weekend.leerling.WhackAmole
                 a = b = 0;
                 c = d = f = g = h = i = j = 0;
                 await Task.Delay(Convert.ToInt32(Delay1.Next(0, 2500)));
-                int AssType = rng.Next(1, 4);
-                switch (AssType)
+                int AssType = rng.Next(1, 5);
+                
+                if(difficulty == 0)
                 {
-                    case 1:
-                        a = rng.Next(0, 1000);
-                        b = rng.Next(0, 1000);
-                        c = b + a;
-                        Ass = b + "+" + a;
-                        break;
-                    case 2:
-                        a = rng.Next(0, 100);
-                        b = rng.Next(100, 1000);
-                        c = b - a;
-                        Ass = b + "-" + a;
-                        break;
-                    case 3:
-                        a = rng.Next(0, 10);
-                        b = rng.Next(0, 100);
-                        c = b * a;
-                        Ass = b + "*" + a;
-                        break;
-                    case 4:
-                        a = rng.Next(0, 10);
-                        b = rng.Next(0, 100);
-                        c = b / a;
-                        Ass = b + "/" + a;
-                        break;
+                    break;
+                }
+                
+                else if(difficulty == 1) 
+                {
+                    switch (AssType)
+                    {
+                        case 1:
+                            a = rng.Next(0, 101);
+                            b = rng.Next(0, 101);
+                            c = b + a;
+                            Ass = b + "+" + a;
+                            break;
+                        case 2:
+                            a = rng.Next(0, 101);
+                            b = rng.Next(0, 101);
+                            c = b - a;
+                            Ass = b + "-" + a;
+                            break;
+                        case 3:
+                            a = rng.Next(1, 11);
+                            b = rng.Next(1, 11);
+                            c = b * a;
+                            Ass = b + "*" + a;
+                            break;
+                        case 4:
+                            a = rng.Next(1, 11);
+                            b = rng.Next(1, 11);
+                            c = b / a;
+                            Ass = b + "/" + a;
+                            break;
+                    }
+                }
+                else if(difficulty == 2) 
+                {
+                    switch (AssType)
+                    {
+                        case 1:
+                            a = rng.Next(0, 1001);
+                            b = rng.Next(0, 1001);
+                            c = b + a;
+                            Ass = b + "+" + a;
+                            break;
+                        case 2:
+                            a = rng.Next(0, 101);
+                            b = rng.Next(100, 1001);
+                            c = b - a;
+                            Ass = b + "-" + a;
+                            break;
+                        case 3:
+                            a = rng.Next(1, 11);
+                            b = rng.Next(1, 101);
+                            c = b * a;
+                            Ass = b + "*" + a;
+                            break;
+                        case 4:
+                            a = rng.Next(1, 11);
+                            b = rng.Next(1, 101);
+                            c = b / a;
+                            Ass = b + "/" + a;
+                            break;
+                    }
                 }
 
                 Random RNGHole = new Random();
-                int Hole = RNGHole.Next(1, 6);
+                int Hole = RNGHole.Next(1, 7);
+                r = 1;
                 switch (Hole)
                 {
                     case 1:
@@ -266,13 +334,19 @@ namespace Weekend.leerling.WhackAmole
                         break;
                 }
             }
+            if (x == 30)
+            {
+                MessageBox.Show("Je hebt " + lblScore.Text + " punten behaald!\n");
+                InsertScore();
+            }
+            this.Close();
         }
 
 
         //KeyDown-Events
         private void txtAnswer1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && r == 1)
             {
                 Ans = Convert.ToInt32(txtAnswer1.Text);
                 if (Ans == d)
@@ -283,12 +357,13 @@ namespace Weekend.leerling.WhackAmole
                 {
                     k = 2;
                 }
+                r = 0;
             }
         }
 
         private void txtAnswer2_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && r == 1)
             {
                 Ans = Convert.ToInt32(txtAnswer2.Text);
                 if (Ans == f)
@@ -299,12 +374,13 @@ namespace Weekend.leerling.WhackAmole
                 {
                     k = 2;
                 }
+                r = 0;
             }
         }
 
         private void txtAnswer3_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && r == 1)
             {
                 Ans = Convert.ToInt32(txtAnswer3.Text);
                 if (Ans == g)
@@ -315,12 +391,13 @@ namespace Weekend.leerling.WhackAmole
                 {
                     k = 2;
                 }
+                r = 0;
             }
         }
 
         private void txtAnswer4_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && r == 1)
             {
                 Ans = Convert.ToInt32(txtAnswer4.Text);
                 if (Ans == h)
@@ -331,12 +408,13 @@ namespace Weekend.leerling.WhackAmole
                 {
                     k = 2;
                 }
+                r = 0;
             }
         }
 
         private void txtAnswer5_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && r == 1)
             {
                 Ans = Convert.ToInt32(txtAnswer5.Text);
                 if (Ans == i)
@@ -347,13 +425,14 @@ namespace Weekend.leerling.WhackAmole
                 {
                     k = 2;
                 }
+                r = 0;
             }
 
         }
 
         private void txtAnswer6_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter && r == 1)
             {
                 Ans = Convert.ToInt32(txtAnswer6.Text);
                 if (Ans == j)
@@ -364,6 +443,7 @@ namespace Weekend.leerling.WhackAmole
                 {
                     k = 2;
                 }
+                r = 0;
             }
         }
 
