@@ -53,13 +53,13 @@ namespace Weekend.leerling
                         }
                         // Close the SqlDataReader object.
                         reader.Close();
-                        label5.Text = "true";
+                        Console.WriteLine("true");
                         Console.WriteLine("geen connectie");
                     }
                     //return
                     else
                     {
-                        label5.Text = "false";
+                        Console.WriteLine("false");
                         return;
                     }
                 }

@@ -29,7 +29,6 @@ namespace Weekend.leerling
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.scoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.highScoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.opdrachtenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblWelkom = new System.Windows.Forms.Label();
@@ -75,7 +74,6 @@ namespace Weekend.leerling
             this.btnOpdracht2 = new System.Windows.Forms.Button();
             this.btnOpdr1 = new System.Windows.Forms.Button();
             this.lblOpdrachtenHead = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlScores.SuspendLayout();
             this.pnlHighS.SuspendLayout();
@@ -86,19 +84,12 @@ namespace Weekend.leerling
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.scoresToolStripMenuItem, this.highScoresToolStripMenuItem, this.opdrachtenToolStripMenuItem });
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.highScoresToolStripMenuItem, this.opdrachtenToolStripMenuItem });
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1924, 40);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // scoresToolStripMenuItem
-            // 
-            this.scoresToolStripMenuItem.Name = "scoresToolStripMenuItem";
-            this.scoresToolStripMenuItem.Size = new System.Drawing.Size(93, 36);
-            this.scoresToolStripMenuItem.Text = "scores";
-            this.scoresToolStripMenuItem.Click += new System.EventHandler(this.scoresToolStripMenuItem_Click);
             // 
             // highScoresToolStripMenuItem
             // 
@@ -288,7 +279,7 @@ namespace Weekend.leerling
             this.pnlOpdrachten.Controls.Add(this.btnOpdracht2);
             this.pnlOpdrachten.Controls.Add(this.btnOpdr1);
             this.pnlOpdrachten.Controls.Add(this.lblOpdrachtenHead);
-            this.pnlOpdrachten.Location = new System.Drawing.Point(170, 880);
+            this.pnlOpdrachten.Location = new System.Drawing.Point(12, 317);
             this.pnlOpdrachten.Name = "pnlOpdrachten";
             this.pnlOpdrachten.Size = new System.Drawing.Size(1956, 908);
             this.pnlOpdrachten.TabIndex = 8;
@@ -528,22 +519,11 @@ namespace Weekend.leerling
             this.lblOpdrachtenHead.TabIndex = 1;
             this.lblOpdrachtenHead.Text = "Opdrachten";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(36, 48);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 25);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "label5";
-            // 
             // leerling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.pnlOpdrachten);
             this.Controls.Add(this.pnlHighS);
             this.Controls.Add(this.pnlScores);
@@ -604,7 +584,6 @@ namespace Weekend.leerling
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem scoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem highScoresToolStripMenuItem;
         private System.Windows.Forms.Label lblWelkom;
         private System.Windows.Forms.Label lbName;
@@ -623,6 +602,5 @@ namespace Weekend.leerling
         private System.Windows.Forms.Button btnOpdracht3;
         private System.Windows.Forms.Label lblWho;
         private System.Windows.Forms.Label lblScore;
-        private System.Windows.Forms.Label label5;
     }
 }
