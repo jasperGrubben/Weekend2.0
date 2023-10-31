@@ -1,4 +1,5 @@
 using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
 using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
@@ -70,9 +71,7 @@ namespace Weekend
             this.btnCancelLogIn = new System.Windows.Forms.Button();
             this.lblWelkom = new System.Windows.Forms.Label();
             this.pnlRegistreer = new System.Windows.Forms.Panel();
-            this.cmbAccType = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.lblHerhaalWachtwoord = new System.Windows.Forms.Label();
             this.txtRegistreerAchternaam = new System.Windows.Forms.TextBox();
             this.txtRegistreerUsername = new System.Windows.Forms.TextBox();
@@ -191,9 +190,7 @@ namespace Weekend
             // 
             // pnlRegistreer
             // 
-            this.pnlRegistreer.Controls.Add(this.cmbAccType);
             this.pnlRegistreer.Controls.Add(this.label8);
-            this.pnlRegistreer.Controls.Add(this.label5);
             this.pnlRegistreer.Controls.Add(this.lblHerhaalWachtwoord);
             this.pnlRegistreer.Controls.Add(this.txtRegistreerAchternaam);
             this.pnlRegistreer.Controls.Add(this.txtRegistreerUsername);
@@ -213,20 +210,9 @@ namespace Weekend
             this.pnlRegistreer.Controls.Add(this.btnRegistreerConfirm);
             this.pnlRegistreer.Location = new System.Drawing.Point(819, 205);
             this.pnlRegistreer.Name = "pnlRegistreer";
-            this.pnlRegistreer.Size = new System.Drawing.Size(738, 674);
+            this.pnlRegistreer.Size = new System.Drawing.Size(672, 511);
             this.pnlRegistreer.TabIndex = 100;
             this.pnlRegistreer.Visible = false;
-            // 
-            // cmbAccType
-            // 
-            this.cmbAccType.FormattingEnabled = true;
-            this.cmbAccType.Items.AddRange(new object[] {
-            "Student",
-            "Docent"});
-            this.cmbAccType.Location = new System.Drawing.Point(325, 375);
-            this.cmbAccType.Name = "cmbAccType";
-            this.cmbAccType.Size = new System.Drawing.Size(272, 24);
-            this.cmbAccType.TabIndex = 20;
             // 
             // label8
             // 
@@ -236,16 +222,6 @@ namespace Weekend
             this.label8.Size = new System.Drawing.Size(75, 16);
             this.label8.TabIndex = 19;
             this.label8.Text = "* = verplicht";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(97, 375);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(148, 25);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "*Account Type:";
             // 
             // lblHerhaalWachtwoord
             // 
@@ -381,7 +357,7 @@ namespace Weekend
             // btnRegisteerAnnuleer
             // 
             this.btnRegisteerAnnuleer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegisteerAnnuleer.Location = new System.Drawing.Point(25, 431);
+            this.btnRegisteerAnnuleer.Location = new System.Drawing.Point(25, 386);
             this.btnRegisteerAnnuleer.Name = "btnRegisteerAnnuleer";
             this.btnRegisteerAnnuleer.Size = new System.Drawing.Size(307, 99);
             this.btnRegisteerAnnuleer.TabIndex = 8;
@@ -392,7 +368,7 @@ namespace Weekend
             // btnRegistreerConfirm
             // 
             this.btnRegistreerConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistreerConfirm.Location = new System.Drawing.Point(338, 431);
+            this.btnRegistreerConfirm.Location = new System.Drawing.Point(338, 386);
             this.btnRegistreerConfirm.Name = "btnRegistreerConfirm";
             this.btnRegistreerConfirm.Size = new System.Drawing.Size(307, 99);
             this.btnRegistreerConfirm.TabIndex = 7;
@@ -525,11 +501,11 @@ namespace Weekend
                                             {
                                                 // Handle admin panel logic here
                                             }
-                                            else if ( checkrolreader.HasRows && i == 2)
+                                            if ( checkrolreader.HasRows && i == 2)
                                             {
                                                 //ga naar het docent paneel
                                             }
-                                            else if (checkrolreader.HasRows && i == 3)
+                                            if (checkrolreader.HasRows && i == 3)
                                             {
                                                 this.Hide();
                                                 var temp = new leerling.leerling();
@@ -558,6 +534,7 @@ namespace Weekend
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
+                Console.WriteLine(ex);
             }
         }
 
@@ -649,6 +626,24 @@ namespace Weekend
 
         }
 
+        public static bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            try
+            {
+                // Regular expression to validate the email
+                string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+
+                return Regex.IsMatch(email, pattern);
+            }
+            catch (ArgumentException)
+            {
+                // Syntax error in the regular expression
+                return false;
+            }
+        }
         private void btnRegistreerConfirm_Click(object sender, EventArgs e)
         {
             var fname = txtRegistreerVoornaam.Text;
@@ -658,6 +653,10 @@ namespace Weekend
             var email = txtRegistreerEmail.Text;
             var pass = txtRegistreerPassword.Text;
             var passconfirm = txtPasswordConfirm.Text;
+            if (!IsValidEmail(email))
+            {
+                MessageBox.Show("Ongeldig e-mailadres");
+            }
             if (string.IsNullOrWhiteSpace(fname) || string.IsNullOrWhiteSpace(Infix) || string.IsNullOrWhiteSpace(lname) || string.IsNullOrWhiteSpace(usn) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(pass))
             {
                 MessageBox.Show("vul alle velden in verplichte* velden in");
@@ -704,16 +703,13 @@ namespace Weekend
                         }
                         catch (MySql.Data.MySqlClient.MySqlException ex)
                         {
-                            MessageBox.Show(ex.ToString());
+                            MessageBox.Show("Er Ging Iets fout. probeer het opnieuw.");
                         }
                     }
                 }
             }
         }
-
-        private System.Windows.Forms.ComboBox cmbAccType;
         private Label label8;
-        private Label label5;
         private Panel pnlWelkom;
 
         private void lblWelkom_Click(object sender, EventArgs e)
