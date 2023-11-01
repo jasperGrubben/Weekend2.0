@@ -634,7 +634,7 @@ namespace Weekend
             var email = txtRegistreerEmail.Text;
             var pass = txtRegistreerPassword.Text;
             var passconfirm = txtPasswordConfirm.Text;
-            if (string.IsNullOrWhiteSpace(fname) || string.IsNullOrWhiteSpace(Infix) || string.IsNullOrWhiteSpace(lname) || string.IsNullOrWhiteSpace(usn) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(pass))
+            if (string.IsNullOrWhiteSpace(fname) || string.IsNullOrWhiteSpace(usn) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(pass))
             {
                 MessageBox.Show("vul alle velden in verplichte* velden in");
             }
@@ -684,6 +684,9 @@ namespace Weekend
                         }
                     }
                 }
+                pnlRegistreer.Visible = false;
+                pnlLogIn.Visible = true;
+                pnlLogIn.Location = new System.Drawing.Point(42, 18);
             }
         }
         private Label label8;

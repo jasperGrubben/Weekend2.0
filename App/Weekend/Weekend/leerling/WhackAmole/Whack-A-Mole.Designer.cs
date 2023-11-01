@@ -58,11 +58,12 @@ namespace Weekend.leerling.WhackAmole
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.lblGameTitle = new System.Windows.Forms.PictureBox();
             this.cmbDifficulty = new System.Windows.Forms.ComboBox();
             this.btnStartGame = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.lblDiffDesc = new System.Windows.Forms.Label();
             this.pnlGameHomeScreen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -77,7 +78,7 @@ namespace Weekend.leerling.WhackAmole
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblGameTitle)).BeginInit();
             this.SuspendLayout();
             // 
             // lblAss1
@@ -248,11 +249,12 @@ namespace Weekend.leerling.WhackAmole
             // 
             // pnlGameHomeScreen
             // 
+            this.pnlGameHomeScreen.Controls.Add(this.lblDiffDesc);
             this.pnlGameHomeScreen.Controls.Add(this.label3);
             this.pnlGameHomeScreen.Controls.Add(this.label2);
             this.pnlGameHomeScreen.Controls.Add(this.btnStartGame);
             this.pnlGameHomeScreen.Controls.Add(this.cmbDifficulty);
-            this.pnlGameHomeScreen.Controls.Add(this.pictureBox8);
+            this.pnlGameHomeScreen.Controls.Add(this.lblGameTitle);
             this.pnlGameHomeScreen.Controls.Add(this.pictureBox2);
             this.pnlGameHomeScreen.Controls.Add(this.pictureBox4);
             this.pnlGameHomeScreen.Controls.Add(this.pictureBox7);
@@ -396,15 +398,15 @@ namespace Weekend.leerling.WhackAmole
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox8
+            // lblGameTitle
             // 
-            this.pictureBox8.Image = global::Weekend.Properties.Resources.Whack_A_Mole;
-            this.pictureBox8.Location = new System.Drawing.Point(285, 128);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(783, 137);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 10;
-            this.pictureBox8.TabStop = false;
+            this.lblGameTitle.Image = global::Weekend.Properties.Resources.Whack_A_Mole;
+            this.lblGameTitle.Location = new System.Drawing.Point(279, 128);
+            this.lblGameTitle.Name = "lblGameTitle";
+            this.lblGameTitle.Size = new System.Drawing.Size(783, 137);
+            this.lblGameTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.lblGameTitle.TabIndex = 10;
+            this.lblGameTitle.TabStop = false;
             // 
             // cmbDifficulty
             // 
@@ -420,6 +422,7 @@ namespace Weekend.leerling.WhackAmole
             this.cmbDifficulty.Size = new System.Drawing.Size(327, 33);
             this.cmbDifficulty.TabIndex = 11;
             this.cmbDifficulty.Text = "Selecteer Een Optie...";
+            this.cmbDifficulty.SelectedIndexChanged += new System.EventHandler(this.cmbDifficulty_SelectedIndexChanged);
             // 
             // btnStartGame
             // 
@@ -439,7 +442,7 @@ namespace Weekend.leerling.WhackAmole
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(543, 643);
+            this.label2.Location = new System.Drawing.Point(543, 488);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(369, 16);
             this.label2.TabIndex = 13;
@@ -450,11 +453,24 @@ namespace Weekend.leerling.WhackAmole
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(683, 610);
+            this.label3.Location = new System.Drawing.Point(675, 462);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 25);
             this.label3.TabIndex = 14;
             this.label3.Text = "Let Op!";
+            // 
+            // lblDiffDesc
+            // 
+            this.lblDiffDesc.AutoSize = true;
+            this.lblDiffDesc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblDiffDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiffDesc.ForeColor = System.Drawing.Color.White;
+            this.lblDiffDesc.Location = new System.Drawing.Point(482, 536);
+            this.lblDiffDesc.Name = "lblDiffDesc";
+            this.lblDiffDesc.Size = new System.Drawing.Size(31, 20);
+            this.lblDiffDesc.TabIndex = 15;
+            this.lblDiffDesc.Text = ". . .";
+            this.lblDiffDesc.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Whack_A_Mole
             // 
@@ -487,6 +503,7 @@ namespace Weekend.leerling.WhackAmole
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Whack_A_Mole";
             this.Text = "Whack_A_Mole";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WhackAMole_FormClosed);
             this.pnlGameHomeScreen.ResumeLayout(false);
             this.pnlGameHomeScreen.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -502,7 +519,7 @@ namespace Weekend.leerling.WhackAmole
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblGameTitle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -537,11 +554,12 @@ namespace Weekend.leerling.WhackAmole
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox lblGameTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cmbDifficulty;
         private System.Windows.Forms.Button btnStartGame;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDiffDesc;
     }
 }
