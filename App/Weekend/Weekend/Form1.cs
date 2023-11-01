@@ -707,6 +707,9 @@ namespace Weekend
                         }
                     }
                 }
+                pnlRegistreer.Visible = false;
+                pnlLogIn.Visible = true;
+                pnlLogIn.Location = new System.Drawing.Point(42, 18);
             }
         }
         private Label label8;
