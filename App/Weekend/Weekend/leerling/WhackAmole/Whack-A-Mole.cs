@@ -102,6 +102,11 @@ namespace Weekend.leerling.WhackAmole
             Music.Stop();
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnStartGame_Click(object sender, EventArgs e)
         {
             if (cmbDifficulty.SelectedIndex > -1)
