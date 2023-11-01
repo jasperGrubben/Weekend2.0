@@ -205,7 +205,7 @@ namespace Weekend.leerling
             {
                 return true;
             }
-            if (antw1 != getal13.ToString() || antw2 != getal23.ToString() || antw3 != getal33.ToString() || antw4 != getal43.ToString())
+            else
             {
                 return false;
             }
