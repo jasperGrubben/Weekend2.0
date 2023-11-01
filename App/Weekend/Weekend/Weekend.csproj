@@ -124,7 +124,6 @@
     <Compile Include="leerling\leerling.Designer.cs">
       <DependentUpon>leerling.cs</DependentUpon>
     </Compile>
-    <Compile Include="leerling\snake\sakeGame.cs" />
     <Compile Include="leerling\WhackAmole\Whack-A-Mole.cs">
       <SubType>Form</SubType>
     </Compile>
