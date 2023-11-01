@@ -146,49 +146,6 @@ namespace Weekend.leerling
         {
             this.Visible = true; // laat het orgigineel weer zien
         }
-
-        //private void FillTextYESS()
-        /*private void FillTextYESS()
-        {
-            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-appe;Uid=root;Pwd=;");
-            try
-            {
-                // als er geen connectie is dan
-                if (connection == null)
-                {
-                    lblWelkom.Text = "systeem is offline probeer opnieuw later";
-                }
-                //return
-                else
-                {
-                    Console.WriteLine("kon wel verbinden");
-                    return;
-                }
-            }
-            catch (MySqlException ex)
-            {
-                // Test
-                MySqlCommand command = new MySqlCommand("SELECT `userID` FROM `score`", connection);
-                // Execute
-                MySqlDataReader reader = command.ExecuteReader();
-                // Read the data
-                while (reader.Read())
-                {
-                    txtScore.Text = reader.GetString(0);
-                    //Console.WriteLine(reader["score"]);
-                    if (reader.IsDBNull(0))
-                    {
-                        txtNaam.Text = "er zijn nog geen scores";
-                    }
-                }
-                // Close the SqlDataReader object.
-                reader.Close();
-            }
-            catch
-            {
-                txtScore.Text = "er kon niet verbonden worden";
-            }
-        }*/
         private void txtNaam_TextChanged(object sender, EventArgs e)
         {
             
@@ -248,7 +205,7 @@ namespace Weekend.leerling
             {
                 return true;
             }
-            else
+            if (antw1 != getal13.ToString() || antw2 != getal23.ToString() || antw3 != getal33.ToString() || antw4 != getal43.ToString())
             {
                 return false;
             }
