@@ -653,7 +653,7 @@ namespace Weekend
             {
                 MessageBox.Show("Ongeldig e-mailadres");
             }
-            if (string.IsNullOrWhiteSpace(fname) || string.IsNullOrWhiteSpace(Infix) || string.IsNullOrWhiteSpace(lname) || string.IsNullOrWhiteSpace(usn) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(pass))
+            if (string.IsNullOrWhiteSpace(fname) || string.IsNullOrWhiteSpace(lname) || string.IsNullOrWhiteSpace(usn) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(pass))
             {
                 MessageBox.Show("vul alle velden in verplichte* velden in");
             }
