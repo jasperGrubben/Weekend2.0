@@ -415,13 +415,13 @@ namespace Weekend
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(699, 48);
+            this.button1.Location = new System.Drawing.Point(629, 48);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 102;
-            this.button1.Text = "wek a mol";
+            this.button1.Size = new System.Drawing.Size(112, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Homepage
             // 
@@ -488,32 +488,33 @@ namespace Weekend
                                 
                                 if (hashedPassword == storedHashedPassword)
                                 {
-                                    for (int i = 1; i < 4; i++)
-                                    {
                                         reader.Close();
-                                        string rolQuery = "SELECT * FROM `account` LEFT JOIN `rol` ON account.RolID = Rol.RolID WHERE account.RolID = @roll";
+                                        string rolQuery = "SELECT * FROM `account` LEFT JOIN `rol` ON account.RolID = Rol.RolID";
                                         MySqlCommand checkrol = new MySqlCommand(rolQuery, connection);
-                                        checkrol.Parameters.AddWithValue("@roll", i.ToString());
 
                                         using (MySqlDataReader checkrolreader = checkrol.ExecuteReader())
                                         {
-                                            if (checkrolreader.HasRows && i == 1)
+                                            checkrolreader.Read();
+                                            switch (checkrolreader["Rol"])
                                             {
-                                                // Handle admin panel logic here
-                                            }
-                                            if ( checkrolreader.HasRows && i == 2)
-                                            {
-                                                //ga naar het docent paneel
-                                            }
-                                            if (checkrolreader.HasRows && i == 3)
-                                            {
-                                                this.Hide();
-                                                var temp = new leerling.leerling();
-                                                temp.Show();
+                                                case "admin": 
+                                                    this.Hide();
+                                                    var temp = new leerling.leerling();
+                                                    temp.Show();
+                                                    break;
+                                                case "docent":
+                                                    this.Hide();
+                                                    var temp2 = new docent.Form1();
+                                                    temp2.Show();
+                                                    break;
+                                                case "leerling":
+                                                    this.Hide();
+                                                    var temp3 = new leerling.leerling();
+                                                    temp3.Show();
+                                                    break;
                                             }
                                         }
-                                    }
-                                    connection.Close();
+                                        connection.Close();
                                 }
                                 else
                                 {
@@ -602,11 +603,6 @@ namespace Weekend
         {
             pnlLogIn.Visible = false;
             pnlWelkom.Visible = true;
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
         }
 
         private Button btnRegistreer;
@@ -701,7 +697,7 @@ namespace Weekend
                             MessageBox.Show("account is aangemaakt");
                             connection.Close();
                         }
-                        catch (MySql.Data.MySqlClient.MySqlException ex)
+                        catch (MySql.Data.MySqlClient.MySqlException)
                         {
                             MessageBox.Show("Er Ging Iets fout. probeer het opnieuw.");
                         }
@@ -722,11 +718,10 @@ namespace Weekend
 
         private Button button1;
 
-        private void button1_Click_2(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            //this.Visible = false;
-            var game = new leerling.WhackAmole.Whack_A_Mole();
-            game.Visible = true;
+            var temp = new leerling.leerling();
+            temp.Show();
         }
     }
 }
