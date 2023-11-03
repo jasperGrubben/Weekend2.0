@@ -146,49 +146,6 @@ namespace Weekend.leerling
         {
             this.Visible = true; // laat het orgigineel weer zien
         }
-
-        //private void FillTextYESS()
-        /*private void FillTextYESS()
-        {
-            MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-appe;Uid=root;Pwd=;");
-            try
-            {
-                // als er geen connectie is dan
-                if (connection == null)
-                {
-                    lblWelkom.Text = "systeem is offline probeer opnieuw later";
-                }
-                //return
-                else
-                {
-                    Console.WriteLine("kon wel verbinden");
-                    return;
-                }
-            }
-            catch (MySqlException ex)
-            {
-                // Test
-                MySqlCommand command = new MySqlCommand("SELECT `userID` FROM `score`", connection);
-                // Execute
-                MySqlDataReader reader = command.ExecuteReader();
-                // Read the data
-                while (reader.Read())
-                {
-                    txtScore.Text = reader.GetString(0);
-                    //Console.WriteLine(reader["score"]);
-                    if (reader.IsDBNull(0))
-                    {
-                        txtNaam.Text = "er zijn nog geen scores";
-                    }
-                }
-                // Close the SqlDataReader object.
-                reader.Close();
-            }
-            catch
-            {
-                txtScore.Text = "er kon niet verbonden worden";
-            }
-        }*/
         private void txtNaam_TextChanged(object sender, EventArgs e)
         {
             
@@ -237,7 +194,7 @@ namespace Weekend.leerling
             var getal13 = getal11 + getal12;
             var getal23 = getal21 - getal22;
             var getal33 = getal31 * getal32;
-            var getal43 = getal41 * getal41;
+            var getal43 = getal41 * getal42;
             var antw1 = txtAntw1.Text;
             var antw2 = txtAntw2.Text;
             var antw3 = txtAntw3.Text;
@@ -259,15 +216,16 @@ namespace Weekend.leerling
             // Pass the correct and incorrect values to the `antwoorden()` method
             if (antwoorden()==true)
             {
-                MessageBox.Show("probeer opnieuw");
-            }
-            else
-            {
                 pnlOpdr1.Hide();
                 this.Hide();
                 temp = new flappybird.FlappyBird();
                 temp.FormClosed += FlappyBird_FormClosed;
                 temp.Show();
+                
+            }
+            else
+            {
+                MessageBox.Show("probeer opnieuw");
             }
         }
 
