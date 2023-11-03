@@ -415,13 +415,13 @@ namespace Weekend
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(699, 48);
+            this.button1.Location = new System.Drawing.Point(629, 48);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 102;
-            this.button1.Text = "wek a mol";
+            this.button1.Size = new System.Drawing.Size(112, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Homepage
             // 
@@ -616,11 +616,6 @@ namespace Weekend
             pnlWelkom.Visible = true;
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private Button btnRegistreer;
         private Panel pnlLogIn;
         private void btnInloggenLeerling_Click(object sender, EventArgs e)
@@ -713,12 +708,15 @@ namespace Weekend
                             MessageBox.Show("account is aangemaakt");
                             connection.Close();
                         }
-                        catch (MySql.Data.MySqlClient.MySqlException ex)
+                        catch (MySql.Data.MySqlClient.MySqlException)
                         {
                             MessageBox.Show("Er Ging Iets fout. probeer het opnieuw.");
                         }
                     }
                 }
+                pnlRegistreer.Visible = false;
+                pnlLogIn.Visible = true;
+                pnlLogIn.Location = new System.Drawing.Point(42, 18);
             }
         }
         private Label label8;
@@ -731,11 +729,10 @@ namespace Weekend
 
         private Button button1;
 
-        private void button1_Click_2(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            //this.Visible = false;
-            var game = new leerling.WhackAmole.Whack_A_Mole();
-            game.Visible = true;
+            var temp = new leerling.leerling();
+            temp.Show();
         }
     }
 }

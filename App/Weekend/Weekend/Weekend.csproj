@@ -99,6 +99,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin\Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="docent\Docent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="admin\Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="docent\docent.resx">
       <DependentUpon>Docent.cs</DependentUpon>
     </EmbeddedResource>
