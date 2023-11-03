@@ -44,15 +44,18 @@ namespace Weekend.admin
 
         private void btnDeleteConfirm_Click(object sender, EventArgs e)
         {
+            connection.Open();
             string stmt = "DELETE FROM `account` WHERE `AccountID` = @AccountID";
             MySqlCommand Sql = new MySqlCommand(stmt, connection);
             Sql.Parameters.AddWithValue("@AccountID", AccountID);
             Sql.ExecuteNonQuery();
+            connection.Close();
             clearVars();
             pnlDeleteConfirm.Visible = false;
             pnlGegevens.Enabled = true;
             pnlGegevens.Visible = false;
             btnSearch.Enabled = true;
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -86,6 +89,8 @@ namespace Weekend.admin
                     Achternaam = Reader.GetString(5);
                     AccountID = Reader.GetInt32(6);
                 }
+                Reader.Close();
+                connection.Close();
                 txtGebruikersnaam.Text = Gebruikersnaam;
                 txtEmail.Text = Email;
                 txtRolID.Text = RolID.ToString();
@@ -93,7 +98,6 @@ namespace Weekend.admin
                 txtTussenvoegsel.Text = Tussenvoegsel;
                 txtAchternaam.Text = Achternaam;
                 pnlGegevens.Visible = true;
-                Reader.Close();
             }
         }
     }
