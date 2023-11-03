@@ -12,6 +12,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Weekend.admin;
 using Weekend.leerling;
 using Weekend.leerling.WhackAmole;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
@@ -450,14 +451,14 @@ namespace Weekend
         {
 
         }
-        //laatste werkende op Eindje
         //login knop
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            // Haal de gebruikersnaam en wachtwoord op uit de tekstvakken.
             var gebruiker = txtEmailLogIn.Text;
             var pass = txtWachtwoordLogIn.Text;
 
+            // Controleer of de gebruiker en het wachtwoord zijn ingevuld.
             if (string.IsNullOrWhiteSpace(gebruiker) || string.IsNullOrWhiteSpace(pass))
             {
                 MessageBox.Show("Vul alle velden in");
@@ -468,63 +469,90 @@ namespace Weekend
             {
                 using (SHA256 sha256 = SHA256.Create())
                 {
+                    // Hash het wachtwoord voordat het wordt vergeleken met de database.
                     byte[] passwordBytes = Encoding.UTF8.GetBytes(pass);
                     byte[] hashedBytes = sha256.ComputeHash(passwordBytes);
                     string hashedPassword = BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
-                    using (MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;"))
-                    {                        
+
+                    using (MySqlConnection connection =
+                           new MySqlConnection("Server=127.0.0.1;Database=reken-app;Uid=root;Pwd=;"))
+                    {
                         connection.Open();
-                        
+
+                        // Zoek de gebruiker op basis van de gebruikersnaam.
                         string query = "SELECT * FROM `account` WHERE `Gebruikersnaam`=@Gebruiker";
                         MySqlCommand login = new MySqlCommand(query, connection);
                         login.Parameters.AddWithValue("@Gebruiker", gebruiker);
                         login.Parameters.AddWithValue("@Wachtwoord", hashedPassword);
                         MySqlDataReader reader = login.ExecuteReader();
+
                         if (reader.Read())
                         {
                             var gebruikersID = reader["AccountID"];
                             Gevevens.Gebruikersnaam = gebruikersID.ToString();
-                                string storedHashedPassword = reader["Wachtwoord"].ToString();
-                                
-                                if (hashedPassword == storedHashedPassword)
-                                {
-                                        reader.Close();
-                                        string rolQuery = "SELECT * FROM `account` LEFT JOIN `rol` ON account.RolID = Rol.RolID";
-                                        MySqlCommand checkrol = new MySqlCommand(rolQuery, connection);
 
-                                        using (MySqlDataReader checkrolreader = checkrol.ExecuteReader())
-                                        {
-                                            checkrolreader.Read();
-                                            switch (checkrolreader["Rol"])
-                                            {
-                                                case "admin": 
-                                                    this.Hide();
-                                                    var temp = new leerling.leerling();
-                                                    temp.Show();
-                                                    break;
-                                                case "docent":
-                                                    this.Hide();
-                                                    var temp2 = new docent.Form1();
-                                                    temp2.Show();
-                                                    break;
-                                                case "leerling":
-                                                    this.Hide();
-                                                    var temp3 = new leerling.leerling();
-                                                    temp3.Show();
-                                                    break;
-                                            }
-                                        }
-                                        connection.Close();
-                                }
-                                else
+                            string storedHashedPassword = reader["Wachtwoord"].ToString();
+
+                            // Vergelijk de gehashte wachtwoorden.
+                            if (hashedPassword == storedHashedPassword)
+                            {
+                                reader.Close();
+                                //SELECT * FROM `account` LEFT JOIN `rol` ON account.RolID = Rol.RolID
+                                // Bepaal de rol van de gebruiker en navigeer naar de juiste pagina.
+                                string rolQuery =
+                                    "SELECT `RolID` FROM `account`;";
+                                MySqlCommand checkrol = new MySqlCommand(rolQuery, connection);
+
+                                using (MySqlDataReader checkrolreader = checkrol.ExecuteReader())
                                 {
-                                    MessageBox.Show("Incorrect password.");
+                                    checkrolreader.Read();
+                                    switch (checkrolreader["RolID"])
+                                    {
+                                        case 1:
+                                            if (checkrolreader.HasRows)
+                                            {
+                                                this.Hide();
+                                                var temp = new admin.Admin();
+                                                temp.Show();
+                                            }
+                                            else
+                                            {
+                                                break;
+                                            }
+
+                                            break;
+                                        case 2:
+                                            if (checkrolreader.HasRows)
+                                            {
+                                                this.Hide();
+                                                var temp2 = new docent.Form1();
+                                                temp2.Show();
+                                            }
+
+                                            break;
+                                        case 3:
+                                            if (checkrolreader.HasRows)
+                                            {
+                                                this.Hide();
+                                                var temp3 = new leerling.leerling();
+                                                temp3.Show();
+                                            }
+
+                                            break;
+                                    }
                                 }
+                                //push voor master
+                                connection.Close();
                             }
                             else
                             {
-                                MessageBox.Show("User not found.");
+                                MessageBox.Show("Incorrect password.");
                             }
+                        }
+                        else
+                        {
+                            MessageBox.Show("User not found.");
+                        }
                     }
                 }
             }
