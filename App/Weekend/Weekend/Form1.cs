@@ -524,7 +524,7 @@ namespace Weekend
                                             break;
                                     }
                                 }
-
+                                //push voor master
                                 connection.Close();
                             }
                             else
