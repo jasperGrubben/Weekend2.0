@@ -12,6 +12,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Weekend.admin;
 using Weekend.leerling;
 using Weekend.leerling.WhackAmole;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
@@ -496,31 +497,47 @@ namespace Weekend
                             if (hashedPassword == storedHashedPassword)
                             {
                                 reader.Close();
-
+                                //SELECT * FROM `account` LEFT JOIN `rol` ON account.RolID = Rol.RolID
                                 // Bepaal de rol van de gebruiker en navigeer naar de juiste pagina.
                                 string rolQuery =
-                                    "SELECT * FROM `account` LEFT JOIN `rol` ON account.RolID = Rol.RolID";
+                                    "SELECT `RolID` FROM `account`;";
                                 MySqlCommand checkrol = new MySqlCommand(rolQuery, connection);
 
                                 using (MySqlDataReader checkrolreader = checkrol.ExecuteReader())
                                 {
                                     checkrolreader.Read();
-                                    switch (checkrolreader["Rol"])
+                                    switch (checkrolreader["RolID"])
                                     {
-                                        case "admin":
-                                            this.Hide();
-                                            var temp = new leerling.leerling();
-                                            temp.Show();
+                                        case 1:
+                                            if (checkrolreader.HasRows)
+                                            {
+                                                this.Hide();
+                                                var temp = new admin.Admin();
+                                                temp.Show();
+                                            }
+                                            else
+                                            {
+                                                break;
+                                            }
+
                                             break;
-                                        case "docent":
-                                            this.Hide();
-                                            var temp2 = new docent.Form1();
-                                            temp2.Show();
+                                        case 2:
+                                            if (checkrolreader.HasRows)
+                                            {
+                                                this.Hide();
+                                                var temp2 = new docent.Form1();
+                                                temp2.Show();
+                                            }
+
                                             break;
-                                        case "leerling":
-                                            this.Hide();
-                                            var temp3 = new leerling.leerling();
-                                            temp3.Show();
+                                        case 3:
+                                            if (checkrolreader.HasRows)
+                                            {
+                                                this.Hide();
+                                                var temp3 = new leerling.leerling();
+                                                temp3.Show();
+                                            }
+
                                             break;
                                     }
                                 }
