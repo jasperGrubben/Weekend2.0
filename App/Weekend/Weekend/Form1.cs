@@ -502,45 +502,30 @@ namespace Weekend
                                 string rolQuery =
                                     "SELECT `RolID` FROM `account`;";
                                 MySqlCommand checkrol = new MySqlCommand(rolQuery, connection);
-
-                                using (MySqlDataReader checkrolreader = checkrol.ExecuteReader())
-                                {
+                                MySqlDataReader checkrolreader = checkrol.ExecuteReader();
+                                
                                     checkrolreader.Read();
-                                    switch (checkrolreader["RolID"])
+                                    if (checkrolreader["RolID"].ToString() == "1")
                                     {
-                                        case 1:
-                                            if (checkrolreader.HasRows)
-                                            {
-                                                this.Hide();
-                                                var temp = new admin.Admin();
-                                                temp.Show();
-                                            }
-                                            else
-                                            {
-                                                break;
-                                            }
-
-                                            break;
-                                        case 2:
-                                            if (checkrolreader.HasRows)
-                                            {
-                                                this.Hide();
-                                                var temp2 = new docent.Form1();
-                                                temp2.Show();
-                                            }
-
-                                            break;
-                                        case 3:
-                                            if (checkrolreader.HasRows)
-                                            {
-                                                this.Hide();
-                                                var temp3 = new leerling.leerling();
-                                                temp3.Show();
-                                            }
-
-                                            break;
+                                        this.Hide();
+                                        var temp = new admin.Admin();
+                                        temp.Show();
                                     }
-                                }
+
+                                    if (checkrolreader["RolID"].ToString() == "2")
+                                    {
+                                        this.Hide();
+                                        var temp = new docent.Form1();
+                                        temp.Show();
+                                    }
+
+                                    if (checkrolreader["RolID"].ToString() == "3")
+                                    {
+                                        this.Hide();
+                                        var temp = new leerling.leerling();
+                                        temp.Show();
+                                    }
+                                
                                 //push voor master
                                 connection.Close();
                             }
