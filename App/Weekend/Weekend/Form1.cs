@@ -92,6 +92,7 @@ namespace Weekend
             this.btnRegistreer = new System.Windows.Forms.Button();
             this.pnlLogIn = new System.Windows.Forms.Panel();
             this.pnlWelkom = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlRegistreer.SuspendLayout();
             this.pnlLogIn.SuspendLayout();
             this.pnlWelkom.SuspendLayout();
@@ -403,6 +404,7 @@ namespace Weekend
             // 
             // pnlWelkom
             // 
+            this.pnlWelkom.Controls.Add(this.button1);
             this.pnlWelkom.Controls.Add(this.lblWelkom);
             this.pnlWelkom.Controls.Add(this.btnRegistreer);
             this.pnlWelkom.Controls.Add(this.btnInloggen);
@@ -410,6 +412,16 @@ namespace Weekend
             this.pnlWelkom.Name = "pnlWelkom";
             this.pnlWelkom.Size = new System.Drawing.Size(808, 335);
             this.pnlWelkom.TabIndex = 101;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(629, 48);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 23);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Homepage
             // 
@@ -703,6 +715,14 @@ namespace Weekend
         private void lblWelkom_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private Button button1;
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            var temp = new leerling.leerling();
+            temp.Show();
         }
     }
 }

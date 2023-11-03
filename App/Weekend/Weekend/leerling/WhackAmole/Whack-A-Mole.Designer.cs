@@ -340,6 +340,7 @@ namespace Weekend.leerling.WhackAmole
             this.lblGameTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.lblGameTitle.TabIndex = 10;
             this.lblGameTitle.TabStop = false;
+            this.lblGameTitle.Click += new System.EventHandler(this.lblGameTitle_Click);
             // 
             // pictureBox2
             // 
