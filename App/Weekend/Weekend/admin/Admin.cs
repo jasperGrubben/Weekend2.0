@@ -26,6 +26,8 @@ namespace Weekend.admin
 
         }
 
+
+
         private void clearVars()
         {
             Gebruikersnaam = Email = Voornaam = Tussenvoegsel = Achternaam = "";
@@ -40,6 +42,13 @@ namespace Weekend.admin
             txtVoornaam.Clear();
             txtTussenvoegsel.Clear();
             txtAchternaam.Clear();
+        }
+        
+        private void btnDeleteCancel_Click(object sender, EventArgs e)
+        {
+            pnlDeleteConfirm.Visible = false;
+            pnlGegevens.Enabled = true;
+            btnSearch.Enabled = true;
         }
 
         private void btnDeleteConfirm_Click(object sender, EventArgs e)

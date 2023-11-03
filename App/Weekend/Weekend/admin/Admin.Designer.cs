@@ -56,7 +56,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblChangePass = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDeleteCancel = new System.Windows.Forms.Button();
             this.btnDeleteConfirm = new System.Windows.Forms.Button();
             this.pnlGegevens.SuspendLayout();
             this.pnlDeleteConfirm.SuspendLayout();
@@ -314,7 +314,7 @@
             // pnlDeleteConfirm
             // 
             this.pnlDeleteConfirm.Controls.Add(this.btnDeleteConfirm);
-            this.pnlDeleteConfirm.Controls.Add(this.button1);
+            this.pnlDeleteConfirm.Controls.Add(this.btnDeleteCancel);
             this.pnlDeleteConfirm.Controls.Add(this.label8);
             this.pnlDeleteConfirm.Controls.Add(this.label7);
             this.pnlDeleteConfirm.Location = new System.Drawing.Point(29, 123);
@@ -358,16 +358,17 @@
             this.lblChangePass.Text = "Change Password";
             this.lblChangePass.Click += new System.EventHandler(this.lblChangePass_OnClick);
             // 
-            // button1
+            // btnDeleteCancel
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(175, 111);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 83);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnDeleteCancel.BackColor = System.Drawing.Color.White;
+            this.btnDeleteCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnDeleteCancel.Location = new System.Drawing.Point(175, 111);
+            this.btnDeleteCancel.Name = "btnDeleteCancel";
+            this.btnDeleteCancel.Size = new System.Drawing.Size(123, 83);
+            this.btnDeleteCancel.TabIndex = 21;
+            this.btnDeleteCancel.Text = "Cancel";
+            this.btnDeleteCancel.UseVisualStyleBackColor = false;
+            this.btnDeleteCancel.Click += new System.EventHandler(this.btnDeleteCancel_Click);
             // 
             // btnDeleteConfirm
             // 
@@ -436,6 +437,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblChangePass;
         private System.Windows.Forms.Button btnDeleteConfirm;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnDeleteCancel;
     }
 }
