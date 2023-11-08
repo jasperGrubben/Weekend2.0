@@ -496,12 +496,14 @@ namespace Weekend
                             // Vergelijk de gehashte wachtwoorden.
                             if (hashedPassword == storedHashedPassword)
                             {
+                                var gbr = Gevevens.Gebruikersnaam;
                                 reader.Close();
                                 //SELECT * FROM `account` LEFT JOIN `rol` ON account.RolID = Rol.RolID
                                 // Bepaal de rol van de gebruiker en navigeer naar de juiste pagina.
                                 string rolQuery =
-                                    "SELECT `RolID` FROM `account`;";
+                                    "SELECT `RolID` FROM `account`WHERE AccountID = @gebruikersnaam; ;";
                                 MySqlCommand checkrol = new MySqlCommand(rolQuery, connection);
+                                checkrol.Parameters.AddWithValue("@GebruikersNaam", gbr);
                                 MySqlDataReader checkrolreader = checkrol.ExecuteReader();
                                 
                                     checkrolreader.Read();
@@ -515,15 +517,15 @@ namespace Weekend
                                     if (checkrolreader["RolID"].ToString() == "2")
                                     {
                                         this.Hide();
-                                        var temp = new docent.Form1();
-                                        temp.Show();
+                                        var temp2 = new docent.Form1();
+                                        temp2.Show();
                                     }
 
                                     if (checkrolreader["RolID"].ToString() == "3")
                                     {
                                         this.Hide();
-                                        var temp = new leerling.leerling();
-                                        temp.Show();
+                                        var temp3 = new leerling.leerling();
+                                        temp3.Show();
                                     }
                                 
                                 //push voor master
