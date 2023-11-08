@@ -34,7 +34,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlGegevens = new System.Windows.Forms.Panel();
-            this.lblResult = new System.Windows.Forms.Label();
+            this.lblChangePass = new System.Windows.Forms.Label();
+            this.lblTarget = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnCancelUpdate = new System.Windows.Forms.Button();
@@ -53,20 +54,27 @@
             this.lblRolID = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlDeleteConfirm = new System.Windows.Forms.Panel();
+            this.btnDeleteConfirm = new System.Windows.Forms.Button();
+            this.btnDeleteCancel = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.lblChangePass = new System.Windows.Forms.Label();
-            this.btnDeleteCancel = new System.Windows.Forms.Button();
-            this.btnDeleteConfirm = new System.Windows.Forms.Button();
+            this.pnlPassReset = new System.Windows.Forms.Panel();
+            this.btnPassResetCancel = new System.Windows.Forms.Button();
+            this.btnResetPassConfirm = new System.Windows.Forms.Button();
+            this.txtNewPass = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnReset = new System.Windows.Forms.Button();
             this.pnlGegevens.SuspendLayout();
             this.pnlDeleteConfirm.SuspendLayout();
+            this.pnlPassReset.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSearch
             // 
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.ForeColor = System.Drawing.Color.Black;
-            this.btnSearch.Location = new System.Drawing.Point(237, 71);
+            this.btnSearch.Location = new System.Drawing.Point(231, 71);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 28);
             this.btnSearch.TabIndex = 0;
@@ -78,7 +86,7 @@
             // 
             this.txtSearch.BackColor = System.Drawing.Color.White;
             this.txtSearch.ForeColor = System.Drawing.Color.Black;
-            this.txtSearch.Location = new System.Drawing.Point(132, 74);
+            this.txtSearch.Location = new System.Drawing.Point(126, 74);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(100, 22);
             this.txtSearch.TabIndex = 1;
@@ -98,7 +106,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(18, 77);
+            this.label2.Location = new System.Drawing.Point(12, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 16);
             this.label2.TabIndex = 3;
@@ -107,7 +115,7 @@
             // pnlGegevens
             // 
             this.pnlGegevens.Controls.Add(this.lblChangePass);
-            this.pnlGegevens.Controls.Add(this.lblResult);
+            this.pnlGegevens.Controls.Add(this.lblTarget);
             this.pnlGegevens.Controls.Add(this.label9);
             this.pnlGegevens.Controls.Add(this.btnEdit);
             this.pnlGegevens.Controls.Add(this.btnCancelUpdate);
@@ -131,15 +139,28 @@
             this.pnlGegevens.TabIndex = 4;
             this.pnlGegevens.Visible = false;
             // 
-            // lblResult
+            // lblChangePass
             // 
-            this.lblResult.AutoSize = true;
-            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResult.ForeColor = System.Drawing.Color.Black;
-            this.lblResult.Location = new System.Drawing.Point(138, 71);
-            this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(0, 16);
-            this.lblResult.TabIndex = 19;
+            this.lblChangePass.AutoSize = true;
+            this.lblChangePass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblChangePass.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangePass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lblChangePass.Location = new System.Drawing.Point(9, 241);
+            this.lblChangePass.Name = "lblChangePass";
+            this.lblChangePass.Size = new System.Drawing.Size(121, 16);
+            this.lblChangePass.TabIndex = 20;
+            this.lblChangePass.Text = "Wijzig Wachtwoord";
+            this.lblChangePass.Click += new System.EventHandler(this.lblChangePass_OnClick);
+            // 
+            // lblTarget
+            // 
+            this.lblTarget.AutoSize = true;
+            this.lblTarget.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTarget.ForeColor = System.Drawing.Color.Black;
+            this.lblTarget.Location = new System.Drawing.Point(138, 71);
+            this.lblTarget.Name = "lblTarget";
+            this.lblTarget.Size = new System.Drawing.Size(0, 16);
+            this.lblTarget.TabIndex = 19;
             // 
             // label9
             // 
@@ -162,6 +183,7 @@
             this.btnEdit.TabIndex = 17;
             this.btnEdit.Text = "Update";
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnCancelUpdate
             // 
@@ -171,7 +193,7 @@
             this.btnCancelUpdate.Name = "btnCancelUpdate";
             this.btnCancelUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnCancelUpdate.TabIndex = 16;
-            this.btnCancelUpdate.Text = "Cancel";
+            this.btnCancelUpdate.Text = "Annuleren";
             this.btnCancelUpdate.UseVisualStyleBackColor = false;
             // 
             // btnDelete
@@ -323,6 +345,30 @@
             this.pnlDeleteConfirm.TabIndex = 5;
             this.pnlDeleteConfirm.Visible = false;
             // 
+            // btnDeleteConfirm
+            // 
+            this.btnDeleteConfirm.BackColor = System.Drawing.Color.White;
+            this.btnDeleteConfirm.ForeColor = System.Drawing.Color.Red;
+            this.btnDeleteConfirm.Location = new System.Drawing.Point(166, 112);
+            this.btnDeleteConfirm.Name = "btnDeleteConfirm";
+            this.btnDeleteConfirm.Size = new System.Drawing.Size(132, 83);
+            this.btnDeleteConfirm.TabIndex = 21;
+            this.btnDeleteConfirm.Text = "Delete";
+            this.btnDeleteConfirm.UseVisualStyleBackColor = false;
+            this.btnDeleteConfirm.Click += new System.EventHandler(this.btnDeleteConfirm_Click);
+            // 
+            // btnDeleteCancel
+            // 
+            this.btnDeleteCancel.BackColor = System.Drawing.Color.White;
+            this.btnDeleteCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnDeleteCancel.Location = new System.Drawing.Point(24, 112);
+            this.btnDeleteCancel.Name = "btnDeleteCancel";
+            this.btnDeleteCancel.Size = new System.Drawing.Size(123, 83);
+            this.btnDeleteCancel.TabIndex = 21;
+            this.btnDeleteCancel.Text = "Annuleren";
+            this.btnDeleteCancel.UseVisualStyleBackColor = false;
+            this.btnDeleteCancel.Click += new System.EventHandler(this.btnDeleteCancel_Click);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -345,42 +391,85 @@
             this.label7.Text = "Weet u zeker dat u \r\ndit wilt deleten?";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // lblChangePass
+            // pnlPassReset
             // 
-            this.lblChangePass.AutoSize = true;
-            this.lblChangePass.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblChangePass.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChangePass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblChangePass.Location = new System.Drawing.Point(16, 241);
-            this.lblChangePass.Name = "lblChangePass";
-            this.lblChangePass.Size = new System.Drawing.Size(117, 16);
-            this.lblChangePass.TabIndex = 20;
-            this.lblChangePass.Text = "Change Password";
-            this.lblChangePass.Click += new System.EventHandler(this.lblChangePass_OnClick);
+            this.pnlPassReset.Controls.Add(this.btnPassResetCancel);
+            this.pnlPassReset.Controls.Add(this.btnResetPassConfirm);
+            this.pnlPassReset.Controls.Add(this.txtNewPass);
+            this.pnlPassReset.Controls.Add(this.label11);
+            this.pnlPassReset.Controls.Add(this.label10);
+            this.pnlPassReset.Location = new System.Drawing.Point(393, 104);
+            this.pnlPassReset.Name = "pnlPassReset";
+            this.pnlPassReset.Size = new System.Drawing.Size(325, 206);
+            this.pnlPassReset.TabIndex = 22;
+            this.pnlPassReset.Visible = false;
             // 
-            // btnDeleteCancel
+            // btnPassResetCancel
             // 
-            this.btnDeleteCancel.BackColor = System.Drawing.Color.White;
-            this.btnDeleteCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnDeleteCancel.Location = new System.Drawing.Point(175, 111);
-            this.btnDeleteCancel.Name = "btnDeleteCancel";
-            this.btnDeleteCancel.Size = new System.Drawing.Size(123, 83);
-            this.btnDeleteCancel.TabIndex = 21;
-            this.btnDeleteCancel.Text = "Cancel";
-            this.btnDeleteCancel.UseVisualStyleBackColor = false;
-            this.btnDeleteCancel.Click += new System.EventHandler(this.btnDeleteCancel_Click);
+            this.btnPassResetCancel.BackColor = System.Drawing.Color.White;
+            this.btnPassResetCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnPassResetCancel.Location = new System.Drawing.Point(25, 104);
+            this.btnPassResetCancel.Name = "btnPassResetCancel";
+            this.btnPassResetCancel.Size = new System.Drawing.Size(123, 83);
+            this.btnPassResetCancel.TabIndex = 22;
+            this.btnPassResetCancel.Text = "Annuleren";
+            this.btnPassResetCancel.UseVisualStyleBackColor = false;
+            this.btnPassResetCancel.Click += new System.EventHandler(this.btnPassResetCancel_Click);
             // 
-            // btnDeleteConfirm
+            // btnResetPassConfirm
             // 
-            this.btnDeleteConfirm.BackColor = System.Drawing.Color.White;
-            this.btnDeleteConfirm.ForeColor = System.Drawing.Color.Red;
-            this.btnDeleteConfirm.Location = new System.Drawing.Point(26, 111);
-            this.btnDeleteConfirm.Name = "btnDeleteConfirm";
-            this.btnDeleteConfirm.Size = new System.Drawing.Size(132, 83);
-            this.btnDeleteConfirm.TabIndex = 21;
-            this.btnDeleteConfirm.Text = "Delete";
-            this.btnDeleteConfirm.UseVisualStyleBackColor = false;
-            this.btnDeleteConfirm.Click += new System.EventHandler(this.btnDeleteConfirm_Click);
+            this.btnResetPassConfirm.BackColor = System.Drawing.Color.White;
+            this.btnResetPassConfirm.ForeColor = System.Drawing.Color.Blue;
+            this.btnResetPassConfirm.Location = new System.Drawing.Point(164, 104);
+            this.btnResetPassConfirm.Name = "btnResetPassConfirm";
+            this.btnResetPassConfirm.Size = new System.Drawing.Size(132, 83);
+            this.btnResetPassConfirm.TabIndex = 24;
+            this.btnResetPassConfirm.Text = "Wijzig\r\nWachtwoord";
+            this.btnResetPassConfirm.UseVisualStyleBackColor = false;
+            this.btnResetPassConfirm.Click += new System.EventHandler(this.btnResetPassConfirm_Click);
+            // 
+            // txtNewPass
+            // 
+            this.txtNewPass.BackColor = System.Drawing.Color.White;
+            this.txtNewPass.ForeColor = System.Drawing.Color.Black;
+            this.txtNewPass.Location = new System.Drawing.Point(146, 55);
+            this.txtNewPass.Name = "txtNewPass";
+            this.txtNewPass.Size = new System.Drawing.Size(152, 22);
+            this.txtNewPass.TabIndex = 23;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(15, 58);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(125, 16);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "Nieuw Wachtwoord:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(1, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(309, 37);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "Wijzig Wachtwoord";
+            // 
+            // btnReset
+            // 
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.ForeColor = System.Drawing.Color.Black;
+            this.btnReset.Location = new System.Drawing.Point(311, 71);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 28);
+            this.btnReset.TabIndex = 6;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // Admin
             // 
@@ -388,6 +477,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(730, 382);
+            this.Controls.Add(this.pnlPassReset);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.pnlDeleteConfirm);
             this.Controls.Add(this.pnlGegevens);
             this.Controls.Add(this.label2);
@@ -402,6 +493,8 @@
             this.pnlGegevens.PerformLayout();
             this.pnlDeleteConfirm.ResumeLayout(false);
             this.pnlDeleteConfirm.PerformLayout();
+            this.pnlPassReset.ResumeLayout(false);
+            this.pnlPassReset.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -433,10 +526,17 @@
         private System.Windows.Forms.Panel pnlDeleteConfirm;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblResult;
+        private System.Windows.Forms.Label lblTarget;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblChangePass;
         private System.Windows.Forms.Button btnDeleteConfirm;
         private System.Windows.Forms.Button btnDeleteCancel;
+        private System.Windows.Forms.Panel pnlPassReset;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtNewPass;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnPassResetCancel;
+        private System.Windows.Forms.Button btnResetPassConfirm;
+        private System.Windows.Forms.Button btnReset;
     }
 }

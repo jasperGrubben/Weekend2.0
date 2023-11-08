@@ -34,14 +34,11 @@ namespace Weekend
 
         static string ComputeSHA256Hash(string unhashedpass)
         {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] inputBytes = Encoding.UTF8.GetBytes(unhashedpass);
-                byte[] hashBytes = sha256.ComputeHash(inputBytes);
-                string hashedPassword = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
-
-                return hashedPassword;
-            }
+            SHA256 sha256 = SHA256.Create();
+            byte[] inputBytes = Encoding.UTF8.GetBytes(unhashedpass);
+            byte[] hashBytes = sha256.ComputeHash(inputBytes);
+            string hashedPassword = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+            return hashedPassword;
         }
 
 
