@@ -496,51 +496,38 @@ namespace Weekend
                             // Vergelijk de gehashte wachtwoorden.
                             if (hashedPassword == storedHashedPassword)
                             {
+                                var gbr = Gevevens.Gebruikersnaam;
                                 reader.Close();
                                 //SELECT * FROM `account` LEFT JOIN `rol` ON account.RolID = Rol.RolID
                                 // Bepaal de rol van de gebruiker en navigeer naar de juiste pagina.
                                 string rolQuery =
-                                    "SELECT `RolID` FROM `account`;";
+                                    "SELECT `RolID` FROM `account`WHERE AccountID = @gebruikersnaam; ;";
                                 MySqlCommand checkrol = new MySqlCommand(rolQuery, connection);
-
-                                using (MySqlDataReader checkrolreader = checkrol.ExecuteReader())
-                                {
+                                checkrol.Parameters.AddWithValue("@GebruikersNaam", gbr);
+                                MySqlDataReader checkrolreader = checkrol.ExecuteReader();
+                                
                                     checkrolreader.Read();
-                                    switch (checkrolreader["RolID"])
+                                    if (checkrolreader["RolID"].ToString() == "1")
                                     {
-                                        case 1:
-                                            if (checkrolreader.HasRows)
-                                            {
-                                                this.Hide();
-                                                var temp = new admin.Admin();
-                                                temp.Show();
-                                            }
-                                            else
-                                            {
-                                                break;
-                                            }
-
-                                            break;
-                                        case 2:
-                                            if (checkrolreader.HasRows)
-                                            {
-                                                this.Hide();
-                                                var temp2 = new docent.Form1();
-                                                temp2.Show();
-                                            }
-
-                                            break;
-                                        case 3:
-                                            if (checkrolreader.HasRows)
-                                            {
-                                                this.Hide();
-                                                var temp3 = new leerling.leerling();
-                                                temp3.Show();
-                                            }
-
-                                            break;
+                                        this.Hide();
+                                        var temp = new admin.Admin();
+                                        temp.Show();
                                     }
-                                }
+
+                                    if (checkrolreader["RolID"].ToString() == "2")
+                                    {
+                                        this.Hide();
+                                        var temp2 = new docent.Form1();
+                                        temp2.Show();
+                                    }
+
+                                    if (checkrolreader["RolID"].ToString() == "3")
+                                    {
+                                        this.Hide();
+                                        var temp3 = new leerling.leerling();
+                                        temp3.Show();
+                                    }
+                                
                                 //push voor master
                                 connection.Close();
                             }
