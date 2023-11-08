@@ -34,14 +34,11 @@ namespace Weekend
 
         static string ComputeSHA256Hash(string unhashedpass)
         {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] inputBytes = Encoding.UTF8.GetBytes(unhashedpass);
-                byte[] hashBytes = sha256.ComputeHash(inputBytes);
-                string hashedPassword = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
-
-                return hashedPassword;
-            }
+            SHA256 sha256 = SHA256.Create();
+            byte[] inputBytes = Encoding.UTF8.GetBytes(unhashedpass);
+            byte[] hashBytes = sha256.ComputeHash(inputBytes);
+            string hashedPassword = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+            return hashedPassword;
         }
 
 
@@ -668,7 +665,7 @@ namespace Weekend
             {
                 MessageBox.Show("Ongeldig e-mailadres");
             }
-            if (string.IsNullOrWhiteSpace(fname) || string.IsNullOrWhiteSpace(Infix) || string.IsNullOrWhiteSpace(lname) || string.IsNullOrWhiteSpace(usn) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(pass))
+            if (string.IsNullOrWhiteSpace(fname) || string.IsNullOrWhiteSpace(lname) || string.IsNullOrWhiteSpace(usn) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(pass))
             {
                 MessageBox.Show("vul alle velden in verplichte* velden in");
             }
